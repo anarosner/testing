@@ -87,7 +87,7 @@ parse.wd<-function() {
    #parse.wd<-function(param) {
    userid<-parse.param("userid",values.only=T)
    runid<-parse.param("runid",values.only=T)
-   wd<-paste0(basedir,"/runs/",userid,"/",runid)
+   wd<-paste0("/runs/",userid,"/",runid)
    return(wd)
 }
 

@@ -1,6 +1,8 @@
+rm(list=ls())
 library(rjson)
 
-basedir<-"/home/ana/testing_dir_structure"
+#basedir<-"/home/ana/testing_dir_structure"
+basedir<-"C:/ALR/GitHub/testing"
 
 #load param/config functions, currently stored in the rscripts folder
 rscriptdir<-paste0(basedir,"/rscripts")
@@ -17,6 +19,7 @@ param<-fromJSON(file="settings.json")
 #get the rscript from the param file.  then load the appropriate config file
 setwd(rscriptdir)
 config<-fromJSON(file=paste0(param$rscript,".json"))
+paste0(param$rscript,".R")
 source(paste0(param$rscript,".R"))
 
 # Eventually, the following will be done server-side
