@@ -1,13 +1,37 @@
 
 ###
-### params
 ###
+#####
+####
+##
+#
+
+parse.config.setting<-function(setting) {
+   #parse.config.setting<-function(config,setting) {
+   #parses out any specified parameter from json object
+   #returns array of names of required parameters
+   config.setting<-list()
+   #row<-0
+   for (i in 1:length(config)) {
+      if( setting %in% names(config[i][[1]]) ) {
+         #row<-row+1
+         #print( names(config[i]) )
+         config.setting[names(config[i])]<-config[i][[1]][setting][[1]]
+      }
+   }
+   return(config.setting)
+}
+
+config.info<-function(param.name) {
+   #config.info<-function(config,param.name) {
+      return( config[param.name][[1]])
+}
+
 
 parse.param<-function(param.name,values.only=T){
+   #parse.param<-function(param,param.name,values.only=T){
    #parses param json object, and returns the specified paramaters(s)
-   #multiple parameter names need to be encapulated in c()
    #if requesting only one parameter, option to return value only, or list w/ param name and value
-   #if requesting multiple parameters, returns as list of lists
    #if parameter is not present, checks config file for default values
    #  $defaults_used will contain an array of names for all parameters for which default values were used
    #  if no default value found for ANY of the specified parameters, returns null
@@ -15,24 +39,21 @@ parse.param<-function(param.name,values.only=T){
    return.param<-list()
 
    for (i in 1:length(param.name)) {
-
-      if( param.name[i] %in% names(param) ) {         
-         if (length(param[param.name[i]][[1]])>1) {
-            return.param[param.name[i]][[1]] <- as.vector( param[param.name[i]][[1]] )
-         }
-         else {
-            return.param[param.name[i]] <- param[param.name[i]][[1]]
-         }
+      if( param.name[i] %in% names(param) ) {
+         return.param[param.name[i]] <- param[param.name[i]][[1]]
       }
-      
-      
       else {
+
          #if parameter is not found, attempt to find a default value in the config file 
+#          if (is.null(config))
+#             config<-fromJSON(file=paste0(param$rscript,".config"))
+         
+#        default<-parse.config.setting(config,"default")[param.name[i]][[1]] 
          default<-parse.config.setting("default")[param.name[i]][[1]] 
          
          if ( !(is.null(default)) ) {
             return.param[param.name[i]]<-default
-            if (is.null(return.param$defaults_used)) #if this is the first default value used, create the array
+            if (is.null(return.param$defaults_used))
                return.param$defaults_used<-array(dim=c(1,0,0))
             return.param$defaults_used<-c(return.param$defaults_used,param.name[i]) #note that default was used for this param
          }
@@ -43,91 +64,38 @@ parse.param<-function(param.name,values.only=T){
       
       } 
    }
-
-   if ( values.only & length(param.name)==1 )      
+   if (values.only & length(param.name)==1)      
       return(return.param[param.name][[1]])
       #option to return values only, only if requesting a single param
    else
       return(return.param)
-      #when requesting multiple param in one call or if requested, return a list of lists
+      #when requesting multiple param in one call, must return a list of lists
 }
-
 
 
 parse.wd<-function() {
    #parse.wd<-function(param) {
    userid<-parse.param("userid",values.only=T)
    runid<-parse.param("runid",values.only=T)
-   wd<-paste0("/runs/",userid,"/",runid)
+   wd<-paste0("/home/ana/testing_dir_structure/runs/",userid,"/",runid)
    return(wd)
 }
 
-###
-### config
-###
-
-config.info<-function(param.name=0) {
-   #if called w/o a param name, returns general info about the rmodel
-   #if called w/ a param name, returns all attributes about that parameter
-   if ( param.name==0) {
-      return.list=list()
-      return.list$model_step<-config["model_step"][[1]]
-      return.list$pre_step<-config["pre_step"][[1]]
-      return.list$model_description<-config["model_description"][[1]]
-      return.list$param_names<-names(config)
-      return(return.list)
-   }
-   else
-      return( config[param.name][[1]] )
-}
-
-parse.config.setting<-function(setting,value=NULL) {
-   #parses out any specified parameter from json object
-   #returns a list of those parameters and their config setting (specified here)
-   #if value != null, returns only those where the setting is equal to the specified value
-   #  i.e. required == 1
-   
-   r<-list()
-
-   for (i in 1:length(config)) {
-      if( setting %in% names(config[i][[1]]) ) {
-         r[names(config[i])]<-config[i][[1]][setting][[1]]
-         #config.setting[names(config[i])]<-config[names(config[i])][[1]][setting][[1]]
-         #         config.setting[names(config[i])]<-config[i][[1]][setting][[1]]
-      }
-   }
-   if (is.null(value))
-      return(r)
-      #standard option, return the list of lists
-   else
-      names(r[r[1:length(r)]==value])
-      #if value is specified, return array of names of parameters where the setting = specified value 
-}
-
-
-###
-### checks
-###
-
-missing.param<-function() {
-   #returns an array of names of parameters that are required (according to config file), 
-   #but are not included in param file
-   
-   req<-parse.config.setting("required",value=1)
+missing.param<-function(param.name) {
+   #missing.param<-function(param,config) {
+   #req<-parse.config.setting(config,"required")
+   req<-parse.config.setting("required")
+   req<-req[req$value==1,]
+   #print(req)
    missing<-c()
-   for(i in 1:length(req)) {
-      if (!(req[i] %in% names(param)))
+   for(i in 1:nrow(req)) {
+      if (!(req[i,"name"] %in% names(param.name)))
          missing<-c(missing,i)
    }
    if (length(missing)>0)
-      return(req[missing])
+      return(req[missing,"name"])
    else
       return(NULL)
-}
-
-missing.pre.run<-function() {
-   #checks that all the required previous runs exist
-   #coming soon...
 }
 
 

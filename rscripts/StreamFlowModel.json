@@ -1,0 +1,34 @@
+{
+
+  "model_step": "flow",
+  "pre_step": ["climate"],
+  "model_description": "this config file is just for testing the checks on previous runs"
+
+  "userid": {
+    "required": 1,
+    "description": "Always required, to be included in all config files."
+  },
+  "runid": {
+    "required": 1,
+    "description": "Always required, to be included in all config files."
+  },
+  "basinid": {
+    "description": "Include whenever not using preset basin, i.e. West Brook."
+  },
+  "rscript": {
+    "required": 1,
+	 "description": "Name of the script that this config file is for. Always required, to be included in all config files."
+  },
+
+
+
+  "pre_run": {
+	 "description": "Can be a single run or multiple runs (i.e. fish model needs both stream flow and temp inputs)."
+  },
+  "preset_basin": {
+    "default":0,
+	 "description": "Can be west brook or null.  Eventually, add a few more preset options?"
+  }
+
+
+}

@@ -2,7 +2,7 @@
 
   "model_step": "climate",
   "pre_step": ["basin"],
-  "model_description": "this model uses a stochastic weather generator to create a timeseries based on user-specified avg and var precip. credit to scott, casey, and austin. (?)",
+  "model_desc": "this model uses a stochastic weather generator to create a timeseries based on user-specified avg and var precip. credit to scott, casey, and austin. (?)",
 
 
   "userid": {
@@ -23,7 +23,7 @@
 
 
 
-  "precedingrun": {
+  "pre_run": {
 	 "description": "Can be a single run or multiple runs (i.e. fish model needs both stream flow and temp inputs)."
   },
   "preset_basin": {
@@ -41,15 +41,15 @@
     "required": 1,
 	 "description": "Coordinate of basin centroid"
   },
-  "delta_precip_mean": {
+  "change_precip_mean": {
     "default": 0,
 	 "description":"Change in percentage (as 0-100%). need to divide by 100."
   },
-  "delta_precip_var": {
+  "change_precip_var": {
     "default": 0,
 	 "description":"Change in percentage (as 0-100%). need to divide by 100."
   },
-  "delta_airtemp_mean": {
+  "change_airtemp_mean": {
     "default": 0,
 	 "description":"Degrees C change (not percent change)"
   },
