@@ -1,0 +1,18 @@
+{
+	"userid": "1234",
+	"runid": "1009",
+	"basinid": "9009",
+	"rscript": "weather_generator",
+	"precedingrun": ["1006", "1007", "1008"],
+
+	"lat": -72.733087,
+	"long": 42.394229,
+	"delta_precip_mean":-5,
+	"delta_precip_var":25,
+	"delta_airtemp_mean":2,
+	"nyears":30,
+	
+  "_comment":"first testing param file for weather generator"
+
+}
+
