@@ -18,7 +18,7 @@ library(MASS)
 #Receive input from user, this should contain 1) working directory, 2) Lat Long, and 3) Model Parms
 # args <- commandArgs(TRUE)
 # directory <- args[1]
-directory<-parse.wd()
+directory<-paste0( basedir,parse.wd() )
 print.to.test(directory)
 {  #Westbrook Example (0)
    # Any Basin (1)
@@ -35,7 +35,7 @@ var_prcp_change_percent <- 1 + parse.param("delta_precip_var")/100
 # var_prcp_change_percent <- 1 + as.numeric(args[4])/100
 mean_temp_change_celsius <- parse.param("delta_airtemp_mean")
 # mean_temp_change_celsius <- as.numeric(args[5])
-metdata <- parse.param("met_dir") 
+metdata <- paste0(basedir,parse.param("met_dir")) 
 # metdata <- "/home/austin/DailyMets/"
 
 #Use these to test script actually working
@@ -262,7 +262,7 @@ for(m in 1:12) {
 
 
 #######################################################Do Aggregating of Met Data and Create ET####################################################################
-setwd("/home/ana/testing_dir_structure/rmodels")
+setwd(paste0(basedir,"/rscripts"))
 # setwd("/home/node.js/rscripts/")
 source("Hargreaves.R") #This generates ET values and may get moved to the met section
 GCMDays <- read.table("Days_For_ABCDE_GCM.txt",header=TRUE)

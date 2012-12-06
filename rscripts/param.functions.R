@@ -22,9 +22,19 @@ parse.config.setting<-function(setting) {
    return(config.setting)
 }
 
-config.info<-function(param.name) {
-   #config.info<-function(config,param.name) {
-      return( config[param.name][[1]])
+config.info<-function(param.name=0) {
+   #if called w/o a param name, returns general info about the rmodel
+   #if called w/ a param name, returns all attributes about that parameter
+   if ( param.name==0) {
+      return.list=list()
+      return.list$model_step<-config["model_step"][[1]]
+      return.list$pre_step<-config["pre_step"][[1]]
+      return.list$model_description<-config["model_description"][[1]]
+      return.list$param_names<-names(config)
+      return(return.list)
+   }
+   else
+      return( config[param.name][[1]] )
 }
 
 
@@ -77,7 +87,7 @@ parse.wd<-function() {
    #parse.wd<-function(param) {
    userid<-parse.param("userid",values.only=T)
    runid<-parse.param("runid",values.only=T)
-   wd<-paste0("/home/ana/testing_dir_structure/runs/",userid,"/",runid)
+   wd<-paste0(basedir,"/runs/",userid,"/",runid)
    return(wd)
 }
 

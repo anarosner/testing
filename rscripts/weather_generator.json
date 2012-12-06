@@ -66,7 +66,7 @@
     "description": "In mm/day. Minimum threshold of daily precip for a day to be considered a wet day."
   },  
   "met_dir": {
-     "default": "/home/austin/DailyMets/",
+     "default": "/metdata/DailyMets/",
      "description":"The directory where gridded meterological data is stored.  Within this dir, files are names by lat & long."
   }
 
