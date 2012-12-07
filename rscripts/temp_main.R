@@ -36,6 +36,11 @@ source(paste0(param$rscript,".R"))
 #     
 #     -all user settings from gui
 # 
+
+# -pass directly to R (json as argument?)
+#     -runid
+#     -rscript
+#
 # -using the rscript name, load the config file for that script/model
 # -call R script to do the following checks (or do the checks in javascript?)
 #     -param file has all required parameters (specified by config file)
