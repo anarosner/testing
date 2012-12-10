@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript
+print("starting script")
 
 #This code will need to recieve:
 #1) Directory for data I/O operations
