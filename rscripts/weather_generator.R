@@ -20,7 +20,7 @@ print("starting script")
 library(MASS)
 library(rjson)
 basedir<-"/home/ana/testing" 
-setwd(paste0(basedir,"/rscripts")
+setwd(paste0(basedir,"/rscripts"))
 source("param.functions.R")
                
 #args consists of two string arguments, the userid and the runid
