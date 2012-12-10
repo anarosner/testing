@@ -8,16 +8,29 @@
 #This script recieves them from the website as whole numbers that are divided to create percentages that are them added to one for the prcp, and
 #as a whole number for mean temp change
 
-############How to Run Script from command line!########################################
-#as a default, run this script with the following arguments: '/home/austin/temp/ 0 0 0 0 -72.733087 42.394229' 
+         #old 
+         ############How to Run Script from command line!########################################
+         #as a default, run this script with the following arguments: '/home/austin/temp/ 0 0 0 0 -72.733087 42.394229' 
+         #Receive input from user, this should contain 1) working directory, 2) Lat Long, and 3) Model Parms
+         # args <- commandArgs(TRUE)
+         # directory <- args[1]
 
 #Activate Necessary Libraries
 library(MASS)
+library(rjson)
+basedir<-"/home/ana/testing" 
+setwd(paste0(basedir,"/rscripts")
+source("param.functions.R")
+               
+#args consists of single json object which contains userid and runid
+ids<-fromJSON(commandArgs(trailingOnly = TRUE))
+#these ids are used to find correct directory for the run, which contains param.json, which has all remaining parameters
+setwd(paste0(basedir,"/runs/ids$userid/ids$runid"))
+param<-fromJSON(file="param.json")
+         
+setwd(paste0(basedir,"/rscripts"))
+config<-fromJSON(file=paste0(param$rscript,".json"))
 
-
-#Receive input from user, this should contain 1) working directory, 2) Lat Long, and 3) Model Parms
-# args <- commandArgs(TRUE)
-# directory <- args[1]
 directory<-paste0( basedir,parse.wd() )
 print.to.test(directory)
 {  #Westbrook Example (0)

@@ -18,6 +18,7 @@ parse.param<-function(param.name,values.only=T){
 
       if( param.name[i] %in% names(param) ) {         
          if (length(param[param.name[i]][[1]])>1) {
+            #needed to support parameters which are arrays
             return.param[param.name[i]][[1]] <- as.vector( param[param.name[i]][[1]] )
          }
          else {
@@ -131,7 +132,7 @@ missing.pre.run<-function() {
 }
 
 
-#In a number of places, will print or plot values when testing is set to true
+#Functions to print or plot values only when testing is set to true
 #Set to true when testing/debugging/playing around with the code, false otherwise
 testing<-TRUE
 #Here are the simple functions that call it
