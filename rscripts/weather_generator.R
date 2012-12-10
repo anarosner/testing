@@ -23,11 +23,13 @@ basedir<-"/home/ana/testing"
 setwd(paste0(basedir,"/rscripts"))
 source("param.functions.R")
                
-#args consists of two string arguments, the userid and the runid
-      #args consists of single json object which contains userid and runid
-ids<-fromJSON(commandArgs(trailingOnly = TRUE))
+	#args consists of two string arguments, the userid and the runid
+	#ids<-commandArgs(trailingOnly = TRUE)
+#args consists of single json object which contains userid and runid
+ids<-fromJSON( commandArgs(trailingOnly = TRUE) )
+print(ids)
 #these ids are used to find correct directory for the run, which contains param.json, which has all remaining parameters
-setwd(paste0(basedir,"/runs/",ids[1],"/",ids[2]))
+setwd(paste0(basedir,"/runs/",ids$userid,"/",ids$runid))
 param<-fromJSON(file="param.json")
          
 setwd(paste0(basedir,"/rscripts"))
@@ -44,11 +46,11 @@ print.to.test(directory)
 }
 # run_option <- as.numeric(args[2])
 
-mean_prcp_change_percent <- 1 + parse.param("delta_precip_mean")/100
+mean_prcp_change_percent <- 1 + parse.param("change_precip_mean")/100
 # mean_prcp_change_percent <- 1 + as.numeric(args[3])/100
-var_prcp_change_percent <- 1 + parse.param("delta_precip_var")/100
+var_prcp_change_percent <- 1 + parse.param("change_precip_var")/100
 # var_prcp_change_percent <- 1 + as.numeric(args[4])/100
-mean_temp_change_celsius <- parse.param("delta_airtemp_mean")
+mean_temp_change_celsius <- parse.param("change_airtemp_mean")
 # mean_temp_change_celsius <- as.numeric(args[5])
 metdata <- paste0(basedir,parse.param("met_dir")) 
 # metdata <- "/home/austin/DailyMets/"
