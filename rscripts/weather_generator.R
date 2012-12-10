@@ -22,10 +22,11 @@ basedir<-"/home/ana/testing"
 setwd(paste0(basedir,"/rscripts")
 source("param.functions.R")
                
-#args consists of single json object which contains userid and runid
+#args consists of two string arguments, the userid and the runid
+      #args consists of single json object which contains userid and runid
 ids<-fromJSON(commandArgs(trailingOnly = TRUE))
 #these ids are used to find correct directory for the run, which contains param.json, which has all remaining parameters
-setwd(paste0(basedir,"/runs/",ids$userid,"/",ids$runid))
+setwd(paste0(basedir,"/runs/",ids[1],"/",ids[2]))
 param<-fromJSON(file="param.json")
          
 setwd(paste0(basedir,"/rscripts"))
