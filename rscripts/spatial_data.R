@@ -18,7 +18,8 @@ library(maptools)
 
 
 # Base directory (change depending on file structure wherever this is being run)
-basedir<-"C:/ALR/SpatialData"
+# basedir<-"C:/ALR/SpatialData"
+basedir<-"/home/ana/testing"
 #basedir<-"C:/Documents/__USGS"
 
 ##### Define projections
@@ -57,18 +58,17 @@ NHDFlow.line<-NEFlow.line
 NHDCatch.shape<-NECatch.shape
 
 
-#    ### Create a subset of NHDplus flowlines/features
-#    ### lower CT R basin only, just to save time
-#    lowCTFlow.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,6)=="010802",] #HUC6
-#    #lowCTFlow.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,8)=="01080201",] #HUC8 
-#    lowCTCatch.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% lowCTFlow.line$COMID,]
-#    # plottotest(lowCTCatch.shape)
-#    
-#    ### The NHDFlow.line and NHDCatch.shape will be used throughout the code
-#    ### Here, decide whether these should point to the full set of catchments/flowlines 
-#    ### for the New England region, or for a subsection of the Lower CT R basin
-#    # NHDFlow.line<-lowCTFlow.line
-#    # NHDCatch.shape<-lowCTCatch.shape
+   ### Create a subset of NHDplus flowlines/features
+   ### lower CT R basin only, just to save time
+   lowCTFlow.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,6)=="010802",] #HUC6
+   lowCTCatch.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% lowCTFlow.line$COMID,]
+
+   
+   ### The NHDFlow.line and NHDCatch.shape will be used throughout the code
+   ### Here, decide whether these should point to the full set of catchments/flowlines 
+   ### for the New England region, or for a subsection of the Lower CT R basin
+   NHDFlow.line<-lowCTFlow.line
+   NHDCatch.shape<-lowCTCatch.shape
 
 
 
