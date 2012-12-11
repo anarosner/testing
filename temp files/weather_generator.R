@@ -18,16 +18,37 @@ print("starting script")
 
 #Activate Necessary Libraries
 library(MASS)
+library(rjson)
 basedir<-"/home/ana/testing" 
 setwd(paste0(basedir,"/rscripts"))
-source("setup.R")
+source("param.functions.R")
+               
+#args consists of two string arguments, the userid and the runid
+      #args consists of single json object which contains userid and runid
+ids<-fromJSON(commandArgs(trailingOnly = TRUE))
+#these ids are used to find correct directory for the run, which contains param.json, which has all remaining parameters
+setwd(paste0(basedir,"/runs/",ids[1],"/",ids[2]))
+param<-fromJSON(file="param.json")
+         
+setwd(paste0(basedir,"/rscripts"))
+config<-fromJSON(file=paste0(param$rscript,".json"))
 
+directory<-paste0( basedir,parse.wd() )
+print.to.test(directory)
+{  #Westbrook Example (0)
+   # Any Basin (1)
+   if (parse.param("preset_basin")=="West Brook")
+      run_option <-0
+   else
+      run_option <-1
+}
+# run_option <- as.numeric(args[2])
 
-mean_prcp_change_percent <- 1 + parse.param("change_precip_mean")/100
+mean_prcp_change_percent <- 1 + parse.param("delta_precip_mean")/100
 # mean_prcp_change_percent <- 1 + as.numeric(args[3])/100
-var_prcp_change_percent <- 1 + parse.param("change_precip_var")/100
+var_prcp_change_percent <- 1 + parse.param("delta_precip_var")/100
 # var_prcp_change_percent <- 1 + as.numeric(args[4])/100
-mean_temp_change_celsius <- parse.param("change_airtemp_mean")
+mean_temp_change_celsius <- parse.param("delta_airtemp_mean")
 # mean_temp_change_celsius <- as.numeric(args[5])
 metdata <- paste0(basedir,parse.param("met_dir")) 
 # metdata <- "/home/austin/DailyMets/"

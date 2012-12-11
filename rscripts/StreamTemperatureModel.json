@@ -1,8 +1,8 @@
 {
 
-  "model_step": "flow",
+  "model_step": "streamtemp",
   "pre_step": ["climate"],
-  "model_description": "this config file is just for testing the checks on previous runs"
+  "model_description": "non-linear regression model, written by yoichiro and austin (?)",
 
   "userid": {
     "required": 1,
@@ -13,7 +13,8 @@
     "description": "Always required, to be included in all config files."
   },
   "basinid": {
-    "description": "Include whenever not using preset basin, i.e. West Brook."
+    "required": 1,
+    "description": "NHDplus featureid or name of preset basin (i.e. west_brook"
   },
   "rscript": {
     "required": 1,
@@ -24,10 +25,6 @@
 
   "pre_run": {
 	 "description": "Can be a single run or multiple runs (i.e. fish model needs both stream flow and temp inputs)."
-  },
-  "preset_basin": {
-    "default":0,
-	 "description": "Can be west brook or null.  Eventually, add a few more preset options?"
   }
 
 

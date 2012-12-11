@@ -3,7 +3,7 @@
 ### params
 ###
 
-parse.param<-function(param.name,values.only=T){
+parse.param<-function(param.name,values.only=T,suppress.errors=F){
    #parses param json object, and returns the specified paramaters(s)
    #multiple parameter names need to be encapulated in c()
    #if requesting only one parameter, option to return value only, or list w/ param name and value
@@ -38,7 +38,8 @@ parse.param<-function(param.name,values.only=T){
             return.param$defaults_used<-c(return.param$defaults_used,param.name[i]) #note that default was used for this param
          }
          else {  #not found and no default value available
-            print(paste("Parameter",param.name[i],"not found in parameter.json file. No default available in config file."))
+            if (!suppress.errors)
+               print(paste("Parameter",param.name[i],"not found in parameter.json file. No default available in config file."))
             return(NULL)
          }
       
@@ -56,12 +57,30 @@ parse.param<-function(param.name,values.only=T){
 
 
 parse.wd<-function() {
-   #parse.wd<-function(param) {
    userid<-parse.param("userid",values.only=T)
    runid<-parse.param("runid",values.only=T)
    wd<-paste0("/runs/",userid,"/",runid)
    return(wd)
 }
+
+parse.pre.wd<-function() {
+   userid<-parse.param("userid",values.only=T)
+   preid<-parse.param("pre_run",values.only=T,suppress.errors=T)
+   if (is.null(preid) | length(preid<1))
+      return null
+   else
+      return( paste0("/runs/",userid,"/",preid) )
+}
+#    elseif (length(preid)==1) {
+#       #if array of preceding runs, rather than a single one
+#       wd<-
+#           
+#    if length(preid)>1
+#       
+#    else
+#       wd<-paste0("/runs/",userid,"/",runid)
+#    return(wd)
+# }
 
 ###
 ### config

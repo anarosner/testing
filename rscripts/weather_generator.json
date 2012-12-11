@@ -1,7 +1,7 @@
 {
 
   "model_step": "climate",
-  "pre_step": ["basin"],
+  "pre_step": [],
   "model_desc": "this model uses a stochastic weather generator to create a timeseries based on user-specified avg and var precip. credit to scott, casey, and austin. (?)",
 
 
@@ -14,7 +14,8 @@
     "description": "Always required, to be included in all config files."
   },
   "basinid": {
-    "description": "Include whenever not using preset basin, i.e. West Brook."
+    "required": 1,
+    "description": "NHDplus featureid or name of preset basin (i.e. west_brook"
   },
   "rscript": {
     "required": 1,
@@ -27,7 +28,7 @@
 	 "description": "Can be a single run or multiple runs (i.e. fish model needs both stream flow and temp inputs)."
   },
   "preset_basin": {
-    "default":0,
+    "default":"",
 	 "description": "Can be west brook or null.  Eventually, add a few more preset options?"
   },
 
@@ -57,7 +58,7 @@
 
 
   "nyears": {
-    "default": 80,
+    "default": 81,
     "min": 1,
     "description": "Number of years for simulation to run."
   },
