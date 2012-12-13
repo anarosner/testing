@@ -1,0 +1,13 @@
+{
+	"userid": "user1234",
+	"runid": "run0003",
+	"basinid": "west_brook",
+	"rscript": "StreamTemperatureModel",
+	"pre_run": ["run0001"],
+	
+	
+	
+	
+	"_comment": "for testing, evenutally basin area will be calculated in basin script"
+}
+
