@@ -1,5 +1,9 @@
 #!/usr/bin/env Rscript
 
+basedir<-"/home/ana/testing" 
+setwd(paste0(basedir,"/rscripts"))
+source("param_startup.R")
+
 #This code will need to recieve:
 #1) Directory for data I/O operations
 #2) Set of monthly weather data
@@ -9,18 +13,20 @@
 #library(MASS)
 
 #Receive input from user, this should contain 1) working directory, 2) Lat Long, and 3) Model Parms
-args <- commandArgs(TRUE)
+#args <- commandArgs(TRUE)
 
-directory <- args[1]
+#directory <- args[1]
 
 coefs <- coef_str
 
-setwd("/home/austin/WebStuff/Images/")
-setwd(directory)
+#setwd("/home/austin/WebStuff/Images/")
 
 ## Extract simulated air temperature values for 2000-2080. 
 ### Projection of air temperature increase: DAILY
-Stoc.Temp <- read.table("daily_stochastic_weather.txt", header=T)
+
+setwd(pre_wd)
+Stoc.Temp <- read.table("daily_weather.txt", header=T)
+#Stoc.Temp <- read.table("daily_stochastic_weather.txt", header=T)
 Stoc.AveTemp <- (Stoc.Temp$TMIN+Stoc.Temp$TMAX)/2
 
 ## Use model to predict stream temperature values for 2000-2080
@@ -71,6 +77,7 @@ agg <- list(futureStrTempFinal[,2])
 mon.tmp <- aggregate(futureStrTempFinal[,4],agg,mean)
 mon.hist <- c(1.542,1.692,3.445,7.662,11.941,14.951,16.094,15.722,13.736,10.070,5.558,2.249)
 
+setwd(directory)
 max.y <- max(mon.hist,mon.tmp[,2])+5
 
 png(filename="StocStrTemp.png",width=725, height=575, bg="white")

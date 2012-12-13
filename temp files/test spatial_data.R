@@ -63,6 +63,26 @@ NHDCatch.shape<-NECatch.shape
    lowCTFlow.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,6)=="010802",] #HUC6
    lowCTCatch.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% lowCTFlow.line$COMID,]
 
+
+midCTFlow.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,8)=="01080201",] #HUC8
+midCTCatch.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% midCTFlow.line$COMID,]
+
+setwd("C:/ALR/GeneratedSpatialData/smallNHDplus")
+writeOGR(lowCTCatch.shape,  ".", layer="NHDCatchments", driver="ESRI Shapefile")
+writeOGR(lowCTFlow.line,  ".", layer="NHDplusFlowlines", driver="ESRI Shapefile")
+writeOGR(lowCTCatch.shape,  "NHDCatchments.kml", layer="NHDCatchments", driver="KML",dataset_options=c("NameField=FEATUREID"))
+writeOGR(lowCTFlow.line,  "NHDplusFlowlines.kml", layer="NHDplusFlowlines", driver="KML",dataset_options=c("NameField=COMID","DescriptionField=GNIS_NAME"))    
+
+system.time(catchfromshape<-readShapePoly("NHDCatchments",proj4string=CRS(proj4.NHD)))
+system.time(linesfromshape<-readShapeLines("NHDplusFlowlines",proj4string=CRS(proj4.NHD)))
+
+setwd("C:/ALR/GeneratedSpatialData/huc8")
+writeOGR(midCTCatch.shape,  ".", layer="huc8catch", driver="ESRI Shapefile")
+writeOGR(midCTFlow.line,  ".", layer="huc8flow", driver="ESRI Shapefile")
+
+system.time(catch8fromshape<-readShapePoly("huc8catch",proj4string=CRS(proj4.NHD)))
+system.time(lines8fromshape<-readShapeLines("huc8flow",proj4string=CRS(proj4.NHD)))
+
    
    ### The NHDFlow.line and NHDCatch.shape will be used throughout the code
    ### Here, decide whether these should point to the full set of catchments/flowlines 
