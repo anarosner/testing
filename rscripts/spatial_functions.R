@@ -84,7 +84,10 @@ getBasinfromComID<-function(featureID,basedir,output_type="kml",nickname="") {
    area<-area<-sum(catchment.shape$AreaSqKM)
    lat<-attr(centroid,"coords")[,"y"]
    long<-attr(centroid,"coords")[,"x"]
-   param<-toJSON(list(basinid=featureID,area=area,lat=lat,long=long,nickname=nickname))
+   if (nickname=="")
+      param<-toJSON(list(basinid=featureID,area=area,lat=lat,long=long))
+   else
+      param<-toJSON(list(basinid=featureID,area=area,lat=lat,long=long,nickname=nickname))
    write(param, file = "param.json", ncolumns=1,sep="")
    
    setwd(savedwd)

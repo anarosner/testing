@@ -14,17 +14,17 @@
   
   "basin_area": {
 	"required":1,
-	"description":"calculated from NHDplus attributes"
+	"description":"in sq km. calculated from NHDplus attributes"
   },
   
   "lat": {
 	"required":1,
-	"description":"calculated from NHDplus attributes"
+	"description":"of basin centroid. calculated from NHDplus attributes"
   },
   
   "long": {
 	"required":1,
-	"description":"calculated from NHDplus attributes"
+	"description":"of basin centroid. calculated from NHDplus attributes"
   }
 
 

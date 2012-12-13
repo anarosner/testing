@@ -18,9 +18,9 @@ library(maptools)
 
 
 # Base directory (change depending on file structure wherever this is being run)
-# basedir<-"C:/ALR/SpatialData"
-basedir<-"/home/ana/testing"
-#basedir<-"C:/Documents/__USGS"
+basedir<-"C:/ALR/SpatialData"
+# basedir<-"/home/ana/testing"
+# basedir<-"C:/Documents/__USGS"
 
 ##### Define projections
 # Projection used by NHD and NHDplus
@@ -34,16 +34,16 @@ proj4.NHD<-"+proj=longlat +ellps=GRS80 +datum=NAD83 +no_defs"
 ### load NHDPlus shapefiles and attribute dbf files
 #Flowlines
 setwd(paste0(basedir,"/NHDPlus/NHDPlusV21_NE_01_NHDSnapshot_01/NHDPlusNE/NHDPlus01/NHDSnapshot/Hydrography"))
-NEFlow.line<-readShapeLines("NHDFlowline",proj4string=CRS(proj4.NHD))
+system.time(NEFlow.line<-readShapeLines("NHDFlowline",proj4string=CRS(proj4.NHD)))
 
 #Catchments
 setwd(paste0(basedir,"/NHDplus/NHDPlusV21_NE_01_NHDPlusCatchment_01/NHDPlusNE/NHDPlus01/NHDPlusCatchment"))
-NECatch.shape<-readShapePoly("Catchment",proj4string=CRS(proj4.NHD))
+system.time(NECatch.shape<-readShapePoly("Catchment",proj4string=CRS(proj4.NHD)))
 
 #Attributes tables
 setwd(paste0(basedir,"/NHDplus/NHDPlusV21_NE_01_NHDPlusAttributes_01/NHDPlusNE/NHDPlus01/NHDPlusAttributes"))
-plusflow<-read.dbf("PlusFlow.dbf")
-plusflowlineVAA<-read.dbf("PlusFlowlineVAA.dbf")
+system.time(plusflow<-read.dbf("PlusFlow.dbf"))
+system.time(plusflowlineVAA<-read.dbf("PlusFlowlineVAA.dbf"))
 
 ### Merge w/ VAA table to get attributes
 plusdata<-plusflowlineVAA[,c(1,4,1)]
