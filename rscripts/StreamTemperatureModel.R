@@ -17,7 +17,10 @@ source("param_startup.R")
 
 #directory <- args[1]
 
-coefs <- coef_str
+#coefs <- coef_str
+coef_str<-parse.param("coef_str")
+coef_cols<-parse.param("coef_cols")
+coefs<-matrix(coef_str,ncol=as.numeric(coef_cols))
 
 #setwd("/home/austin/WebStuff/Images/")
 
