@@ -24,7 +24,7 @@
 
 
   "pre_run": {
-	 "description": "Can be a single run or multiple runs (i.e. fish model needs both stream flow and temp inputs)."
+	 "description": "should be a climate run w/ air temp"
   }
 
 
