@@ -2,7 +2,7 @@
 
 basedir<-"/home/ana/testing" 
 setwd(paste0(basedir,"/rscripts"))
-source("setup.R")
+source("param_startup.R")
 
 #This code will need to recieve:
 #1) Directory for data I/O operations
@@ -34,6 +34,7 @@ GCMDays <- read.table("Days_For_ABCDE_GCM.txt",header=TRUE)
 #Read in weather generated from Climate Code
 #setwd(directory)
 setwd(pre_wd)
+
 stoc.weather <- read.table("monthly_weather.txt",header=TRUE)
 hist.weather <- read.table("h_monthly_weather.txt", header=TRUE)
 s_calib_num <- length(stoc.weather$MONTH)

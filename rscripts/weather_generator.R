@@ -20,7 +20,7 @@ print("starting script")
 library(MASS)
 basedir<-"/home/ana/testing" 
 setwd(paste0(basedir,"/rscripts"))
-source("setup.R")
+source("param_startup.R")
 
 
 mean_prcp_change_percent <- 1 + parse.param("change_precip_mean")/100
@@ -186,6 +186,7 @@ for (j in 1:SIM_LENGTH) {
 		if (cur_OCCERENCE==0 & next_OCCURENCE==0) {cur_day_cur_state <- which(PRCP[cur_day]<=thresh & PRCP[(cur_day+1)]<=thresh)}
 		if (cur_OCCERENCE==1 & next_OCCURENCE==0) {cur_day_cur_state <- which(PRCP[cur_day]>thresh & PRCP[(cur_day+1)]<=thresh)}
 		if (cur_OCCERENCE==0 & next_OCCURENCE==1) {cur_day_cur_state <- which(PRCP[cur_day]<=thresh & PRCP[(cur_day+1)]>thresh)}
+
 		if (cur_OCCERENCE==1 & next_OCCURENCE==1) {cur_day_cur_state <- which(PRCP[cur_day]>thresh & PRCP[(cur_day+1)]>thresh)}
 			
 		possible_days <- cur_day[cur_day_cur_state]

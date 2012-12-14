@@ -66,8 +66,9 @@ parse.wd<-function() {
 parse.pre.wd<-function() {
    userid<-parse.param("userid",values.only=T)
    preid<-parse.param("pre_run",values.only=T,suppress.errors=T)
-   if (is.null(preid) | length(preid<1))
-      return null
+
+   if (is.null(preid) | length(preid)<1)
+      return(NULL)
    else
       return( paste0("/runs/",userid,"/",preid) )
 }

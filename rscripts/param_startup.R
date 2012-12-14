@@ -19,9 +19,12 @@ directory<-paste0( basedir,parse.wd() )
 
 #Westbrook Example (0)
 # Any Basin (1)
-if (parse.param("basinid")=="west_brook")
-   run_option <-0
-else
-   run_option <-1
+{
+	if (parse.param("basinid")=="west_brook")
+	   run_option <-0
+	else
+	   run_option <-1
+}
+
 
 pre_wd<-paste0( basedir,parse.pre.wd() )
