@@ -54,112 +54,59 @@ NEFlow.line@data<-merge(NEFlow.line, plusdata, by.x="COMID", by.y="ComID", all.x
 NEFlow.line@data<-NEFlow.line@data[order(NEFlow.line$sortby),] 
 rm(list=c("plusdata"))
 
-NHDFlow.line<-NEFlow.line
-NHDCatch.shape<-NECatch.shape
+#add centroid
+NECatch.shape$lat<-0
+NECatch.shape$long<-0
+Centroids<-gCentroid(NECatch.shape, byid=TRUE, id = "FEATUREID")
 
+# NHDFlow.line<-NEFlow.line
+# NHDCatch.shape<-NECatch.shape
 
-   ### Create a subset of NHDplus flowlines/features
-   ### lower CT R basin only, just to save time
-   lowCTFlow.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,6)=="010802",] #HUC6
-   system.time(lowCTCatch.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% lowCTFlow.line$COMID,])
-# 
-# huc8<-unique(substr(NEFlow.line$REACHCODE,1,8))
-# huc8[1:10]
-# length(huc8)
-
+#HUC 8 outlines
+#by first 8 digits of reachcode in Flowlines
 setwd("C:/ALR/GeneratedSpatialData/dissolved_hucs/huc8byreachcode")
+huc8<-unique(substr(NEFlow.line$REACHCODE,1,8))
+
 for (i in 1:length(huc8)) {
-   
    huc8.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,8)==huc8[i],] #HUC8
    huc8.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% huc8.line$COMID,]
    writeOGR(huc8.shape,  ".", layer=paste0(huc8[i],"Catchments"), driver="ESRI Shapefile")
    writeOGR(huc8.line,  ".", layer=paste0(huc8[i],"Flowlines"), driver="ESRI Shapefile")
    writeOGR(huc8.shape,  paste0(huc8[i],"Catchments.kml"), layer="NHDCatchments", driver="KML",dataset_options=c("NameField=FEATUREID"))
-   writeOGR(huc8.line,  paste0(huc8[i],"Flowlines.kml"), layer="NHDplusFlowlines", driver="KML",dataset_options=c("NameField=COMID","DescriptionField=GNIS_NAME"))    
-   
+   writeOGR(huc8.line,  paste0(huc8[i],"Flowlines.kml"), layer="NHDplusFlowlines", driver="KML",dataset_options=c("NameField=COMID","DescriptionField=GNIS_NAME"))       
 }
-i<-length(huc8)
-# huc8.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,8)==huc8[i],] #HUC8
-# huc8.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% huc8.line$COMID,]
-# huc8.line@data
-# plot(NECatch.shape)
-# plot(huc8.line,att=T)
-# 
-# NEFlow.line@data[substr(NEFlow.line$REACHCODE,1,8)==huc8[length(huc8)],]
-# 
-# midCTFlow.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,8)=="01080201",] #HUC8
-# midCTCatch.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% midCTFlow.line$COMID,]
-
-setwd("C:/ALR/GeneratedSpatialData/smallNHDplus")
-writeOGR(lowCTCatch.shape,  ".", layer="NHDCatchments", driver="ESRI Shapefile")
-writeOGR(lowCTFlow.line,  ".", layer="NHDplusFlowlines", driver="ESRI Shapefile")
-writeOGR(lowCTCatch.shape,  "NHDCatchments.kml", layer="NHDCatchments", driver="KML",dataset_options=c("NameField=FEATUREID"))
-writeOGR(lowCTFlow.line,  "NHDplusFlowlines.kml", layer="NHDplusFlowlines", driver="KML",dataset_options=c("NameField=COMID","DescriptionField=GNIS_NAME"))    
-
-system.time(catchfromshape<-readShapePoly("NHDCatchments",proj4string=CRS(proj4.NHD)))
-system.time(linesfromshape<-readShapeLines("NHDplusFlowlines",proj4string=CRS(proj4.NHD)))
-
-setwd("C:/ALR/GeneratedSpatialData/huc8")
-writeOGR(midCTCatch.shape,  ".", layer="huc8catch", driver="ESRI Shapefile")
-writeOGR(midCTFlow.line,  ".", layer="huc8flow", driver="ESRI Shapefile")
-
-system.time(catch8fromshape<-readShapePoly("huc8catch",proj4string=CRS(proj4.NHD)))
-system.time(lines8fromshape<-readShapeLines("huc8flow",proj4string=CRS(proj4.NHD)))
-
-   
-   ### The NHDFlow.line and NHDCatch.shape will be used throughout the code
-   ### Here, decide whether these should point to the full set of catchments/flowlines 
-   ### for the New England region, or for a subsection of the Lower CT R basin
-   NHDFlow.line<-lowCTFlow.line
-   NHDCatch.shape<-lowCTCatch.shape
 
 
-setwd(paste0(basedir,"/NHDplus/NHDPlusV21_NE_01_WBDSnapshot_01/NHDPlusNE/NHDPlus01/WBDSnapshot/WBD"))
-system.time(hucs.shape<-readShapePoly("WBD_Subwatershed",proj4string=CRS(proj4.NHD)))
-
-huc10.shape<-unionSpatialPolygons(hucs.shape,hucs.shape$HUC_10)
-plot(huc10.shape)
-class(huc10.shape)
-names(huc10.shape@data)
-length(levels(hucs.shape$HUC_8))
-length(levels(hucs.shape$HUC_10))
-length(levels(hucs.shape$HUC_12))
-
-
+#set up new blank spatialpolygonsdataframe w/ structure of NECatch.shape
 oldcatch<-NECatch.shape
 newcatch<-NHDCatch.shape[1,]
 newcatch@data
-names(newcatch@data)
+# names(newcatch@data)
 newcatch@data[,"HUC_10"]<-1
 newcatch<-newcatch[-1,]
 newcatch@data
-names(newcatch@data)
+# names(newcatch@data)
 
 featureids<-oldcatch$FEATUREID
 
-hucs.shape<-bkuphuc
-hucs.shape$HUC_10<-as.character(hucs.shape$HUC_10)
-hucs.shape$HUC_10[333:335]
+setwd("C:/ALR/GeneratedSpatialData/dissolved_hucs")
+huc10.shape<-readShapePoly("huc10",proj4string=CRS(proj4.NHD))
 
-class(hucs.shape)
-
+length(huc10.shape)
 for (i in 1:2) {
     i<-345
-   catch_index<-NECatch.shape$FEATUREID==featureids[i]
+i<-10
+    
+    catch_index<-gCovers(huc10.shape[i,],NECatch.shape)
+   #catch_index<-over(huc10.shape[i,],NECatch.shape)
+
    huc_index<-over(NECatch.shape[catch_index,],huc10.shape)
-    huc10.shape@polygons[[i]]@ID
-    plot(huc10.shape[huc_index,])
-    plot(NECatch.shape[catch_index,],add=T)
-    n<-as.character(huc10.shape@polygons[[i]]@ID)
-   n
-    class(n)
-    class(hucs.shape$HUC_10)
-    sum(as.numeric(hucs.shape$HUC_10==n))
-    hucs.shape[hucs.shape$HUC_10==n,]
-    plot(hucs.shape[hucs.shape$HUC_10==n,],add=F,lty=3,col="blue")
-#    print(current)
-   newcatch_index<-length(newcatch)+1
-    newcatch[newcatch_index,]<-oldcatch[catch_index,]
+#     huc10.shape@polygons[[i]]@ID
+   plot(huc10.shape[huc_index,])
+   plot(NECatch.shape[catch_index,],add=T)
+   currentcatch<-newcatch
+   currentcatch_index<-length(currentcatch)+1
+   newcatch[newcatch_index,]<-oldcatch[catch_index,]
    newcatch[newcatch_index,"HUC_10"]
 #    oldcatch<-oldcatch[-oldcatch$FEATUREID==current,]
 #    print(paste("old",length(oldcatch),"new",length(newcatch)))
@@ -168,7 +115,21 @@ for (i in 1:2) {
 
 
 
-
+# for (i in 1:2) {
+#    i<-345
+#    catch_index<-NECatch.shape$FEATUREID==featureids[i]
+#    huc_index<-over(NECatch.shape[catch_index,],huc10.shape)
+#    #     huc10.shape@polygons[[i]]@ID
+#    plot(huc10.shape[huc_index,])
+#    plot(NECatch.shape[catch_index,],add=T)
+#    currentcatch<-newcatch
+#    currentcatch_index<-length(currentcatch)+1
+#    newcatch[newcatch_index,]<-oldcatch[catch_index,]
+#    newcatch[newcatch_index,"HUC_10"]
+#    #    oldcatch<-oldcatch[-oldcatch$FEATUREID==current,]
+#    #    print(paste("old",length(oldcatch),"new",length(newcatch)))
+#    
+# }
 
 
 
