@@ -3,7 +3,13 @@
 #  basedir<-"C:/ALR/GitHub/testing"
 basedir<-"/home/ana/testing"
 setwd(paste0(basedir,"/rscripts"))
+print(getwd())
+print("start spatial data load")
+source("spatial_data.R")
+print("end spatial data load")
+print("start spatial functions load")
 source("spatial_functions.R")
+print("start spatial functions load")
 
 
 #args consists of single json object which contains lat and long coordinates, and an optional basin nickname

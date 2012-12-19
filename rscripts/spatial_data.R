@@ -16,7 +16,7 @@ library(maptools)
 ##
 #
 
-
+olddir<-getwd()
 # Base directory (change depending on file structure wherever this is being run)
 # basedir<-"C:/ALR/SpatialData"
 basedir<-"/home/node.js/data/nhd"
@@ -73,3 +73,4 @@ NHDCatch.shape<-NECatch.shape
 
 
 
+setwd(olddir)
