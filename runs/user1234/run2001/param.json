@@ -1,0 +1,14 @@
+{
+	"userid": "user1234",
+	"runid": "run2001",
+	"basinid": "west_brook",
+	"rscript": "weather_generator",
+
+	"change_precip_mean":-15,
+	"change_precip_var":15,
+	"change_airtemp_mean":2,
+	
+  "_comment":"first testing param file for weather generator"
+
+}
+
