@@ -4,6 +4,9 @@
 	"basinid": "west_brook",
 	"rscript": "StreamFlowModel",
 	"pre_run": ["run0001"],
+	"pre_path": {
+		"climate":"run0001"
+	},
 	
 	
 	
