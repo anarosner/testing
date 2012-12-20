@@ -15,10 +15,7 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
     <table border="1" cellpadding="3" cellspacing="0" align="center" bgcolor="#ffffff">
     		<tr><td>
              <select name="userid">
-          				<option value="user1234" label="user1234"></option>
-          				<option value="user2" label="user2"></option>
-          				<option value="user3" label="user3"></option>
-          				<option value="user4" label="user4"></option>
+          				<option value="user1234" label="user1234">user1234</option>
           	 </select>
     		</td></tr>
     		<tr><td>
@@ -34,17 +31,17 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
     <table border="1" cellpadding="3" cellspacing="0" align="center" bgcolor="#ffffff">
     		<tr><td>
           <select name="basinid">
-          				<option value="bylatlong" label="Define by lat & long"></option>
-          				<option value="west_brook" label="West Brook"></option>
+          				<option value="bylatlong" label="Define by lat & long">Define by lat & long</option>
+          				<option value="west_brook" label="West Brook">West Brook</option>
           </select>
     		</td></tr>
     		<tr><td>
-    						<input type="button" name="Submit Basin ID" />
+    						<input type="button" value="Submit Basin ID" />
     		</td></tr><tr><td>&nbsp;</td></tr>
     		
     		<tr><td>
-								Lat: <input type="text" value="lat" value="-72.733087" />
-								Long: <input type="text" value="long" value="42.394229" />
+								Lat: <input type="text"  name="lat" value="-72.733087" />
+								Long: <input type="text" name="long" value="42.394229" />
     		</td></tr>
     		<tr><td>
     						<input type="button" value="Submit Lat and Long"/>
@@ -81,7 +78,7 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
 				<tr>
   				<td>
   						<select name="rscript">
-  										<option value="weather_generator" label="Stochastic Weather Generator"></option>
+  										<option value="weather_generator" label="Stochastic Weather Generator">Stochastic Weather Generator</option>
   						</select><br>
   						Precip mean (%change): <input type="text" name="change_precip_mean" value="0" /><br>
   						Precip variance (%change): <input type="text" name="change_precip_var" value="0" /><br>
@@ -96,9 +93,13 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
   						Temp mean (degrees C): <input type="text" name="change_airtemp_mean" value="0" disabled="disabled" /><br>
   				</td>
   				<td>
+							Run ID:
   						<select name="runid">
-  										<option value="run0001" label="run0001"></option>
+  										<option value="run1001">run1001</option>
+  										<option value="run2001">run2001</option>
+  										<option value="run9001">run9001</option>
   						</select>
+							<br><i>(Should be runs available based on basin id.)</i>
   				</td>
   				<td><input type="button" value="Use This Run" /></td>
 				  <td><input type="button" value="Toggle: Modify for New Run" /></td>
@@ -112,7 +113,7 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
 				<tr>
   				<td>
   						<select name="rscript">
-  										<option value="lcad_query" label="Landscape Change, Assessment and Design (LCAD) model"></option>
+  										<option value="lcad_query" label="Landscape Change, Assessment and Design (LCAD) model">Landscape Change, Assessment and Design (LCAD) model</option>
   						</select><br>
   						Dummy parameter: <input type="text" name="dummyparameter" value="0" />
   				</td>
@@ -121,8 +122,9 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
   				<td>&nbsp;</td>
   				<td><input type="text" name="name" value="0" disabled="disabled"  /></td>
   				<td>
+							Run ID:
 							<select name="runid">
-  										<option value="dummyrunid" label="dummyrunid"></option>
+  										<option value="dummyrunid" label="dummyrunid">dummyrunid</option>
   				    </select>
 					</td>
   				<td><input type="button" value="Use This Run" /></td>
@@ -136,7 +138,7 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
 				<tr>
   				<td>
   						<select name="rscript">
-  										<option value="StreamFlowModel" label="Streamflow abcde model"></option>
+  										<option value="StreamFlowModel" label="Streamflow abcde model">Streamflow abcde model</option>
   						</select><br>
   						Dummy parameter: <input type="text" name="dummyparameter" value="0" />
   				</td>
@@ -145,9 +147,13 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
   				<td>&nbsp;</td>
   				<td><input type="text" name="name" value="0" disabled="disabled"  /></td>
   				<td>
+							Run ID:
 							<select name="runid">
-  										<option value="run0002" label="run0002"></option>
+  										<option value="run1004">run1004</option>
+  										<option value="run2004">run2004</option>
+  										<option value="run9004">run9004</option>
   				    </select>
+							<br><i>(Should be runs available based on preceding step run id.)</i>
 					</td>
   				<td><input type="button" value="Use This Run" /></td>
   				<td><input type="button" value="Toggle: Modify for New Run" /></td>
@@ -160,7 +166,7 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
 				<tr>
   				<td>
   						<select name="rscript">
-  										<option value="StreamTemperatureModel" label="Non-linear Regression"></option>
+  										<option value="StreamTemperatureModel" label="Non-linear Regression">Non-linear Regression</option>
   						</select><br>
   						Dummy parameter: <input type="text" name="dummyparameter" value="0" />
   				</td>
@@ -169,9 +175,14 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
   				<td>&nbsp;</td>
   				<td><input type="text" name="name" value="0" disabled="disabled"  /></td>
   				<td>
+							Run ID:
 							<select name="runid">
-  										<option value="dummyrunid" label="dummyrunid"></option>
+  										<option value="run1001">run1005</option>
+  										<option value="run2001">run2005</option>
+  										<option value="run9001">run9005</option>
   				    </select>
+							
+							<br><i>(Should be runs available based on preceding step run id.)</i>
 					</td>
   				<td><input type="button" value="Use This Run" /></td>
   				<td><input type="button" value="Toggle: Modify for New Run" /></td>
@@ -180,10 +191,11 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
 				
 						
 		<tr><td colspan=8 bgcolor="#a1b5c2"><h3>Fish Population <br>('population')</h3></td></tr>
+		    <tr><td colspan=8>&nbsp;</td></tr>
 				<tr>
   				<td>
   						<select name="rscript">
-  										<option value="IPM_model" label="IPM Fish Population Model"></option>
+  										<option value="IPM_model" label="IPM Fish Population Model">IPM Fish Population Model</option>
   						</select><br>
   						Spring Growth (%): <input type="text" name="spring_growth" value=".5" /><br>
   						Spring Survival (%): <input type="text" name="spring_survival" value=".5" /><br>
@@ -200,8 +212,9 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
   						Fall Survival (%): <input type="text" name="spring_survival" value=".5" disabled="disabled" /><br>
   				</td>
   				<td>
+							Run ID:
   						<select name="runid">
-  										<option value="dummyrunid" label="dummyrunid"></option>
+  										<option value="dummyrunid" label="dummyrunid">dummyrunid</option>
   						</select>
   				</td>
   				<td><input type="button" value="Use This Run" /></td>
