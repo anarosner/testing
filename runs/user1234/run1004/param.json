@@ -3,7 +3,11 @@
 	"runid": "run1004",
 	"basinid": "west_brook",
 	"rscript": "StreamFlowModel",
-	"pre_run": ["run1001"],
+	"preceding": {
+		"climate":"run1001",
+		"land":"dummy1",
+		"barrier":"dummy2"
+	},
 	
 	
 	

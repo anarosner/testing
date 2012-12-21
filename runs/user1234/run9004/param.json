@@ -3,11 +3,9 @@
 	"runid": "run9004",
 	"basinid": "west_brook",
 	"rscript": "StreamFlowModel",
-	"pre_run": ["run9001"],
-	
-	
-	
-	
-	"_comment": "for testing, evenutally basin area will be calculated in basin script"
+	"preceding": {
+		"climate":"run9001"
+	},
+		
 }
 
