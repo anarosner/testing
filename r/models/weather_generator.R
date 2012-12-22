@@ -258,7 +258,7 @@ for(m in 1:12) {
 
 
 #######################################################Do Aggregating of Met Data and Create ET####################################################################
-setwd(paste0(basedir,"/r/scripts"))
+setwd(paste0(basedir,"/r/models"))
 # setwd("/home/node.js/rscripts/")
 source("Hargreaves.R") #This generates ET values and may get moved to the met section
 GCMDays <- read.table("Days_For_ABCDE_GCM.txt",header=TRUE)
