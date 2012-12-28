@@ -12,8 +12,8 @@ library(rgeos)
 library(maptools)     
 library(rjson)
 
-args<-list(lat=42.491991,long=-72.639097)
-# args<-fromJSON( commandArgs(trailingOnly = TRUE) )
+# args<-list(lat=42.491991,long=-72.639097)
+args<-fromJSON( commandArgs(trailingOnly = TRUE) )
 
 lat<-args$lat
 long<-args$long
@@ -29,7 +29,7 @@ nickname<-""
 proj4.NHD<-"+proj=longlat +ellps=GRS80 +datum=NAD83 +no_defs"
 setwd(paste0(basedir,"/spatial_data"))
 HUC_8<-readShapePoly("HUC_8",proj4string=CRS(proj4.NHD))
-print("read hucs")
+# print("read hucs")
 
 #create spatialpoint object from coordinates (coordinates are listed in the order long, lat)
 point<-SpatialPoints(matrix(data=c(long,lat),ncol=2,byrow=T), proj4string=CRS(proj4.NHD))
@@ -40,7 +40,7 @@ selected.huc<-over(point,HUC_8)$HUC_8
 
 #load catchments for that huc
 catchments<-readShapePoly(paste0(selected.huc,"Catchments"),proj4string=CRS(proj4.NHD))
-print("read catchments")
+# print("read catchments")
 featureID<-over(point,catchments)$FEATUREID
    
    ### defines basin from user-chosen
@@ -75,7 +75,7 @@ else {
       #and the plusflow table, indicating feature connections
       flowlines<-readShapeLines(paste0(selected.huc,"Flowlines"),proj4string=CRS(proj4.NHD))   
       plusflow<-read.csv("PlusFlow.csv")
-      print("read flowlines")
+#       print("read flowlines")
       
       #iteratively select all features upstream of user chosen feature
       segments<-c() #list of flowline segments to save
