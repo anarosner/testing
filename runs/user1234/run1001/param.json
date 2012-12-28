@@ -3,6 +3,9 @@
 	"runid": "run1001",
 	"basinid": "west_brook",
 	"rscript": "weather_generator",
+	
+	"nickname":"moderate climatic change",
+	"basin_nickname":"West Brook",
 
 	"change_precip_mean":-5,
 	"change_precip_var":5,

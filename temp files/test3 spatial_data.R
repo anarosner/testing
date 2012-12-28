@@ -40,6 +40,13 @@ system.time(NEFlow.line<-readShapeLines("NHDFlowline",proj4string=CRS(proj4.NHD)
 setwd(paste0(basedir,"/NHDplus/NHDPlusV21_NE_01_NHDPlusCatchment_01/NHDPlusNE/NHDPlus01/NHDPlusCatchment"))
 system.time(NECatch.shape<-readShapePoly("Catchment",proj4string=CRS(proj4.NHD)))
 
+
+# setwd("C:/ALR/GeneratedSpatialData/FilesByHUC10")
+# system.time(catchmentwHUC<-readShapePoly("catchmentwHUC",proj4string=CRS(proj4.NHD)))
+# huc10<-unique(as.character(catchmentwHUC$HUC_10))
+# huc10
+
+
 #Attributes tables
 setwd(paste0(basedir,"/NHDplus/NHDPlusV21_NE_01_NHDPlusAttributes_01/NHDPlusNE/NHDPlus01/NHDPlusAttributes"))
 system.time(plusflow<-read.dbf("PlusFlow.dbf"))
@@ -64,12 +71,17 @@ Centroids<-gCentroid(NECatch.shape, byid=TRUE, id = "FEATUREID")
 
 #HUC 8 outlines
 #by first 8 digits of reachcode in Flowlines
-setwd("C:/ALR/GeneratedSpatialData/dissolved_hucs/huc8byreachcode")
 huc8<-unique(substr(NEFlow.line$REACHCODE,1,8))
+huc8[34:35]
 
+setwd("C:/ALR/GeneratedSpatialData/FilesByHUC10_2")
+
+# for (i in 34:35) {
 for (i in 1:length(huc8)) {
+   print(paste("iteration: ",i,"huc:",huc8[i]))
    huc8.line<-NEFlow.line[substr(NEFlow.line$REACHCODE,1,8)==huc8[i],] #HUC8
    huc8.shape<-NECatch.shape[NECatch.shape$FEATUREID %in% huc8.line$COMID,]
+   print(paste("number of catchments:",length(huc8.shape)))
    writeOGR(huc8.shape,  ".", layer=paste0(huc8[i],"Catchments"), driver="ESRI Shapefile")
    writeOGR(huc8.line,  ".", layer=paste0(huc8[i],"Flowlines"), driver="ESRI Shapefile")
    writeOGR(huc8.shape,  paste0(huc8[i],"Catchments.kml"), layer="NHDCatchments", driver="KML",dataset_options=c("NameField=FEATUREID"))

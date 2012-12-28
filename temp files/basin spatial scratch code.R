@@ -1,3 +1,38 @@
+
+basedir<-"C:/ALR/GitHub/testing"
+# lat<-42.414712
+# long<- -72.629807
+
+lat<-42.369248
+long<- -72.417847
+
+getBasinfromLatLong(42.414712,-72.629807,basedir,output_type="both")
+getBasinfromLatLong(42.359146,-72.503593,basedir,output_type="shapefile")
+getBasinfromLatLong(42.328569,-72.582471,basedir,output_type="shapefile")
+
+
+getBasinfromLatLong(42.369248,-72.417847,basedir,output_type="both")
+system.time(obj<-getBasinfromLatLong(42.469329, -72.640127,basedir,output_type="both"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 basedir<-"C:/ALR/GitHub/testing/basins"
 
 #!/usr/bin/env Rscript
