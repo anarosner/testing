@@ -12,8 +12,16 @@ library(rgeos)
 library(maptools)     
 library(rjson)
 
+{
+   if (!exists("testingargs")) {
+      args<-fromJSON( commandArgs(trailingOnly = TRUE) )
+   }
+   else {
+      args<-testingargs
+   }
+}
 # args<-list(lat=42.491991,long=-72.639097)
-args<-fromJSON( commandArgs(trailingOnly = TRUE) )
+# args<-fromJSON( commandArgs(trailingOnly = TRUE) )
 
 lat<-args$lat
 long<-args$long
