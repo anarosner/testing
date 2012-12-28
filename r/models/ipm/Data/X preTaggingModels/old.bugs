@@ -1,0 +1,77 @@
+model{
+
+for ( i in 1:nRows ) {
+
+lengthDATA[ i ] ~ dnorm( length[ i ],9 )
+
+length[ i ] ~ dnorm( meanLen[ i ], 1/sigmaLen[ i ]^2 )
+
+  meanLen[ i ] <-  
+
+#  meanBeta[ 1,year[ i ],river[ i ] ]    +
+#  meanInt[ river[ i ] ] +
+#meanInt +
+ #meanBeta[ 2,year[ i ],river[ i ] ] * temperature[ 4,year[ i ]-1,river[ i ] ] +
+  meanBeta[ 3,year[ i ],river[ i ] ] * temperature[ 1,year[ i ],  river[ i ] ] +
+  meanBeta[ 4,year[ i ],river[ i ] ] * temperature[ 2,year[ i ],  river[ i ] ]       +
+ #meanBeta[ 5,year[ i ],river[ i ] ] *   discharge[ 4,year[ i ]-1,river[ i ] ] +
+  meanBeta[ 6,year[ i ],river[ i ] ] *   discharge[ 1,year[ i ],  river[ i ] ] +
+  meanBeta[ 7,year[ i ],river[ i ] ] *   discharge[ 2,year[ i ],  river[ i ] ] +
+ #meanBeta[ 8,year[ i ],river[ i ] ] *  droughtDur[ 4,year[ i ]-1,river[ i ] ] +
+  meanBeta[ 9,year[ i ],river[ i ] ] *  droughtDur[ 1,year[ i ],  river[ i ] ] +
+  meanBeta[10,year[ i ],river[ i ] ] *  droughtDur[ 2,year[ i ],  river[ i ] ] +
+ #meanBeta[11,year[ i ],river[ i ] ] *    floodDur[ 4,year[ i ]-1,river[ i ] ] +
+  meanBeta[12,year[ i ],river[ i ] ] *    floodDur[ 1,year[ i ],  river[ i ] ] +
+  meanBeta[13,year[ i ],river[ i ] ] *    floodDur[ 2,year[ i ],  river[ i ] ] +
+ #meanBeta[14,year[ i ],river[ i ] ] * temperature[ 4,year[ i ]-1,river[ i ] ] * discharge[ 4,year[ i ]-1,river[ i ] ]+
+  meanBeta[15,year[ i ],river[ i ] ] * temperature[ 1,year[ i ],  river[ i ] ] * discharge[ 1,year[ i ],  river[ i ] ] +
+  meanBeta[16,year[ i ],river[ i ] ] * temperature[ 2,year[ i ],  river[ i ] ] * discharge[ 2,year[ i ],  river[ i ] ] 
+
+ log( sigmaLen[ i ] ) <- 
+  
+#  sigmaBeta[ 1,year[ i ],river[ i ] ]  +
+#   sigmaInt[ river[ i ] ] +
+#sigmaInt +
+ #sigmaBeta[ 2,year[ i ],river[ i ] ] * temperature[ 4,year[ i ]-1,river[ i ] ] +
+  sigmaBeta[ 3,year[ i ],river[ i ] ] * temperature[ 1,year[ i ],  river[ i ] ] +
+  sigmaBeta[ 4,year[ i ],river[ i ] ] * temperature[ 2,year[ i ],  river[ i ] ]    +
+ #sigmaBeta[ 5,year[ i ],river[ i ] ] *   discharge[ 4,year[ i ]-1,river[ i ] ] +
+  sigmaBeta[ 6,year[ i ],river[ i ] ] *   discharge[ 1,year[ i ],  river[ i ] ] +
+  sigmaBeta[ 7,year[ i ],river[ i ] ] *   discharge[ 2,year[ i ],  river[ i ] ] +
+ #sigmaBeta[ 8,year[ i ],river[ i ] ] *  droughtDur[ 4,year[ i ]-1,river[ i ] ] +
+  sigmaBeta[ 9,year[ i ],river[ i ] ] *  droughtDur[ 1,year[ i ],  river[ i ] ] +
+  sigmaBeta[10,year[ i ],river[ i ] ] *  droughtDur[ 2,year[ i ],  river[ i ] ] +
+ #sigmaBeta[11,year[ i ],river[ i ] ] *    floodDur[ 4,year[ i ]-1,river[ i ] ] +
+  sigmaBeta[12,year[ i ],river[ i ] ] *    floodDur[ 1,year[ i ],  river[ i ] ] +
+  sigmaBeta[13,year[ i ],river[ i ] ] *    floodDur[ 2,year[ i ],  river[ i ] ] +
+ #sigmaBeta[14,year[ i ],river[ i ] ] * temperature[ 4,year[ i ]-1,river[ i ] ] * discharge[ 4,year[ i ]-1,river[ i ] ]+
+  sigmaBeta[15,year[ i ],river[ i ] ] * temperature[ 1,year[ i ],  river[ i ] ] * discharge[ 1,year[ i ],  river[ i ] ] +
+  sigmaBeta[16,year[ i ],river[ i ] ] * temperature[ 2,year[ i ],  river[ i ] ] * discharge[ 2,year[ i ],  river[ i ] ]  
+  
+}
+
+#for ( river in 1:4 ) {
+#     meanInt[ river ] ~ dnorm( 0, 0.001 )
+#    sigmaInt[ river ] ~ dunif( 0,100 )
+#  }
+#     meanInt ~ dnorm( 0, 0.001 )
+#    sigmaInt ~ dunif( 0,100 )
+
+for ( beta in 1:16 ) {  
+  for ( river in 1:4 ) {
+    for ( year in 1:nYears ){
+
+      meanBeta[ beta,year,river ] ~  dnorm( meanBetaMean[ beta,river ], 1/meanBetaSigma[ beta,river ]^2 )
+     sigmaBeta[ beta,year,river ] ~ dnorm( sigmaBetaMean[ beta,river ],1/sigmaBetaSigma[ beta,river ]^2 )
+
+  }
+   meanBetaMean[ beta,river ] ~ dnorm(0,0.001) 
+  meanBetaSigma[ beta,river ] ~ dunif(0,100)
+
+   sigmaBetaMean[ beta,river ] ~ dnorm(0,0.001) 
+  sigmaBetaSigma[ beta,river ] ~ dunif(0,100)
+  }
+}         
+
+}
+     
