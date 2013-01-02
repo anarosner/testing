@@ -1,0 +1,14 @@
+{
+	"userid": "user1234",
+	"runid": "run9006",
+	"basinid": "west_brook",
+	"rscript": "WestbrookIPM",
+	"preceding": {
+		"flow":"run9004",
+		"streamtemp":"run9005"
+	},
+
+
+	"_comment": "no other params at this time, add very soon"
+}
+
