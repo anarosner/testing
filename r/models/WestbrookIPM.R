@@ -25,10 +25,11 @@ minsize= 0
 maxsize=300 
 L= minsize 
 U= maxsize
-nIter <- 200
+nIter <- 50   	     #was 200, lower for debugging
 eggSize <- 1              #Do not change. This defines the number of sub-"adult" stages, not yet setup to accomodate more
-n <- n.big.matrix <- 70   #size of demographic matrix
-probReproInt <- 90
+n <- n.big.matrix <- 10   #size of demographic matrix
+			     #was 90, lower for debuggin
+probReproInt <- 90   
 probReproSlope <- 1
 
 #These can be changed to reflect different numbers of rivers
