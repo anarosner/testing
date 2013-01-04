@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-print("starting basin delineation script")
+# print("starting basin delineation script")
 savedwd<-getwd()
 setwd("../..")
 basedir<-getwd()
@@ -61,8 +61,7 @@ setwd(paste0(basedir,"/basins/"))
 {
 if (file.exists(as.character(featureID))) {
    #       setwd(savedwd)
-#    print("repeat")
-   message(toJSON(list(featureID=featureID)))
+#    message(toJSON(list(featureID=featureID)))
    print(toJSON(list(featureID=featureID)))
 }
 
@@ -142,7 +141,14 @@ else {
       write(param, file = "param.json", ncolumns=1,sep="")
       
       print(toJSON(list(featureID=featureID)))
-      message(toJSON(list(featureID=featureID)))
+#       message(toJSON(list(featureID=featureID)))
+      
+      
+      
+      ### Call script to aggregate met data for basin
+      source("basin_get_met_data.R")
+      
+      ### end met data aggregation
       
    }}#end else if feature isn't too large
 }} #end else if dir doesn't exist    
