@@ -127,29 +127,34 @@ else {
          writeOGR(stream.line,  ".", layer="NHDplusFlowlines", driver="ESRI Shapefile")
       }
       
-      #export text file of comIDs, and param.json file with basin attributes
+      #export text file of comIDs to csv file
       write.csv(segments, file="featureID.csv", row.names=FALSE)
       area<-area<-sum(catchment.shape$AreaSqKM)
       lat<-attr(centroid,"coords")[,"y"]
       long<-attr(centroid,"coords")[,"x"]
-      {
-      if (nickname=="")
+
+      ###write area and centroid lat/long to json file
+		      #{
+                    # if (nickname=="")
          param<-toJSON(list(basinid=featureID,area=area,lat=lat,long=long))
-      else
-         param<-toJSON(list(basinid=featureID,area=area,lat=lat,long=long,nickname=nickname))
-      }
+                    # else
+                    #    param<-toJSON(list(basinid=featureID,area=area,lat=lat,long=long,nickname=nickname))
+                    # }
       write(param, file = "param.json", ncolumns=1,sep="")
-      
-      print(toJSON(list(featureID=featureID)))
-#       message(toJSON(list(featureID=featureID)))
-      
-      
-      
+            
       ### Call script to aggregate met data for basin
       setwd(paste0(basedir,"/r/models"))
-      source("basin_get_met_data.R")
-      
-      ### end met data aggregation
+      source("basin_get_met_data.R")    
+
+      ### draw image of basin outline and flowlines, and save to svg file in basin directory
+      svg("basin.svg",width=6,height=6)
+      	plot(basin.shape,bg="gray90",col="cornsilk3",border="cornsilk4")
+      	plot(stream.line,add=T,col="blue")
+      dev.off()
+
+      #print featureID to "return" it to the web app
+      print(toJSON(list(featureID=featureID)))
+#       message(toJSON(list(featureID=featureID)))
       
    }}#end else if feature isn't too large
 }} #end else if dir doesn't exist    
