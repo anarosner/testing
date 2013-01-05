@@ -73,8 +73,12 @@ if(length(which(temp.points==1)) > 0) {
 }else{
 	a1 <- abs(VIC.shape$lat)/57.29577951	#put everything in radians I think...
 	b1 <- abs(VIC.shape$long)/57.29577951
-	a2<- abs(Catch.shape$LAT_CENT)/57.29577951
-	b2<- abs(Catch.shape$LONG_CENT)/57.29577951
+	   #change to use centroid points calculated in delineate basin script
+      		# 	a2<- abs(Catch.shape$LAT_CENT)/57.29577951
+      		# 	b2<- abs(Catch.shape$LONG_CENT)/57.29577951
+	a2<- abs(lat)/57.29577951
+	b2<- abs(long)/57.29577951
+
 	h <- 6371*acos(round(sin(a1)*sin(a2)+cos(a1)*cos(a2)*cos(b1-b2),10)) #use law of cosines to compute distance 6371 km is radius of earth I think...
 	temp.grid <- which(h == min(h))
 	temp.name <- paste("data_",VIC.shape$lat[temp.grid],"_",VIC.shape$long[temp.grid],sep="")

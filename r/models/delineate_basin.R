@@ -146,6 +146,7 @@ else {
       
       
       ### Call script to aggregate met data for basin
+      setwd(paste0(basedir,"/r/models"))
       source("basin_get_met_data.R")
       
       ### end met data aggregation
