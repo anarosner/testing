@@ -5,6 +5,27 @@ basedir<-"C:/ALR/GitHub/testing"
 
 lat<-42.369248
 long<- -72.417847
+toJSON(list(lat=42.540939,long=-72.609808))
+testingargs<-list(lat=42.540939,long=-72.609808)
+toJSON(list(lat=42.566515,long=-72.630494))
+toJSON(list(lat=42.55896,long=-72.622769))
+toJSON(list(lat=42.572014,long=-72.630837))
+toJSON(list(lat=42.624865,long=-72.90915))
+
+library(rjson)
+#number met points w/in basin
+#0
+toJSON(list(lat=42.45008322,long=-72.38135737))
+#1
+toJSON(list(lat=42.60978763,long=-72.32909048))
+#2
+toJSON(list(lat=42.53622681,long=-72.69786247))
+
+#westbrook
+toJSON(list(lat=42.414776,long=-72.628398))
+testingargs<-list(lat=42.414776,long=-72.628398)
+
+
 
 getBasinfromLatLong(42.414712,-72.629807,basedir,output_type="both")
 getBasinfromLatLong(42.359146,-72.503593,basedir,output_type="shapefile")

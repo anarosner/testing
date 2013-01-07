@@ -32,11 +32,61 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
 		    <tr><td colspan=8>&nbsp;</td></tr>
 				<tr>
   				<td>	
-					  	<input name="rscript" value="weather_generator" label="Weather Generator" disabled="disabled">
 							<br>				
-  						Precip mean (% change): <input type="text" name="change_precip_mean" value="0" disabled="disabled" /><br>
-  						Precip variance (% change): <input type="text" name="change_precip_var" value="0" disabled="disabled" /><br>
-  						Temp mean (degrees C): <input type="text" name="change_airtemp_mean" value="0" disabled="disabled" /><br>
+      						<table border="1" cellpadding="5" cellspacing="0">
+      							 <tr><td>
+										 		  	<input name="rscript" value="weather_generator" label="Weather Generator" disabled="disabled">
+             				 </td>
+              			 </tr>
+              			 <tr>
+              			 <td>
+              							Options for "weather_generator": <br>
+                						Precip mean (%change): <input type="text" name="change_precip_mean" value="0" disabled="disabled" /><br>
+                						Precip variance (%change): <input type="text" name="change_precip_var" value="0" disabled="disabled" /><br>
+                						Temp mean (degrees C): <input type="text" name="change_airtemp_mean" value="0" disabled="disabled" /><br>
+                						Number of years of simulation: <input type="text" name="nyears" value="0" disabled="disabled" /><br>
+              							(This will soon need to be a slope, rather than a immediate step)
+              			 </td>
+              			 </tr>
+              			 <tr>
+              			 <td>		
+              							Options for "weather_generator_w_guideposts": <br>
+                						GCM projections: <input type="text" name="gcm_projection" value="0" disabled="disabled" /><br>
+                						Number of years of simulation: <input type="text" name="nyears" value="0" disabled="disabled" /><br>
+              			 </td>
+              			 </tr>
+              			 <tr>
+              					<td>							
+              							Options for "baseline_historic":
+                						Number of years of simulation: <input type="text" name="nyears" value="0" disabled="disabled" /><br>
+              					</td>
+              			 </tr>
+              			 <tr>
+              					<td>
+              							Options for "Historic Record with Shifted Mean":<br>
+                						Precip mean (%change): <input type="text" name="change_precip_mean" value="0" disabled="disabled" /><br>
+                						Temp mean (degrees C): <input type="text" name="change_airtemp_mean" value="0" disabled="disabled" /><br>
+                						Number of years of simulation: <input type="text" name="nyears" value="0" disabled="disabled" /><br>
+              							(This will soon need to be a slope, rather than an immediate step)
+              
+              					</td>
+              			 </tr>
+              			 <tr>
+              					<td>
+              							Options for "Extreme Event Simulation":
+														<p>
+														Extreme Event Type:
+														<input type="text" name="extreme_event_type" value="Extreme high precipitation" disabled="disabled" />
+      											<p>
+              							Options for "Extreme High Precip":
+      											<br>											
+                						Baseline shift of mean precip (%): <input type="text" name="extreme_mean_change" value="0" disabled="disabled" /><br>
+                						Size of extreme event (inches): <input type="text" name="extreme_storm_size" value="0" disabled="disabled" />      						         															
+              							
+                				</td>    
+            				</tr>
+      						</table>
+						
   				</td>
   				<td>
 							Run ID:

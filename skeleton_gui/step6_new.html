@@ -28,15 +28,21 @@ body { font-family: 'Century Gothic','Gill Sans','Calibri',sans-serif; }
 						
 		<tr><td colspan=8 bgcolor="#a1b5c2"><h3></h3></td></tr>
 		    <tr><td colspan=8>&nbsp;</td></tr>
+		    <tr><td colspan=8>(This model step is only available for preset basins. <br>
+				IPM is available for West Brook, and Shenandoah is available for Dail-Madsen.)</td></tr>
 				<tr>
   				<td>
   						<select name="rscript">
   										<option value="IPM_model" label="IPM Fish Population Model">IPM Fish Population Model</option>
+  										<option value="Dail_Madsen" label="Dail-Madsen Fish Population Model">Dail-Madsen Fish Population Model</option>
   						</select><br>
   						Spring Growth (%): <input type="text" name="spring_growth" value=".5" /><br>
   						Spring Survival (%): <input type="text" name="spring_survival" value=".5" /><br>
   						Fall Growth (%): <input type="text" name="spring_growth" value=".5" /><br>
   						Fall Survival (%): <input type="text" name="spring_survival" value=".5" /><br>
+							(What are inputs for Dail-Madsen?)
+							
+						<p>Run reference name: <input type="text" name="run_alias" value="new run"
   				</td>
   				<td><input type="button" value="Run" /></td>
 				  <td><input type="button" value="Toggle: Use Completed Run" /></td>
