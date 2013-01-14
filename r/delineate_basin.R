@@ -125,7 +125,7 @@ else {
          kml.hack<-gsub("ff0000ff", "CC000099", kml.hack, ignore.case =T)
          writeLines(kml.hack,"BasinOutline.kml")
          kml.hack2 <- readLines("NHDplusFlowlines.kml")
-         kml.hack2<-gsub("ff0000ff", "CCCC9966", kml.hack2, ignore.case =T)
+         kml.hack2<-gsub("ff0000ff", "E5001BCC", kml.hack2, ignore.case =T)
          writeLines(kml.hack2,"NHDplusFlowlines.kml")   
          #          writeOGR(stream.line,  "NHDplusFlowlines.kml", layer="NHDplusFlowlines", driver="KML",dataset_options=c("NameField=COMID","DescriptionField=GNIS_NAME"))   
       }
