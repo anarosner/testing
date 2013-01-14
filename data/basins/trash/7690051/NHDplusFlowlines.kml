@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document><Folder><name>NHDplusFlowlines</name>
+<Schema name="NHDplusFlowlines" id="NHDplusFlowlines">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="Description" type="string"></SimpleField>
+	<SimpleField name="COMID" type="int"></SimpleField>
+	<SimpleField name="FDATE" type="string"></SimpleField>
+	<SimpleField name="RESOLUTION" type="string"></SimpleField>
+	<SimpleField name="GNIS_ID" type="string"></SimpleField>
+	<SimpleField name="GNIS_NAME" type="string"></SimpleField>
+	<SimpleField name="LENGTHKM" type="float"></SimpleField>
+	<SimpleField name="REACHCODE" type="string"></SimpleField>
+	<SimpleField name="FLOWDIR" type="string"></SimpleField>
+	<SimpleField name="WBAREACOMI" type="int"></SimpleField>
+	<SimpleField name="FTYPE" type="string"></SimpleField>
+	<SimpleField name="FCODE" type="int"></SimpleField>
+	<SimpleField name="SHAPE_LENG" type="float"></SimpleField>
+	<SimpleField name="ENABLED" type="string"></SimpleField>
+	<SimpleField name="GNIS_NBR" type="int"></SimpleField>
+</Schema>
+  <Placemark>
+	<name>7690051</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7690051</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.683</SimpleData>
+		<SimpleData name="REACHCODE">01080204000541</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00653482731</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.382208931421701,42.454560067435409 -72.382363198088115,42.454217067435927 -72.382270731421613,42.453668400770141 -72.382054731421931,42.453165400770899 -72.381097731423438,42.452045200772659 -72.380665531424071,42.451107800774082 -72.379523398092545,42.449690267442975 -72.379276531426228,42.449004400777369</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7690043</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7690043</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.728</SimpleData>
+		<SimpleData name="REACHCODE">01080204000542</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00690195961</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.381004598090215,42.460549800759452 -72.381004598090215,42.459772600760623 -72.381128198090039,42.459543867427669 -72.382023531421964,42.45874380076225 -72.382394131421393,42.458309400762914 -72.382424998088027,42.457829400763671 -72.381869131422206,42.456709067432087 -72.381745798089071,42.454971600768083 -72.382208931421701,42.454560067435409</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7690033</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7690033</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.295</SimpleData>
+		<SimpleData name="REACHCODE">01080204000543</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00274724391</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.382023331421976,42.463064667422195 -72.381745531422382,42.461807267424149 -72.381004598090215,42.460549800759452</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7691349</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7691349</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">1.043</SimpleData>
+		<SimpleData name="REACHCODE">01080204000544</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.01045986735</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.38844613141201,42.470517667410604 -72.388322598078844,42.469923267411559 -72.387828531412936,42.468734467413412 -72.387272598080472,42.467842800748087 -72.38631533141529,42.466836867416355 -72.385790398082804,42.465579467418301 -72.385049331417292,42.464779467419532 -72.384555198084684,42.464550800753216 -72.383845131419136,42.46457366741987 -72.383227531420118,42.464185000753787 -72.382332131421492,42.463339067421771 -72.382270398088281,42.4631562007554 -72.382023331421976,42.463064667422195</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7687687</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7687687</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">1.206</SimpleData>
+		<SimpleData name="REACHCODE">01080204000545</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.01264174131</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.40957833137918,42.508144600685569 -72.409547198045914,42.507756000686186 -72.40945439804608,42.507435867353308 -72.409176198046509,42.507230267353634 -72.407878398048524,42.506590467354613 -72.407105931383057,42.506087800688761 -72.406209798051123,42.505425000689797 -72.405560931385423,42.505105067356965 -72.404912198053111,42.504671000690955 -72.40373833138824,42.503688267359166 -72.403089398055954,42.503093867360064 -72.402934931389495,42.502842467360438 -72.402255198057219,42.502202467361428 -72.40142093139184,42.501356800696101 -72.400431931393427,42.500465400697458 -72.400215531393712,42.50009786736473</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>166174650</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">166174650</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">2.72</SimpleData>
+		<SimpleData name="REACHCODE">01080204000545</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.02552899959</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.394896398068667,42.493159067375473 -72.395364131401266,42.491642000711181 -72.3953949980679,42.490247400713315 -72.395178731401529,42.488944200715366 -72.395116998068303,42.488898467382114 -72.394530198069219,42.486566600719073 -72.394375731402818,42.48652080071912 -72.394344998069528,42.486063600719824 -72.394159598069791,42.485743467387003 -72.394097798069879,42.485469200720722 -72.393449198070925,42.484028867389668 -72.393325798071089,42.482520000725337 -72.393202131404621,42.482222800725815 -72.392646198072157,42.481834200726382 -72.391627131407063,42.481285600727233 -72.390947531408131,42.480782667394685 -72.390947598074774,42.479914000729359 -72.390700598075171,42.478770867397827 -72.390978598074753,42.476896200734075 -72.390546331408757,42.475958800735498 -72.390422798075576,42.474587200737631 -72.389928598076381,42.47371840073901 -72.389588931410231,42.473375400739542 -72.389249131410736,42.472529600740813 -72.38816833141243,42.471500800742426 -72.388013998079316,42.471157867409659 -72.38844613141201,42.470517667410604</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>166174651</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">166174651</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.925</SimpleData>
+		<SimpleData name="REACHCODE">01080204000545</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.0091940623</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.400215531393712,42.50009786736473 -72.399844731394282,42.499620267365458 -72.398825131395881,42.498866000699934 -72.397558331397875,42.498111667367823 -72.396384131399657,42.497265867369087 -72.39505533140175,42.494271067373745 -72.394896398068667,42.493159067375473</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7687645</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7687645</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.848</SimpleData>
+		<SimpleData name="REACHCODE">01080204000545</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46003</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00776063386</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.41128199804325,42.515505600674146 -72.411312531376495,42.51465966734213 -72.411250598043296,42.514339667342597 -72.411157531376773,42.51367680067699 -72.410971598043702,42.512922267344834 -72.410878931377169,42.512876667344869 -72.410321931378064,42.511550867346948 -72.410321731378076,42.511299400680684 -72.410136131378337,42.510910800681238 -72.410074331378439,42.510728000681524 -72.409981531378605,42.510682200681629 -72.409919531378648,42.510316400682193 -72.409826798045458,42.510247867348937 -72.409671998045724,42.509859200682911 -72.40957833137918,42.508144600685569</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7690031</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7690031</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">3.386</SimpleData>
+		<SimpleData name="REACHCODE">01080204000546</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.03352154548</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.3655593314475,42.484873267388366 -72.365590331447493,42.484187467389404 -72.365806731447151,42.483547267390406 -72.366949998112034,42.481924400726257 -72.36738279811135,42.480918467394474 -72.368124198110195,42.480049867395849 -72.368495131442955,42.479021067397412 -72.36846453144301,42.477969467399078 -72.368001731443712,42.476026200735411 -72.368063931443658,42.474403000737929 -72.368311731443271,42.472094000741492 -72.368219931443377,42.468916267413135 -72.368652598109392,42.467498800748672 -72.368776331442518,42.466630067416645 -72.369116198108657,42.465921400751085 -72.372235198103837,42.463955600754154 -72.373161531435755,42.463658467421283 -72.374489331433665,42.463658600754627 -72.375168598099265,42.463613067421363 -72.375662731431873,42.463453000754953 -72.378287398094415,42.461807200757505 -72.378688731427133,42.461212800758403 -72.379121131426473,42.460801267425722 -72.379769531425495,42.460572600759406 -72.381004598090215,42.460549800759452</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7687785</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7687785</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.803</SimpleData>
+		<SimpleData name="REACHCODE">01080204000549</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">7687579</SimpleData>
+		<SimpleData name="FTYPE">ArtificialPath</SimpleData>
+		<SimpleData name="FCODE">55800</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00730552289</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.37833939809434,42.511167600680892 -72.376392531430724,42.504126267358458</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7687675</name>
+	<description>West Branch Swift River</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7687675</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="GNIS_ID">609620</SimpleData>
+		<SimpleData name="GNIS_NAME">West Branch Swift River</SimpleData>
+		<SimpleData name="LENGTHKM">3.522</SimpleData>
+		<SimpleData name="REACHCODE">01080204000550</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.03223417453</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.391354131407454,42.532702267314107 -72.391230398074356,42.532359400647977 -72.391137598074465,42.532313600648017 -72.390921131408163,42.531787867315529 -72.390859198074907,42.531467867315989 -72.390766331408429,42.531033467316718 -72.390766198075085,42.530393267317663 -72.390827998074982,42.530050400651533 -72.3909509980748,42.528221467321089 -72.391136198074491,42.526689667323467 -72.391135531407812,42.523671867328119 -72.391042531407948,42.523123267328963 -72.390949798074743,42.523031867329109 -72.390856998074923,42.522528867329918 -72.391289398074264,42.521500000664844 -72.391320198074197,42.520951400665695 -72.391196398074385,42.520219800666837 -72.391350798074129,42.519762467334203 -72.391628731407081,42.519122400668493 -72.391937531406597,42.518230667336582 -72.392277331406035,42.517681867337437 -72.393420598070975,42.516904467338634 -72.393883998070237,42.516310000672881 -72.394069198069928,42.515807000673639 -72.395025731401802,42.511211667347482 -72.395118198068303,42.510480067348624 -72.395148798068249,42.509474067350141 -72.39542619806781,42.507142200687099 -72.39548773140109,42.506273400688485 -72.395147198068287,42.504833067357367 -72.394899998068638,42.504284467358218 -72.394868931402016,42.503735800692425 -72.394961398068574,42.503415667359548 -72.395177598068244,42.503095600693371 -72.395424531401133,42.502455400694373 -72.395486198067772,42.502158200694851</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>166174653</name>
+	<description>West Branch Swift River</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">166174653</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="GNIS_ID">609620</SimpleData>
+		<SimpleData name="GNIS_NAME">West Branch Swift River</SimpleData>
+		<SimpleData name="LENGTHKM">0.063</SimpleData>
+		<SimpleData name="REACHCODE">01080204000550</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">7687589</SimpleData>
+		<SimpleData name="FTYPE">ArtificialPath</SimpleData>
+		<SimpleData name="FCODE">55800</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00057304131</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.395486198067772,42.502158200694851 -72.395412598067878,42.502010467361742 -72.395363864734563,42.501729334028823 -72.395343731401283,42.501608334029015</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7687783</name>
+	<description>West Branch Swift River</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7687783</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="GNIS_ID">609620</SimpleData>
+		<SimpleData name="GNIS_NAME">West Branch Swift River</SimpleData>
+		<SimpleData name="LENGTHKM">0.445</SimpleData>
+		<SimpleData name="REACHCODE">01080204000551</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">7687555</SimpleData>
+		<SimpleData name="FTYPE">ArtificialPath</SimpleData>
+		<SimpleData name="FCODE">55800</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00397905908</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.391262331407631,42.536680267307929 -72.391354131407454,42.532702267314107</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7690019</name>
+	<description>Rocky Run</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7690019</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="GNIS_ID">609214</SimpleData>
+		<SimpleData name="GNIS_NAME">Rocky Run</SimpleData>
+		<SimpleData name="LENGTHKM">2.841</SimpleData>
+		<SimpleData name="REACHCODE">01080204000552</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.02909414985</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.406394131384161,42.489262867381512 -72.406238931384394,42.487022267384987 -72.406022398051377,42.48645080071924 -72.405651731385319,42.486016467386548 -72.404724798053394,42.485285067387679 -72.404415731387189,42.484782200721838 -72.404415731387189,42.484530600722216 -72.404322998053999,42.484462200722305 -72.404044731387785,42.483204800724252 -72.404044398054452,42.481901667392947 -72.40376593138825,42.480735800728098 -72.403642398055069,42.480575667395037 -72.403332998055575,42.478609600731367 -72.403085931389285,42.478312400731845 -72.402189998057338,42.477443800733226 -72.400676398059716,42.476415200734834 -72.398853998062521,42.475020800736957 -72.398267131396778,42.474792267403984 -72.397093531398582,42.47483806740393 -72.396444998066272,42.474541000737702 -72.394313798069547,42.473352400739543 -72.392769731405281,42.472346600741105 -72.392121131406313,42.47207226740823 -72.391812331406754,42.472049400741582 -72.391071131407955,42.472255200741245 -72.390391731409011,42.471935200741768 -72.390021131409583,42.471683667408797 -72.389125531410969,42.470769200743568 -72.38844613141201,42.470517667410604</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7691365</name>
+	<description>Camel Brook</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7691365</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="GNIS_ID">609131</SimpleData>
+		<SimpleData name="GNIS_NAME">Camel Brook</SimpleData>
+		<SimpleData name="LENGTHKM">2.654</SimpleData>
+		<SimpleData name="REACHCODE">01080204000553</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46003</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.0283251571</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.403176198055789,42.469944800744827 -72.403206598055746,42.468595867413626 -72.403020998056036,42.467361400748871 -72.402928331389546,42.466995600749442 -72.402279598057191,42.466287000750519 -72.400858998059391,42.46532700075204 -72.399747198061107,42.464915600752647 -72.398203398063515,42.464893000752681 -72.397709198064319,42.464710200752961 -72.397307798064901,42.46439006742014 -72.397184131398433,42.464001400754057 -72.396998931398741,42.463658600754627 -72.395331331401337,42.462492800756422 -72.394713598068961,42.461829800757471 -72.394373931402797,42.461304000758275 -72.39357113140403,42.460549600759407 -72.393076998071479,42.460366667426399 -72.392521198072359,42.459978067427016 -72.391008198074701,42.45897220076187 -72.390081931409441,42.458743667428905 -72.389680531410079,42.458515067429232 -72.388414531412081,42.458103667429896 -72.38705613141417,42.457966467430083 -72.386562131414891,42.457829400763671 -72.386160731415544,42.45748646743084 -72.385790198082816,42.456709200765374 -72.38511099808386,42.456046067433078 -72.384586198084662,42.455268800767605 -72.383906931419062,42.454903000768176 -72.383165931420194,42.454857267434932 -72.382208931421701,42.454560067435409</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7691351</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7691351</SimpleData>
+		<SimpleData name="FDATE">1999-09-06</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">4.366</SimpleData>
+		<SimpleData name="REACHCODE">01080204000880</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.04049298653</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.379670198092299,42.500090600698059 -72.379701198092221,42.499255200699331 -72.381091798090097,42.496854667369746 -72.381277198089776,42.495848800704657 -72.381679131422516,42.494842867372881 -72.382297198088224,42.492808200709362 -72.38232833142149,42.492305200710121 -72.382204731421666,42.491962267377346 -72.382235998088333,42.489699000714211 -72.381742131422413,42.488281400716403 -72.381248131423149,42.487321200717872 -72.380970331423612,42.486361000719398 -72.38084713142382,42.484966400721532 -72.380847598090426,42.483206067390938 -72.381063931423455,42.482794600724894 -72.381342131423025,42.480897067394494 -72.381126198090044,42.479753867396305 -72.381095731423386,42.478153600732128 -72.380817798090504,42.477696267399494 -72.380787198090559,42.476278867401668 -72.381373998089657,42.476118867401908 -72.381713798089095,42.475067200736873 -72.381683131422506,42.474015600738532 -72.38159053142266,42.473969800738587 -72.381590398089315,42.473581267405848 -72.381435998089557,42.473124000739908 -72.381405331422911,42.47268966740728 -72.382177331421758,42.471866667408563 -72.382362598088093,42.471615200742235 -72.382424331421362,42.471135067409648 -72.382424398088006,42.471043600743144 -72.381806931422318,42.470129200744566 -72.381528998089436,42.469580400745421 -72.381312998089754,42.467454200748705 -72.380726331423986,42.46663120074998 -72.380633731424155,42.466334000750457 -72.380788198090556,42.465762400751316 -72.381560131422702,42.465419467418542 -72.38174533142238,42.465236600752178 -72.38174533142238,42.464688000753029 -72.381652731422548,42.464619400753122 -72.381683598089182,42.464436467420057 -72.381436598089579,42.464093467420582 -72.381374931422954,42.46363620075465 -72.381776331422373,42.463384800755016 -72.382023331421976,42.463064667422195</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7687683</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7687683</SimpleData>
+		<SimpleData name="FDATE">2001-01-17</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.57</SimpleData>
+		<SimpleData name="REACHCODE">01080204000881</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00577186069</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.376392531430724,42.504126267358458 -72.37630019809751,42.503371800692946 -72.376423931430679,42.503029000693516 -72.376671331430259,42.502686067360685 -72.377660798095405,42.501954467361827 -72.378588198093951,42.501657267362305 -72.379082798093179,42.501360000696074 -72.379330331426161,42.501085667363157 -72.379608398092387,42.50060560069727 -72.379670198092299,42.500090600698059</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>166174648</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">166174648</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.157</SimpleData>
+		<SimpleData name="REACHCODE">01080204005193</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">7687589</SimpleData>
+		<SimpleData name="FTYPE">ArtificialPath</SimpleData>
+		<SimpleData name="FCODE">55800</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00145830788</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.395343731401283,42.501608334029015 -72.395310131401345,42.501238734029585 -72.395249664734763,42.501104334029833 -72.395226398068132,42.501002667363309 -72.394850464735384,42.500302200697718 -72.394838931402077,42.500263334031104</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>166174649</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">166174649</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.867</SimpleData>
+		<SimpleData name="REACHCODE">01080204005194</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46006</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00819330589</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.394838931402077,42.500263334031104 -72.394625198069093,42.49959786736548 -72.39446339806932,42.499049400699676 -72.39430519806956,42.498677600700262 -72.394420398069371,42.498410200700675 -72.393645798070608,42.497383000702257 -72.393478731404173,42.496570667370179 -72.393644998070599,42.495842067371314 -72.39395573140348,42.494803200706258 -72.393913798070173,42.494208734040512 -72.393873931403562,42.493723867374626 -72.394109864736549,42.493457400708337 -72.394875398068677,42.493163867375472 -72.394896398068667,42.493159067375473</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>7687685</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">7687685</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.513</SimpleData>
+		<SimpleData name="REACHCODE">01080204005236</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">0</SimpleData>
+		<SimpleData name="FTYPE">StreamRiver</SimpleData>
+		<SimpleData name="FCODE">46003</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00554390212</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.390418598075598,42.500094800698037 -72.390573331408675,42.500215800697845 -72.391870931406686,42.500375600697623 -72.39211799807299,42.50044420069753 -72.392612531405518,42.500924200696772 -72.392735998071998,42.501084200696539 -72.392766998071963,42.501244200696242 -72.393076331404814,42.501770000695444 -72.393477998070864,42.502090000694977 -72.393910531403549,42.502067067361679 -72.394312131402899,42.501838400695362 -72.39449733140259,42.501495467362531 -72.394775331402172,42.501335400696114</coordinates></LineString>
+  </Placemark>
+  <Placemark>
+	<name>166174652</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#NHDplusFlowlines">
+		<SimpleData name="COMID">166174652</SimpleData>
+		<SimpleData name="FDATE">2008-07-21</SimpleData>
+		<SimpleData name="RESOLUTION">Medium</SimpleData>
+		<SimpleData name="LENGTHKM">0.056</SimpleData>
+		<SimpleData name="REACHCODE">01080204005237</SimpleData>
+		<SimpleData name="FLOWDIR">With Digitized</SimpleData>
+		<SimpleData name="WBAREACOMI">7687589</SimpleData>
+		<SimpleData name="FTYPE">ArtificialPath</SimpleData>
+		<SimpleData name="FCODE">55800</SimpleData>
+		<SimpleData name="SHAPE_LENG">0.00063319506</SimpleData>
+		<SimpleData name="ENABLED">True</SimpleData>
+		<SimpleData name="GNIS_NBR">0</SimpleData>
+	</SchemaData></ExtendedData>
+      <LineString><coordinates>-72.394775331402172,42.501335400696114 -72.394847798068724,42.501349667362774 -72.395343731401283,42.501608334029015</coordinates></LineString>
+  </Placemark>
+</Folder></Document></kml>
