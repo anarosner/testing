@@ -15,12 +15,12 @@
 # save basin shape as Catch.shape, name used in Austin & Kyle's script
 Catch.shape<-basin.shape
 # load shapefile of points, in metdata directory
-setwd(paste0(args$datadir,"/climate_data"))
+setwd(paste0(args$data_dir,"/climate_data"))
 VIC.shape<-readShapePoints("VIC_Grid")
 #temporarily, set to metdata directory in Austin's directory,
 #until it is moved to the correct place in node.js
-met.dir<-paste0(args$datadir,"/climate_data/east")
-this.basin.dir<-paste0(args$basindir,"/",featureID)
+met.dir<-paste0(args$data_dir,"/climate_data/east")
+this.basin.dir<-paste0(args$basin_dir,"/",featureID)
 
 
 ##Get polygons and aggregate data

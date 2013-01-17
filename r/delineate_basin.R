@@ -1,9 +1,6 @@
 #!/usr/bin/env Rscript
+
 # print("starting basin delineation script 1-11")
-
-# setwd("../..")
-# basedir<-getwd()
-
 
 
 library(sp)
@@ -20,8 +17,7 @@ library(rjson)
       args<-testingargs
    }
 }
-# args<-list(lat=42.491991,long=-72.639097)
-# args<-fromJSON( commandArgs(trailingOnly = TRUE) )
+
 
 lat<-args$lat
 long<-args$long
@@ -34,8 +30,8 @@ output_type<-"both"
 
 #load huc 8 outlines
 proj4.NHD<-"+proj=longlat +ellps=GRS80 +datum=NAD83 +no_defs"
-thisdir<-getwd()
-setwd(paste0(args$datadir,"/spatial_data"))
+this_dir<-getwd()
+setwd(paste0(args$data_dir,"/spatial_data"))
 HUC_8<-readShapePoly("HUC_8",proj4string=CRS(proj4.NHD))
 
 #create spatialpoint object from coordinates (coordinates are listed in the order long, lat)
@@ -55,7 +51,7 @@ featureID<-over(point,catchments)$FEATUREID
 
 #if basin has already been delimited above that feature, return the ID and do not recreate file
 # setwd(paste0(basedir,"/basins/"))
-setwd(args$basindir)
+setwd(args$basin_dir)
 {
 if (file.exists(as.character(featureID))) {
    #       setwd(savedwd)
@@ -66,7 +62,7 @@ if (file.exists(as.character(featureID))) {
 else {
    
       #    setwd(paste0(basedir,"/spatial_data/"))
-   setwd(paste0(args$datadir,"/spatial_data"))   
+   setwd(paste0(args$data_dir,"/spatial_data"))   
    
    #checks to see if selected main river, upstream of which would be a basin too big to work with
    largefeatures<-read.csv("LargeFeatures.csv")
@@ -113,9 +109,9 @@ else {
 
       #create directory for new basin
       #       setwd(paste0(basedir,"/basins/"))
-      setwd(args$basindir)
+      setwd(args$basin_dir)
       dir.create(as.character(featureID))
-      setwd(paste0(args$basindir,"/",featureID))
+      setwd(paste0(args$basin_dir,"/",featureID))
       
       #export spatial files of basin outline and flowlines
       if (output_type=="kml" | output_type=="both") {         
@@ -125,7 +121,7 @@ else {
          kml.hack<-gsub("ff0000ff", "CC000099", kml.hack, ignore.case =T)
          writeLines(kml.hack,"BasinOutline.kml")
          kml.hack2 <- readLines("NHDplusFlowlines.kml")
-         kml.hack2<-gsub("ff0000ff", "E5001BCC", kml.hack2, ignore.case =T)
+         kml.hack2<-gsub("ff0000ff", "CCCC9966", kml.hack2, ignore.case =T)
          writeLines(kml.hack2,"NHDplusFlowlines.kml")   
          #          writeOGR(stream.line,  "NHDplusFlowlines.kml", layer="NHDplusFlowlines", driver="KML",dataset_options=c("NameField=COMID","DescriptionField=GNIS_NAME"))   
       }
@@ -146,7 +142,7 @@ else {
             
       ### Call script to aggregate met data for basin
       #       setwd(paste0(basedir,"/r/models"))      
-      source(paste0(thisdir,"/supporting_scripts/basin_get_met_data.R"))   
+      source(paste0(this_dir,"/supporting_scripts/basin_get_met_data.R"))   
       
       ### draw image of basin outline and flowlines, and save to svg file in basin directory
       svg("basin.svg",width=6,height=6)
