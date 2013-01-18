@@ -1,9 +1,7 @@
 #!/usr/bin/env Rscript
 print("starting stream flow script")
-setwd("../..")
-basedir<-getwd()
-setwd(paste0(basedir,"/r/scripts"))
-source("param_startup.R")
+this_dir<-getwd()
+source("./supporting_scripts/param_startup.R")
 
 
 #This code will need to recieve:
@@ -22,15 +20,7 @@ source("param_startup.R")
 ############How to Run Script from command line!########################################
 #as a default, run this script with the following arguments: '/home/austin/temp/ 0 52' 
 
-# directory <- "/home/austin/temp/"
-# run_option <- 0
-
-# #Set working directory for this instance/session
-# directory <- args[1]
-# run_option <- args[2]
-
-# setwd("/home/node.js/rscripts/")
-setwd(paste0(basedir,"/r/models/"))
+setwd(paste0(data_dir,"/flow_data/"))
 GCMDays <- read.table("Days_For_ABCDE_GCM.txt",header=TRUE)
 
 #Read in weather generated from Climate Code
@@ -49,7 +39,8 @@ parameters <- c(0.934, 350.2514, 0.0000014, 0.62498, 0.4623, -0.7021, 9.9952) #S
 #parameters <- c(0.965,300,0.15,0.8,0.4,-0.5,15) #Bayes eyeball
 } else{
 #basin_area <- args[3]
-basin_area<-parse.param("basin_area")
+basin_param<-fromJSON(file=paste0(basin_dir,"/",basin_id,"/param.json"))
+basin_area<-basin_param$area
 ###NEED TO FINISH
 ###Parameter Selection Part Will Go Here
 parameters <- c(0.934, 350.2514, 0.0000014, 0.62498, 0.4623, -0.7021, 9.9952) #SCE
@@ -163,6 +154,9 @@ agg <-list(season.flow[,2],season.flow[,4])
 tmp <- aggregate(season.flow,agg,mean)
 seas.final <- cbind(tmp[order(tmp$Group.1,tmp$Group.2),1],tmp[order(tmp$Group.1,tmp$Group.2),2],tmp[order(tmp$Group.1,tmp$Group.2),5])
 write.table(seas.final,"Seasonal_Streamflow.txt",row.names=FALSE,quote=FALSE,col.names=FALSE)
+seas.final2<-data.frame(seas.final)
+names(seas.final2)<-c("year","season","flow")
+write.csv(seas.final2,"seasonal_streamflow.csv",row.names = FALSE,col.names = TRUE,quote=FALSE)
 
 mon.stoc <- aggregate(stocflow.cfs,list(stoc.weather$MONTH),mean)
 mon.hist <- aggregate(histflow.cfs,list(hist.weather$MONTH),mean)
@@ -175,6 +169,3 @@ plot(seq(from=1,to=12,by=1),mon.hist[,2],col="black",type="b",pch=1,ylim=c(0,max
 lines(seq(from=1,to=12,by=1),mon.stoc[,2],col="red")
 legend("topright", c("Stochastic/User Defined Climate", "Historic Climate"),col=c("red","black"),pch=c(-1,1),lwd=c(1,1),lty=c(1,1))
 dev.off()
-
-#set wd to where it was before this script was called
-setwd(paste0(basedir,"/r/models"))
