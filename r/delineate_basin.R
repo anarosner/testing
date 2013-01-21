@@ -76,9 +76,10 @@ else {
       #read in flowlines for the huc this feature is in
       #and the plusflow table, indicating feature connections
       flowlines<-readShapeLines(paste0(selected.huc,"Flowlines"),proj4string=CRS(proj4.NHD))   
+
       plusflow<-read.csv("PlusFlow.csv")
-      #       print("read flowlines")
-      
+
+     
       #iteratively select all features upstream of user chosen feature
       segments<-c() #list of flowline segments to save
       queue<-c(featureID) #queue of flowline segments that need to be traced upstream                 
@@ -120,10 +121,12 @@ else {
          kml.hack <- readLines("BasinOutline.kml")
          kml.hack<-gsub("ff0000ff", "CC000099", kml.hack, ignore.case =T)
          writeLines(kml.hack,"BasinOutline.kml")
+
          kml.hack2 <- readLines("NHDplusFlowlines.kml")
          kml.hack2<-gsub("ff0000ff", "CCCC9966", kml.hack2, ignore.case =T)
          writeLines(kml.hack2,"NHDplusFlowlines.kml")   
          #          writeOGR(stream.line,  "NHDplusFlowlines.kml", layer="NHDplusFlowlines", driver="KML",dataset_options=c("NameField=COMID","DescriptionField=GNIS_NAME"))   
+
       }
       if (output_type=="shapefile" | output_type=="both") {               
          writeOGR(basin.shape,  ".", layer="BasinOutline", driver="ESRI Shapefile")
@@ -149,7 +152,6 @@ else {
       	plot(basin.shape,bg="gray90",col="cornsilk3",border="cornsilk4")
       	plot(stream.line,add=T,col="blue")
       dev.off()
-
       #print featureID to "return" it to the web app
       print(paste0("featureID: ",featureID))
       

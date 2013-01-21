@@ -1,96 +1,120 @@
 #!/usr/bin/env Rscript
 print("starting weather generator script")
-setwd("../..")
-basedir<-getwd()
-setwd(paste0(basedir,"/r/scripts"))
-source("param_startup.R")
+
+this_dir<-getwd()
+source("./supporting_scripts/param_startup.R")
 
 library(MASS)
 
 #This code will need to recieve:
-#1) Directory for data I/O operations
-#2) Option indicating Westbrook Example (0) or Any Basin (1)
-#3) Three arguments for changes to: 1) mean prcp, 2) var prcp, and 3)mean temp
-#4) Basin Coordinates
-#This script recieves them from the website as whole numbers that are divided to create percentages that are them added to one for the prcp, and
-#as a whole number for mean temp change
 
-         #old 
-         ############How to Run Script from command line!########################################
-         #as a default, run this script with the following arguments: '/home/austin/temp/ 0 0 0 0 -72.733087 42.394229' 
-         #Receive input from user, this should contain 1) working directory, 2) Lat Long, and 3) Model Parms
-         # args <- commandArgs(TRUE)
-         # directory <- args[1]
+# -Option indicating Westbrook Example (0) or Any Basin (1)
+# -basin id
+# -Changes at year 0 and year n, for 
+#   1) mean prcp
+#   2) var prcp
+#   3)mean temp
+#   (This script recieves change as percentages up or down from current.  Divide by 100 & add 1 to convert.
+
+# params from json file
+#   basin_id
+#   precip_mean_y1
+#   precip_mean_yn
+#   precip_var_y1
+#   precip_var_yn
+#   temp_mean_y1
+#   temp_mean_yn
+#   n_years
 
 
+num_year_sim <- 81
+# num_year_sim <- parse.param("n_years")
 
-mean_prcp_change_percent <- 1 + parse.param("change_precip_mean")/100
-# mean_prcp_change_percent <- 1 + as.numeric(args[3])/100
-var_prcp_change_percent <- 1 + parse.param("change_precip_var")/100
-# var_prcp_change_percent <- 1 + as.numeric(args[4])/100
-mean_temp_change_celsius <- parse.param("change_airtemp_mean")
-# mean_temp_change_celsius <- as.numeric(args[5])
-metdata <- paste0(basedir,parse.param("met_dir")) 
-# metdata <- "/home/austin/DailyMets/"
 
-#Use these to test script actually working
-#directory <- "/home/austin/temp/"
-#run_option <- 0
-#mean_prcp_change_percent <- 1
-#var_prcp_change_percent <- 1
-#mean_temp_change_celsius <- 0
-#metdata <- "/home/austin/DailyMets/"
+#*
+# mean_prcp_change_percent <- mu_prcp
+# var_prcp_change_percent <- var_prcp
+# mean_temp_change_celsius <- mu_temp
+#*
 
-#Stochastoc Weather Generator Options - These could be allowed to change later
+precip_mean_y1 <- parse.param("precip_mean_y1")/100 + 1
+precip_mean_yn <- parse.param("precip_mean_yn")/100 + 1
+precip_var_y1 <- parse.param("precip_var_y1")/100 + 1
+precip_var_yn <- parse.param("precip_var_yn")/100 + 1
+temp_mean_y1 <- parse.param("temp_mean_y1")/100 + 1
+temp_mean_yn <- parse.param("temp_mean_yn")/100 + 1
+
+mean_prcp_change_percent2 <- seq(precip_mean_y1,precip_mean_yn,length.out=num_year_sim)
+var_prcp_change_percent2 <- seq(precip_var_y1,precip_var_yn,length.out=num_year_sim)
+mean_temp_change_celsius2 <- seq(temp_mean_y1,temp_mean_yn,length.out=num_year_sim)
+      
+      # scott's code
+      # mean_prcp_change_percent2 <- seq(1,mean_prcp_change_percent,length.out=num_year_sim)
+      # var_prcp_change_percent2 <- seq(1,var_prcp_change_percent,length.out=num_year_sim)
+      # mean_temp_change_celsius2 <- seq(0,mean_temp_change_celsius,length.out=SIM_LENGTH)
+      #                                   changed SIM_LENGTH to num_year_sim
+
+#Stochastoc Weather Generator Options 
 num_year_sim <- parse.param("nyears")
 #num_year_sim <- 81 
 thresh <- parse.param("wet_threshold")
-#thresh <- 0    #0 mm is threshold for a day to be considered as rain
 
+        # thresh <- 0    #0 mm is threshold for a day to be considered as rain
+        # basin_id <- parse.param("basin_id")
+        
+        # Stoc.Weather(mean_prcp_change_percent2,var_prcp_change_percent2,mean_temp_change_celsius2,run_dir)
+        
+        # Stoc.Weather <- function(mu_prcp,var_prcp,mu_temp,directory)
 
-##########################################################################################################################################################################################
+        ##########################################################################################################################################################################################
 
-#Here we need to do some work regarding whether the option is for Westbrook or for any basin...
-#If westbrook is chosen then read in predefined data
-#Else read in list of coords encompassed by user defined basin
-if (run_option == 0) {
-basin_coords <- c(-72.733087,42.394229)
-setwd(metdata)
-filenames <- "data_42.4375_-72.6875"
-num_site <- 1
-DATA <- read.table(filenames,header=FALSE)
-setwd(directory)
-} else {
-   basin_coords <- c(parse.param("long"),parse.param("lat"))
-   #basin_coords <- c(args[6],args[7])
-   setwd(directory)
-filenames <- read.table("coords_list.txt")
-num_site <- length(filenames)
-DATA <- read.table(filenames[1],header=FALSE)
-}
+        # #Here we need to do some work regarding whether the option is for Westbrook or for any basin...
+        # #If westbrook is chosen then read in predefined data
+        # #Else read in list of coords encompassed by user defined basin
+        # if (run_option == 0) {
+        # basin_coords <- c(-72.733087,42.394229)
+        # setwd(metdata)
+        # filenames <- "data_42.4375_-72.6875"
+        # num_site <- 1
+        # DATA <- read.table(filenames,header=FALSE)
+        # setwd(directory)
+        # } else {
+        #    basin_coords <- c(parse.param("long"),parse.param("lat"))
+        #    #basin_coords <- c(args[6],args[7])
+        #    setwd(directory)
+        # filenames <- read.table("coords_list.txt")
+        # num_site <- length(filenames)
+        # DATA <- read.table(filenames[1],header=FALSE)
+        # }
+        # 
+        # setwd(metdata)
+        # SITE_PRCP <- array(NA,c(dim(DATA)[1],num_site))
+        # SITE_TMAX <- array(NA,c(dim(DATA)[1],num_site))
+        # SITE_TMIN <- array(NA,c(dim(DATA)[1],num_site))
+        # SITE_TEMP <- array(NA,c(dim(DATA)[1],num_site))
+        # SITE_WIND <- array(NA,c(dim(DATA)[1],num_site))
+        # 
+        # for (i in 1:num_site) {	
+        # 	CUR_SITE_DATA <- read.table(filenames[i],header=FALSE)
+        # 	SITE_PRCP[,i] <- CUR_SITE_DATA[,4]
+        # 	SITE_TMAX[,i] <- CUR_SITE_DATA[,5]
+        # 	SITE_TMIN[,i] <- CUR_SITE_DATA[,6]
+        # 	SITE_TEMP[,i] <- (CUR_SITE_DATA[,5] +  CUR_SITE_DATA[,6])/2
+        # 	SITE_WIND[,i] <- CUR_SITE_DATA[,7]	
+        # }
+        # 
+        # DATA[,4] <- apply(SITE_PRCP,1,median)
+        # DATA[,5] <- apply(SITE_TMAX,1,mean)
+        # DATA[,6] <- apply(SITE_TMIN,1,mean)
+        # DATA[,7] <- apply(SITE_WIND,1,mean)
+        # 
+        # colnames(DATA) <- c("YEAR","MONTH","DAY","PRCP","TMAX","TMIN","WIND")
 
-setwd(metdata)
-SITE_PRCP <- array(NA,c(dim(DATA)[1],num_site))
-SITE_TMAX <- array(NA,c(dim(DATA)[1],num_site))
-SITE_TMIN <- array(NA,c(dim(DATA)[1],num_site))
-SITE_TEMP <- array(NA,c(dim(DATA)[1],num_site))
-SITE_WIND <- array(NA,c(dim(DATA)[1],num_site))
-
-for (i in 1:num_site) {	
-	CUR_SITE_DATA <- read.table(filenames[i],header=FALSE)
-	SITE_PRCP[,i] <- CUR_SITE_DATA[,4]
-	SITE_TMAX[,i] <- CUR_SITE_DATA[,5]
-	SITE_TMIN[,i] <- CUR_SITE_DATA[,6]
-	SITE_TEMP[,i] <- (CUR_SITE_DATA[,5] +  CUR_SITE_DATA[,6])/2
-	SITE_WIND[,i] <- CUR_SITE_DATA[,7]	
-}
-
-DATA[,4] <- apply(SITE_PRCP,1,median)
-DATA[,5] <- apply(SITE_TMAX,1,mean)
-DATA[,6] <- apply(SITE_TMIN,1,mean)
-DATA[,7] <- apply(SITE_WIND,1,mean)
-
+basin_id <- parse.param("basin_id")
+DATA <- read.table(paste0(basin_dir,"/",basin_id,"/met_data.txt"),header=FALSE)
 colnames(DATA) <- c("YEAR","MONTH","DAY","PRCP","TMAX","TMIN","WIND")
+basin_param <- fromJSON(file=paste0(basin_dir,"/",basin_id,"/param.json"))
+BasinLat <- basin_param$lat
 
 YEAR <- DATA[,1]
 MONTH <- DATA[,2]
@@ -222,46 +246,50 @@ for (j in 1:SIM_LENGTH) {
 ###########################################################################################################################################################################
 ############################################################################TIME SERIES ADJUSTMENTS########################################################################
 
+
 #temperature adjustment
-SIM_TEMP_ADJUSTED <- SIM_TEMP + mean_temp_change_celsius
-SIM_TMIN_ADJUSTED <- SIM_TMIN + mean_temp_change_celsius
-SIM_TMAX_ADJUSTED <- SIM_TMAX + mean_temp_change_celsius
+SIM_TEMP_ADJUSTED <- SIM_TEMP + mean_temp_change_celsius2
+SIM_TMIN_ADJUSTED <- SIM_TMIN + mean_temp_change_celsius2
+SIM_TMAX_ADJUSTED <- SIM_TMAX + mean_temp_change_celsius2
 
 
 #precipitation adjustment
 probs <- seq(0.001,.999,by=0.001)
-parameters <- array(NA,c(12,2))
-ratios <- array(NA,c(length(probs),12))
-prcp_distr <- array(NA,c(length(probs),12))
-prcp_distr2 <- array(NA,c(length(probs),12))
+parameters <- array(NA,c(12*num_year_sim,2))
+ratios <- array(NA,c(length(probs),12*num_year_sim))
+prcp_distr <- array(NA,c(length(probs),12*num_year_sim))
+prcp_distr2 <- array(NA,c(length(probs),12*num_year_sim))
 
-for (m in 1:12) {
-	a <- which(MONTH==m & PRCP>thresh)
-	dist1 <- fitdistr(PRCP[a],"gamma")
-	parameters[m,] <- c(dist1$estimate[[1]],dist1$estimate[[2]])
-	prcp_distr[,m] <- qgamma(probs,shape=dist1$estimate[[1]], rate = dist1$estimate[[2]])
-	shp2 <- (mean_prcp_change_percent)^2*dist1$estimate[[1]]/var_prcp_change_percent
-	rate2 <- mean_prcp_change_percent*dist1$estimate[[2]]/var_prcp_change_percent
-	prcp_distr2[,m] <- qgamma(probs,shape=shp2, rate = rate2)
-	ratios[,m] <- prcp_distr2[,m]/prcp_distr[,m]
+for (y in 1:num_year_sim) {
+  for (m in 1:12) {
+    a <- which(MONTH==m & PRCP>thresh)
+    dist1 <- fitdistr(PRCP[a],"gamma")
+    parameters[(12*(y-1)+m),] <- c(dist1$estimate[[1]],dist1$estimate[[2]])
+    prcp_distr[,(12*(y-1)+m)] <- qgamma(probs,shape=dist1$estimate[[1]], rate = dist1$estimate[[2]])
+    shp2 <- (mean_prcp_change_percent2[y])^2*dist1$estimate[[1]]/var_prcp_change_percent2[y]
+    rate2 <- mean_prcp_change_percent2[y]*dist1$estimate[[2]]/var_prcp_change_percent2[y]
+    prcp_distr2[,(12*(y-1)+m)] <- qgamma(probs,shape=shp2, rate = rate2)
+    ratios[,(12*(y-1)+m)] <- prcp_distr2[,(12*(y-1)+m)]/prcp_distr[,(12*(y-1)+m)]
+  }
 }
 
 SIM_PRCP_ADJUSTED <- SIM_PRCP
-for(m in 1:12) {
-	w <- which(SIM_PRCP>thresh & MONTH_SIM==m)
-	for (j in 1:length(w)) {		
-		multiplier <- approx(prcp_distr[,m],ratios[,m],SIM_PRCP[w[j]])$y
-		if (is.na(multiplier)==TRUE) {multiplier <- 1}
-		SIM_PRCP_ADJUSTED[w[j]] <- multiplier*SIM_PRCP[w[j]]
-	}
+for (y in 1:num_year_sim) {
+  for(m in 1:12) {
+    w <- which(SIM_PRCP>thresh & MONTH_SIM==m & YEAR_SIM==(START_YEAR_SIM:END_YEAR_SIM)[y])
+    for (j in 1:length(w)) {		
+      multiplier <- approx(prcp_distr[,(12*(y-1)+m)],ratios[,(12*(y-1)+m)],SIM_PRCP[w[j]])$y
+      if (is.na(multiplier)==TRUE) {multiplier <- 1}
+      SIM_PRCP_ADJUSTED[w[j]] <- multiplier*SIM_PRCP[w[j]]
+    }
+  }
 }
 
 
 #######################################################Do Aggregating of Met Data and Create ET####################################################################
-setwd(paste0(basedir,"/r/models"))
-# setwd("/home/node.js/rscripts/")
+setwd(paste0(this_dir,"/supporting_scripts"))
 source("Hargreaves.R") #This generates ET values and may get moved to the met section
-GCMDays <- read.table("Days_For_ABCDE_GCM.txt",header=TRUE)
+GCMDays <- read.table(paste0(args$data_dir,"/flow_data/Days_For_ABCDE_GCM.txt"),header=TRUE)
 
 FINAL_STOCHASTIC_DAILY <- cbind(YEAR_SIM,MONTH_SIM,DAY_SIM,round(SIM_PRCP_ADJUSTED,2),round(SIM_TMAX_ADJUSTED,2),round(SIM_TMIN_ADJUSTED,2),round(SIM_TEMP_ADJUSTED,2))
 FINAL_STOCHASTIC_MONTHLY1 <- aggregate(FINAL_STOCHASTIC_DAILY[,c(1:2,5:7)],FUN=mean,by=list(FINAL_STOCHASTIC_DAILY[,2],FINAL_STOCHASTIC_DAILY[,1]))[,3:7]
@@ -279,8 +307,8 @@ FINAL_HISTORIC_MONTH2 <- aggregate(DATA[,c(1:2,4)],FUN=sum,by=list(DATA[,2]))[,4
 
 SDIF <- FINAL_STOCHASTIC_MONTHLY1[,3]-FINAL_STOCHASTIC_MONTHLY1[,4]
 HDIF <- FINAL_HISTORIC_MONTHLY1[,3]-FINAL_HISTORIC_MONTHLY1[,4]
-STOC_ET <- Hargreaves(FINAL_STOCHASTIC_MONTHLY1[,5],SDIF,basin_coords[2],GCMDays$Jday[613:1584],GCMDays$Days[613:1584])
-HIST_ET <- Hargreaves(HTAVG,HDIF,basin_coords[2],GCMDays$Jday[1:744],GCMDays$Days[1:744])
+STOC_ET <- Hargreaves(FINAL_STOCHASTIC_MONTHLY1[,5],SDIF,BasinLat,GCMDays$Jday[613:1584],GCMDays$Days[613:1584])
+HIST_ET <- Hargreaves(HTAVG,HDIF,BasinLat,GCMDays$Jday[1:744],GCMDays$Days[1:744])
 
 FINAL_STOCHASTIC_MONTHLY <- cbind(FINAL_STOCHASTIC_MONTHLY1[,1:2],round(FINAL_STOCHASTIC_MONTHLY2,2),round(FINAL_STOCHASTIC_MONTHLY1[,3:5],2),round(STOC_ET,2),round(SDIF,2))
 FINAL_STOCHASTIC_MONTH <- cbind(FINAL_STOCHASTIC_MONTH1[,1],round(FINAL_STOCHASTIC_MONTH2,2),round(FINAL_STOCHASTIC_MONTH1[,2:4],2))
@@ -312,15 +340,25 @@ min.y.t <- min(FINAL_HISTORIC_MONTH[,3],FINAL_STOCHASTIC_MONTH$TAVG)-5
 
 ##Create a image for website
 png(filename="StocWeather.png",width=725, height=575, bg="white")
-op <- par(mfrow=c(2,1))
+par(mfrow=c(2,1))
 plot(FINAL_STOCHASTIC_MONTH$MONTH,FINAL_STOCHASTIC_MONTH$PRCP,col="red",type="b",pch=1,ylim=c(min.y.p,max.y.p),ylab="Precipitation (mm)",xlab="Month",main="Mean Stochastic Weather - Precipitation")
 lines(FINAL_HISTORIC_MONTH[,1],FINAL_HISTORIC_MONTH[,2],col="black")
 legend("topright", c("Stochastic/User Defined Climate", "Historic Climate"),col=c("red","black"),pch=c(-1,1),lwd=c(1,1),lty=c(1,1))
 plot(FINAL_STOCHASTIC_MONTH$MONTH,FINAL_STOCHASTIC_MONTH$TAVG,col="red",type="b",pch=1,ylim=c(min.y.t,max.y.t),ylab="Temperature (C)",xlab="Month",main="Mean Stochastic Weather - Temperature")
 lines(FINAL_HISTORIC_MONTH[,1],FINAL_HISTORIC_MONTH[,3],col="black")
 legend("topright", c("Stochastic/User Defined Climate", "Historic Climate"),col=c("red","black"),pch=c(-1,1),lwd=c(1,1),lty=c(1,1))
-par(op)
 dev.off()
 
-#set wd to where it was before this script was called
-setwd(paste0(basedir,"/r/models"))
+      # ##Create a image for website
+      # png(filename="StocWeather.png",width=725, height=575, bg="white")
+      # op <- par(mfrow=c(2,2))
+      # plot(FINAL_STOCHASTIC_MONTH$MONTH,FINAL_STOCHASTIC_MONTH$PRCP,col="red",type="b",pch=1,ylim=c(min.y.p,max.y.p),ylab="Precipitation (mm)",xlab="Month",main="Mean Stochastic Weather - Precipitation")
+      # lines(FINAL_HISTORIC_MONTH[,1],FINAL_HISTORIC_MONTH[,2],col="black")
+      # legend("topright", c("Stochastic/User Defined Climate", "Historic Climate"),col=c("red","black"),pch=c(-1,1),lwd=c(1,1),lty=c(1,1))
+      # plot(FINAL_STOCHASTIC_MONTH$MONTH,FINAL_STOCHASTIC_MONTH$TAVG,col="red",type="b",pch=1,ylim=c(min.y.t,max.y.t),ylab="Temperature (C)",xlab="Month",main="Mean Stochastic Weather - Temperature")
+      # lines(FINAL_HISTORIC_MONTH[,1],FINAL_HISTORIC_MONTH[,3],col="black")
+      # legend("topright", c("Stochastic/User Defined Climate", "Historic Climate"),col=c("red","black"),pch=c(-1,1),lwd=c(1,1),lty=c(1,1))
+      # plot(1:length(FINAL_STOCHASTIC_MONTHLY$PRCP),FINAL_STOCHASTIC_MONTHLY$PRCP,type="l")
+      # plot(1:length(FINAL_STOCHASTIC_MONTHLY$PRCP),FINAL_STOCHASTIC_MONTHLY$TAVG,type="l")
+      # par(op)
+      # dev.off()

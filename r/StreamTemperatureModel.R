@@ -1,9 +1,7 @@
 #!/usr/bin/env Rscript
 print("starting stream temperature script")
-setwd("../..")
-basedir<-getwd()
-setwd(paste0(basedir,"/r/scripts"))
-source("param_startup.R")
+this_dir<-getwd()
+source("./supporting_scripts/param_startup.R")
 
 
 #This code will need to recieve:
@@ -91,6 +89,7 @@ lines(seq(from=1,to=12,by=1),mon.tmp[,2],col="red")
 dev.off()
 
 write.table(cbind(tmp[order(tmp$Group.1,tmp$Group.2),1],tmp[order(tmp$Group.1,tmp$Group.2),2],round(mon.final,2)),"seasonal_streamtemp.txt",row.names=FALSE,col.names=FALSE,quote=FALSE)
+seasonal_temp<-data.frame(cbind(tmp[order(tmp$Group.1,tmp$Group.2),1],tmp[order(tmp$Group.1,tmp$Group.2),2],round(mon.final,2)))
+names(seasonal_temp) <- c("year","season","WB","Jimmy","Mitchell","Obear")
+write.csv(seasonal_temp,"seasonal_streamtemp.csv",row.names=FALSE,col.names=TRUE,quote=FALSE)
 
-#set wd to where it was before this script was called
-setwd(paste0(basedir,"/r/models"))
