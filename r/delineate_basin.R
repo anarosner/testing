@@ -149,7 +149,7 @@ else {
       
       ### draw image of basin outline and flowlines, and save to svg file in basin directory
       svg("basin.svg",width=6,height=6)
-      	plot(basin.shape,bg="gray90",col="cornsilk3",border="cornsilk4")
+      	plot(basin.shape,bg="white",col="cornsilk3",border="cornsilk4")
       	plot(stream.line,add=T,col="blue")
       dev.off()
       #print featureID to "return" it to the web app

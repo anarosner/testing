@@ -6,10 +6,10 @@ setwd(paste0(basedir,"/r/scripts"))
 source("param_startup.R")
 setwd(paste0(basedir,"/r/models"))
 
-library(arm)
-library(reshape2)
-library(ggplot2)
-library(gridExtra)
+# library(arm)
+# library(reshape2)
+# library(ggplot2)
+# library(gridExtra)
 
 
 load('IPM/Data/InputData/outSjSurv.RData')

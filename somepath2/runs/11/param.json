@@ -1,0 +1,15 @@
+{
+	"run_dir": "sldfsl",
+	"basin_id": "west_brook",
+	"rscript": "StreamFlowModel",
+
+	"precip_mean_y1": 0,
+	"precip_mean_yn": 0,
+	"precip_var_y1": 0,
+	"precip_var_yn": 0,
+	"temp_mean_y1": 0,
+	"temp_mean_yn": 0,
+	"n_years": 81,
+	
+	"wet_threshold":0
+}

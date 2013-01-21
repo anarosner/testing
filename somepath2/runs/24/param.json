@@ -1,0 +1,9 @@
+{
+	"run_dir": "sldfsl",
+	"basin_id": "6780817",
+	"rscript": "StreamFlowModel",
+	"preceding": {
+		"climate_dir": "C:/Documents/GitHub/testing/somepath2/runs/21"
+	}
+}
+

@@ -55,7 +55,7 @@ mean_temp_change_celsius2 <- seq(temp_mean_y1,temp_mean_yn,length.out=num_year_s
       #                                   changed SIM_LENGTH to num_year_sim
 
 #Stochastoc Weather Generator Options 
-num_year_sim <- parse.param("nyears")
+num_year_sim <- parse.param("n_years")
 #num_year_sim <- 81 
 thresh <- parse.param("wet_threshold")
 
