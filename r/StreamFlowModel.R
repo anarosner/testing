@@ -4,14 +4,14 @@ this_dir<-getwd()
 source("./supporting_scripts/param_startup.R")
 
 
-#This code will need to recieve:
+#This code will need to recieve basin_id, and in the basin folder find:
 # -monthly weather data
 # -Basin Area in sq km
+# -lat and long
 
 
 setwd(paste0(data_dir,"/flow_data/"))
 GCMDays <- read.table("Days_For_ABCDE_GCM.txt",header=TRUE)
-#need parms_web file, then activate this:
 parms <- read.table("Parms_Web.txt",header=TRUE)
 
 #Read in weather generated from Climate Code

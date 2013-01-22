@@ -3,7 +3,8 @@
 	"basin_id": "west_brook",
 	"rscript": "StreamFlowModel",
 	"preceding": {
-		"climate_dir": "C:/Documents/GitHub/testing/somepath2/runs/11"
+		"climate_dir": "/home/ana/testing/somepath2/runs/11",
+		"x_local_climate_dir": "C:/Documents/GitHub/testing/somepath2/runs/11"
 	}
 }
 
