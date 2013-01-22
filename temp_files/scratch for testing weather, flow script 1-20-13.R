@@ -33,20 +33,25 @@ testingargs<-list(basin_dir="C:/Documents/GitHub/testing/somepath/basins",run_di
 source("weather_generator.R")
 
 rm(list=ls())
-setwd("C:/Documents/GitHub/testing/r")
-testingargs<-list(basin_dir="C:/Documents/GitHub/testing/somepath/basins",run_dir="C:/Documents/GitHub/testing/somepath/runs/user1234/run3001",data_dir="C:/Documents/GitHub/testing/somepath/data")
+# setwd("C:/Documents/GitHub/testing/r")
+setwd("C:/ALR/GitHub/testing/r")
+# testingargs<-list(basin_dir="C:/Documents/GitHub/testing/somepath/basins",run_dir="C:/Documents/GitHub/testing/somepath/runs/user1234/run3001",data_dir="C:/Documents/GitHub/testing/somepath/data")
+testingargs<-list(basin_dir="C:/ALR/GitHub/somepath/basins",run_dir="C:/ALR/GitHub/testing/somepath2/runs/11",data_dir="C:/ALR/GitHub/somepath/data")
 source("weather_generator.R")
 
 rm(list=ls())
-setwd("C:/Documents/GitHub/testing/r")
-testingargs<-list(basin_dir="C:/Documents/GitHub/testing/somepath/basins",run_dir="C:/Documents/GitHub/testing/somepath/runs/user1234/run1004",data_dir="C:/Documents/GitHub/testing/somepath/data")
+# setwd("C:/Documents/GitHub/testing/r")
+setwd("C:/ALR/GitHub/testing/r")
+# testingargs<-list(basin_dir="C:/Documents/GitHub/testing/somepath/basins",run_dir="C:/Documents/GitHub/testing/somepath/runs/user1234/run1004",data_dir="C:/Documents/GitHub/testing/somepath/data")
+testingargs<-list(basin_dir="C:/ALR/GitHub/somepath/basins",run_dir="C:/ALR/GitHub/testing/somepath2/runs/12",data_dir="C:/ALR/GitHub/somepath/data")
 source("StreamFlowModel.R")
 
 rm(list=ls())
 setwd("C:/ALR/GitHub/testing/r")
-testingargs<-list(basin_dir="C:/ALR/GitHub/somepath/basin",run_dir="C:/ALR/GitHub/testing/somepath2/runs/16",data_dir="C:/ALR/GitHub/somepath/data")
+testingargs<-list(basin_dir="C:/ALR/GitHub/somepath/basins",run_dir="C:/ALR/GitHub/testing/somepath2/runs/16",data_dir="C:/ALR/GitHub/somepath/data")
 source("WestbrookIPM.R")
 
 
-toJSON(list(basin_dir="/home/ana/testing/somepath/basin",run_dir="/home/ana/testing/somepath2/runs/16",data_dir="/home/ana/testing/somepath/data"))
+toJSON(list(basin_dir="/home/ana/testing/somepath/basins",run_dir="/home/ana/testing/somepath2/runs/16",data_dir="/home/ana/testing/somepath/data"))
+toJSON(list(basin_dir="/home/node.js/basins",run_dir="/home/ana/testing/somepath2/runs/16",data_dir="/home/node.js/data"))
 
