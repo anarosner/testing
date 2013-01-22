@@ -7,13 +7,13 @@ if (EnvVarsFromWeatherGen==T){
 # dir.stoc2 <- paste("/home/austin/WebStuff/Images/",short.dir,"/Seasonal_Streamflow_Westbrook.txt",sep="")
 
 #Read in streamflow generated in preceding run
-setwd(preceding$flow_dir)
-streamFlow <- read.delim("Seasonal_Streamflow.txt", header=F, sep = "",quote="")
+# setwd(preceding$flow_dir)
+streamFlow <- read.delim(paste0(preceding$flow_dir,"/Seasonal_Streamflow.txt"), header=F, sep = "",quote="")
 streamFlow <-as.matrix(streamFlow)
 
 #Read in streamflow generated in preceding run
-setwd(preceding$streamtemp_dir)
-streamTemp <- read.delim("seasonal_streamtemp.txt", header=F, sep = "",quote="")
+# setwd(preceding$streamtemp_dir)
+streamTemp <- read.delim(paste0(preceding$streamtemp_dir,"/seasonal_streamtemp.txt"), header=F, sep = "",quote="")
 streamTemp <-as.matrix(streamTemp)
 
 streamVars <- array(NA,c(324,7))

@@ -3,8 +3,12 @@
 	"basin_id": "west_brook",
 	"rscript": "WestbrookIPM",
 	"preceding": {
-		"flow_dir": "C:/Documents/GitHub/testing/somepath2/runs/14",
-		"streamtemp_dir": "C:/Documents/GitHub/testing/somepath2/runs/15"
+		"flow_dir": "C:/ALR/GitHub/testing/somepath2/runs/14",
+		"streamtemp_dir": "C:/ALR/GitHub/testing/somepath2/runs/15",
+		"laptop_flow_dir": "C:/Documents/GitHub/testing/somepath2/runs/14",
+		"laptop_streamtemp_dir": "C:/Documents/GitHub/testing/somepath2/runs/15",
+		"felek_flow_dir": "/home/ana/testing/somepath2/runs/14",
+		"felek_streamtemp_dir": "/home/ana/testing/somepath2/runs/15"
 	}
 }
 

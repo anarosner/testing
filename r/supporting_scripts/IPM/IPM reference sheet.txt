@@ -10,9 +10,9 @@ _________________________________________________
 WestbrookIPM.R
 X  source('IPM/Code/Scripts/ImportDataAllIters.R')
 X  source("IPM/Code/Scripts/ChooseEnvType.R")
-X  source("IPM/Code/Scripts/Stochastic Analysis.R")
+-  source("IPM/Code/Scripts/Stochastic Analysis.R")
 X  source("IPM/Code/Graphics/Stochastic Weath Gen Means.R")
-X  source("Code/Scripts/IPM Run.R")
+-  source("Code/Scripts/IPM Run.R")
 X  source("Code/Scripts/RiverDims.R")
 X  source("Code/Scripts/Demographic Functions.R")
 X  source("Code/Scripts/Movement.R")                

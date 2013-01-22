@@ -1,5 +1,3 @@
-setwd(paste0(basedir,"/r/models/IPM"))
-
 
 if (splitStreams==T){
   npop <- 1+nIsolatedSmall
@@ -30,16 +28,16 @@ if (zeroCond==T){
 }
 
 
-source("Code/Scripts/CreateResultsMatrices.R")     #Creates arrays to store results
+source(paste0(code_dir,"/Scripts/CreateResultsMatrices.R"))     #Creates arrays to store results
 
 
 beforetime <- Sys.time()
 
 for (pop in 1:npop){
 
-  source("Code/Scripts/RiverDims.R")               #This determines the structure of the KM matrices for each population and is the main script that makes it expandable to different numbers of rivers
-  source("Code/Scripts/Movement.R")                #Creates the movement matrices. Right not is not function of flow or temp, so is outside loops
-  source("Code/Scripts/Demographic Functions.R")
+  source(paste0(code_dir,"/Scripts/RiverDims.R"))               #This determines the structure of the KM matrices for each population and is the main script that makes it expandable to different numbers of rivers
+  source(paste0(code_dir,"/Scripts/Movement.R"))                #Creates the movement matrices. Right not is not function of flow or temp, so is outside loops
+  source(paste0(code_dir,"/Scripts/Demographic Functions.R"))
   
 for (pertriver in 1:nRiver){
   for (firstSeason in 1:nSeason){
@@ -60,20 +58,20 @@ for (pertriver in 1:nRiver){
           demoVariables[pertriver,firstSeason,2] <- tvariables[temppert]
         }
 
-          source("Code/Scripts/ConstCompMatrices.R")
-          source("Code/Scripts/MetaKM.R")
+          source(paste0(code_dir,"/Scripts/ConstCompMatrices.R"))
+          source(paste0(code_dir,"/Scripts/MetaKM.R"))
         
           if (Analytical==F){
-            source("Code/Scripts/EigCalcNumerical.R")
+            source(paste0(code_dir,"/Scripts/EigCalcNumerical.R"))
           }
           if (Analytical==T){
-            source("Code/Scripts/EigCalcAnalytical.R") 
+            source(paste0(code_dir,"/Scripts/EigCalcAnalytical.R")) 
           }   
           
           if (zeroCond==T){
-            source("Code/Scripts/SensElas.R")
-#            source("Code/Scripts/SensVitalRateswithprobrepro.R")
-#            source("Code/Scripts/SensFlowTemp.R")
+            source(paste0(code_dir,"/Scripts/SensElas.R"))
+#            source(paste0(code_dir,"/Scripts/SensVitalRateswithprobrepro.R"))
+#            source(paste0(code_dir,"/Scripts/SensFlowTemp.R"))
           }
           
           #yearly lambda

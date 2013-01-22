@@ -20,7 +20,7 @@ source("./supporting_scripts/param_functions.R")
 
 this_dir <- getwd()
 run_dir<-args$run_dir
-  directory<-args$run_dir #to comply with old code
+   directory<-args$run_dir #to comply with old code
 basin_dir<-args$basin_dir
 data_dir<-args$data_dir
 
@@ -30,6 +30,7 @@ param<-fromJSON(file="param.json")
 setwd(this_dir)
 config<-fromJSON(file=paste0(param$rscript,".json"))
 
+preceding<-param$preceding
 basin_id<-parse.param("basin_id")
     
     # #Westbrook Example (0)
@@ -41,7 +42,7 @@ basin_id<-parse.param("basin_id")
     # 	   run_option <-1
     # }
 
-preceding<-param$preceding
+
 
     # attach(param$preceding)
     # # 

@@ -193,8 +193,8 @@ if (EnvVarsFromWeatherGen==T) {
            demoVariables[,,2] <- t(MeansBySeasonRiverYear[((yr*4)-3):(4*yr),3:6])     
           }
           
-          source("Code/Scripts/ConstCompMatricesAllStreamsStoch.R")
-          source("Code/Scripts/MetaKM.R")
+          source(paste0(code_dir,"/Scripts/ConstCompMatricesAllStreamsStoch.R"))
+          source(paste0(code_dir,"/Scripts/MetaKM.R"))
           
           if (means==F){
 

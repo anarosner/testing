@@ -1,21 +1,21 @@
 #!/usr/bin/env Rscript
-print("starting weather generator script")
-setwd("../..")
-basedir<-getwd()
-setwd(paste0(basedir,"/r/scripts"))
-source("param_startup.R")
-setwd(paste0(basedir,"/r/models"))
+print("starting west brook IPM script")
+source("./supporting_scripts/param_startup.R")
 
 # library(arm)
 # library(reshape2)
 # library(ggplot2)
 # library(gridExtra)
 
+code_dir<-paste0(this_dir,"/supporting_scripts/IPM/Code")
+wbdata_dir<- paste0(data_dir,"/population_data/IPM_westbrook_data/InputData")
+setwd(wbdata_dir)
+load('outSjSurv.RData')
+#load('outPreTagLength.RData')
+load('outPreTagMean.RData')
+load('outMSRiver.RData')
 
-load('IPM/Data/InputData/outSjSurv.RData')
-#load('IPM/Data/InputData/outPreTagLength.RData')
-load('IPM/Data/InputData/outPreTagMean.RData')
-load('IPM/Data/InputData/outMSRiver.RData')
+setwd(run_dir)
 
 
 #============================================================================================#
@@ -74,8 +74,8 @@ for (season in 1:4){
 
 #Current settings for webapp
 #call this script
-source('IPM/Code/Scripts/ImportDataAllIters.R')           #This can be any data, such as those changed by the website
-setwd(paste0(basedir,"/r/models"))
+source(paste0(code_dir,"/Scripts/ImportDataAllIters.R"))           #This can be any data, such as those changed by the website
+
 
 #============================================================================================#
 # (III) Analysis specific controls
@@ -138,10 +138,8 @@ if (zeroCond==T){
 if (stochastic==T){
    #Current settings for webapp
    #call these scripts
-  setwd(paste0(basedir,"/r/models"))
-  source("IPM/Code/Scripts/ChooseEnvType.R")
-  setwd(paste0(basedir,"/r/models"))
-  source("IPM/Code/Scripts/Stochastic Analysis.R")
+  source(paste0(code_dir,"/Scripts/ChooseEnvType.R"))
+  source(paste0(code_dir,"/Scripts/Stochastic Analysis.R"))
   
   stochLambda  
   
@@ -151,31 +149,30 @@ if (EnvVarsFromObsWestBrook==T){
    #Current settings for webapp
    #DO NOT call these scripts
   if (means==T){
-    source("IPM/Code/Graphics/Stochastic ObsWest Means Ad v Recruit.R")
+    source(paste0(code_dir,"/Graphics/Stochastic ObsWest Means Ad v Recruit.R"))
   }
   if (means==F){
-    source("IPM/Code/Graphics/StochLambdawithPosterior.R") 
-    source("IPM/Code/Graphics/Stochastic ObsWest.R")
-    source("IPM/Code/Graphics/QuasiExtinction.R")
+     source(paste0(code_dir,"/Graphics/StochLambdawithPosterior.R"))
+     source(paste0(code_dir,"/Graphics/Stochastic ObsWest.R"))
+     source(paste0(code_dir,"/Graphics/QuasiExtinction.R"))
   }
 }
   
   
  #This part is not yet working
-  #(Is Ron's above note current?)
+  #(Is Ron's above note current? -ALR)
  if (EnvVarsFromWeatherGen==T){ 
    if (means==T){
       #Current settings for webapp
       #Call this script
-      
-   setwd(paste0(basedir,"/r/models"))
-   source("IPM/Code/Graphics/Stochastic Weath Gen Means.R")
+         
+   source(paste0(code_dir,"/Graphics/Stochastic Weath Gen Means.R"))
    }
  }
    
    
   if(EnvVarsRandomDraw==T){
-    source("IPM/Code/Graphics/Stochastic Weath Gen Means.R")
+     source(paste0(code_dir,"/Graphics/Stochastic Weath Gen Means.R"))
   }
   
   
@@ -184,7 +181,6 @@ if (EnvVarsFromObsWestBrook==T){
   if (EnvVarsFromWeatherGen==T){
      #Current settings for webapp
      #Write this file
-     setwd(directory)
      save.image("StochWeatherGen.RData")
 #     save.image("Output/Stochastic/Means with Posterior/StochWeatherGen.RData")
   }
@@ -198,6 +194,3 @@ if (EnvVarsFromObsWestBrook==T){
   } 
   
 }
-
-#set wd to where it was before this script was called
-setwd(paste0(basedir,"/r/models"))

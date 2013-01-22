@@ -1,4 +1,4 @@
-setwd(paste0(basedir,"/r/models/IPM"))
+
 
 
 #============================================================================================#
@@ -21,7 +21,7 @@ if(initialSizeObs==F){
   dimnames(demoVariables) <- list(c(1:4),c("Spring","Summer","Fall","Winter"),c("Flow","Temp"))
   
   ##This runs the basic analysis
-  source("Code/Scripts/IPM Run.R")
+  source(paste0(code_dir,"/Scripts/IPM Run.R"))
   
   
   if (splitStreams==T){
@@ -80,28 +80,29 @@ if (means == T){
 beforetime <- Sys.time()
 for (pop in 1:npop){
   
-  source("Code/Scripts/RiverDims.R")
+  source(paste0(code_dir,"/Scripts/RiverDims.R"))
   
   if (means==F){ 
-  source("Code/Scripts/Demographic Functions All Iters.R")
+  source(paste0(code_dir,"/Scripts/Demographic Functions All Iters.R"))
   for (iter in 1:nIter){
     yr=1
-    source("Code/Scripts/Movement All Iters.R")                
-    source("Code/Scripts/IPM Run All Stream PerturbStoch.R")
+    source(paste0(code_dir,"/Scripts/Movement All Iters.R"))                
+    source(paste0(code_dir,"/Scripts/IPM Run All Stream PerturbStoch.R"))
     }
   }
   if (means==T){
-    source("Code/Scripts/Demographic Functions.R")
+    source(paste0(code_dir,"/Scripts/Demographic Functions.R"))
       yr=1
-      source("Code/Scripts/Movement.R")                
-      source("Code/Scripts/IPM Run All Stream PerturbStoch.R")
+      source(paste0(code_dir,"/Scripts/Movement.R"))                
+      source(paste0(code_dir,"/Scripts/IPM Run All Stream PerturbStoch.R"))
     }
 }
 
 donetime <- Sys.time()
 print(donetime - beforetime)
 
-setwd(directory)
+setwd(run_dir)
 save.image("StochProj.RData")
+### output csv here?
 # save.image("Output/StochProj.RData")
 

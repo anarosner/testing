@@ -40,7 +40,7 @@ pPredMain <- p + facet_wrap(~Population,scales="free") +
   scale_y_continuous('N')
 
 
-setwd(directory)
+setwd(run_dir)
 # short.dir <- gsub("./","",directory)
 # dir.fish <- paste("/home/austin/WebStuff/Images/",short.dir,"/Stoc_Fish.png",sep="")
 
