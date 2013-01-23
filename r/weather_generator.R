@@ -41,23 +41,31 @@ precip_mean_y1 <- parse.param("precip_mean_y1")/100 + 1
 precip_mean_yn <- parse.param("precip_mean_yn")/100 + 1
 precip_var_y1 <- parse.param("precip_var_y1")/100 + 1
 precip_var_yn <- parse.param("precip_var_yn")/100 + 1
-temp_mean_y1 <- parse.param("temp_mean_y1")/100 + 1
-temp_mean_yn <- parse.param("temp_mean_yn")/100 + 1
+temp_mean_y1 <- parse.param("temp_mean_y1")
+temp_mean_yn <- parse.param("temp_mean_yn")
 
-mean_prcp_change_percent2 <- seq(precip_mean_y1,precip_mean_yn,length.out=num_year_sim)
-var_prcp_change_percent2 <- seq(precip_var_y1,precip_var_yn,length.out=num_year_sim)
-mean_temp_change_celsius2 <- seq(temp_mean_y1,temp_mean_yn,length.out=num_year_sim)
+# mean_prcp_change_percent2 <- seq(precip_mean_y1,precip_mean_yn,length.out=num_year_sim)
+# var_prcp_change_percent2 <- seq(precip_var_y1,precip_var_yn,length.out=num_year_sim)
+# mean_temp_change_celsius2 <- seq(temp_mean_y1,temp_mean_yn,length.out=num_year_sim)
       
       # scott's code
-      # mean_prcp_change_percent2 <- seq(1,mean_prcp_change_percent,length.out=num_year_sim)
-      # var_prcp_change_percent2 <- seq(1,var_prcp_change_percent,length.out=num_year_sim)
-      # mean_temp_change_celsius2 <- seq(0,mean_temp_change_celsius,length.out=SIM_LENGTH)
+#       mean_prcp_change_percent2 <- seq(1,mean_prcp_change_percent,length.out=num_year_sim)
+#       var_prcp_change_percent2 <- seq(1,var_prcp_change_percent,length.out=num_year_sim)
+#       mean_temp_change_celsius2 <- seq(0,mean_temp_change_celsius,length.out=SIM_LENGTH)
+
+      # scott's code, changed param names only
+      mean_prcp_change_percent2 <- seq(1,precip_mean_yn,length.out=num_year_sim)
+      var_prcp_change_percent2 <- seq(1,precip_var_yn,length.out=num_year_sim)
+      mean_temp_change_celsius2 <- seq(0,temp_mean_yn,length.out=num_year_sim)
       #                                   changed SIM_LENGTH to num_year_sim
 
 #Stochastoc Weather Generator Options 
 num_year_sim <- parse.param("n_years")
 #num_year_sim <- 81 
 thresh <- parse.param("wet_threshold")
+
+        ### old code
+        ### not needed now that met data is pulled when basin in delineated
 
         # thresh <- 0    #0 mm is threshold for a day to be considered as rain
         # basin_id <- parse.param("basin_id")

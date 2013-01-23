@@ -361,6 +361,14 @@ dev.off()
 #end new code
 ##############
 
-seas.final2<-data.frame(seas.final)
-names(seas.final2)<-c("year","season","flow")
-write.csv(seas.final2,"seasonal_streamflow.csv",row.names = FALSE,col.names = TRUE,quote=FALSE)
+#what units are stocflow/histflow in?
+h.flow<-hist.weather[,c("YEAR","MONTH")]
+names(h.flow)<-c("year","month")
+h.flow$flow<-histflow
+
+s.flow<-stoc.weather[,c("YEAR","MONTH")]
+names(s.flow)<-c("year","month")
+s.flow$flow<-stocflow
+
+write.csv(h.flow,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
+write.csv(s.flow,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)

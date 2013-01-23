@@ -148,7 +148,7 @@ else {
       source(paste0(this_dir,"/supporting_scripts/basin_get_met_data.R"))   
       
       ### draw image of basin outline and flowlines, and save to svg file in basin directory
-      svg("basin.svg",width=6,height=6)
+      svg("basin.svg",width=3,height=3)
       	plot(basin.shape,bg="white",col="cornsilk3",border="cornsilk4")
       	plot(stream.line,add=T,col="blue")
       dev.off()
