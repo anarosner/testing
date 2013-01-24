@@ -93,3 +93,6 @@ seasonal_temp<-data.frame(cbind(tmp[order(tmp$Group.1,tmp$Group.2),1],tmp[order(
 names(seasonal_temp) <- c("year","season","WB","Jimmy","Mitchell","Obear")
 write.csv(seasonal_temp,"seasonal_streamtemp.csv",row.names=FALSE,col.names=TRUE,quote=FALSE)
 
+svg(filename="thumbnail.svg",width=3,height=3)
+  plot(as.character(seasonal_temp[seasonal_temp$season==2,"year"]),seasonal_temp[seasonal_temp$season==2,"WB"],type="l",ylab="",xlab="")
+dev.off()

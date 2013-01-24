@@ -3,6 +3,7 @@ print("starting weather generator script")
 
 this_dir<-getwd()
 source("./supporting_scripts/param_startup.R")
+source("./supporting_scripts/plot_functions.R")
 
 library(MASS)
 
@@ -346,8 +347,8 @@ min.y.p <- min(FINAL_HISTORIC_MONTH[,2],FINAL_STOCHASTIC_MONTH$PRCP)-25
 max.y.t <- max(FINAL_HISTORIC_MONTH[,3],FINAL_STOCHASTIC_MONTH$TAVG)+5
 min.y.t <- min(FINAL_HISTORIC_MONTH[,3],FINAL_STOCHASTIC_MONTH$TAVG)-5
 
-plot.thumbnail(type=="precip")
-plot.thumbnail(type=="airtemp")
+plot.thumbnail(type="precip")
+plot.thumbnail(type="airtemp")
 
 ##Create a image for website
 png(filename="StocWeather.png",width=725, height=575, bg="white")
