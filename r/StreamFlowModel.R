@@ -2,6 +2,7 @@
 print("starting stream flow script")
 this_dir<-getwd()
 source("./supporting_scripts/param_startup.R")
+source("./supporting_scripts/plot_functions.R")
 
 
 #This code will need to recieve basin_id, and in the basin folder find:
@@ -10,7 +11,7 @@ source("./supporting_scripts/param_startup.R")
 # -lat and long
 
 
-setwd(paste0(data_dir,"/flow_data/"))
+setwd(paste0(data_dir,"/flow_data"))
 GCMDays <- read.table("Days_For_ABCDE_GCM.txt",header=TRUE)
 parms <- read.table("Parms_Web.txt",header=TRUE)
 
@@ -182,12 +183,29 @@ mon.hist <- aggregate(histflow.cfs,list(hist.weather$MONTH),mean)
 
 max.y <- max(mon.hist,max(mon.stoc)+15)
 
-#Make some graphics about Streamflow
-png(filename="StocStrFlow.png",width=725, height=575, bg="white")
-plot(seq(from=1,to=12,by=1),mon.hist[,2],col="black",type="b",pch=1,ylim=c(0,max.y),main="Streamflow",ylab="Streamflow (cfs)",xlab="Month")
-lines(seq(from=1,to=12,by=1),mon.stoc[,2],col="red")
-legend("topright", c("Stochastic/User Defined Climate", "Historic Climate"),col=c("red","black"),pch=c(-1,1),lwd=c(1,1),lty=c(1,1))
-dev.off()
+# #Make some graphics about Streamflow
+# png(filename="StocStrFlow.png",width=725, height=575, bg="white")
+# plot(seq(from=1,to=12,by=1),mon.hist[,2],col="black",type="b",pch=1,ylim=c(0,max.y),main="Streamflow",ylab="Streamflow (cfs)",xlab="Month")
+# lines(seq(from=1,to=12,by=1),mon.stoc[,2],col="red")
+# legend("topright", c("Stochastic/User Defined Climate", "Historic Climate"),col=c("red","black"),pch=c(-1,1),lwd=c(1,1),lty=c(1,1))
+# dev.off()
+
+
+### csv output and new plots
+#what units are stocflow/histflow in?
+h.flow<-hist.weather[,c("YEAR","MONTH")]
+names(h.flow)<-c("year","month")
+h.flow$flow<-histflow
+
+s.flow<-stoc.weather[,c("YEAR","MONTH")]
+names(s.flow)<-c("year","month")
+s.flow$flow<-stocflow
+
+write.csv(h.flow,"hist_seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
+write.csv(s.flow,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
+
+plot.thumbnail(type="flow")
+
 
 ############
 # end code to be replaced
@@ -361,14 +379,4 @@ dev.off()
 #end new code
 ##############
 
-#what units are stocflow/histflow in?
-h.flow<-hist.weather[,c("YEAR","MONTH")]
-names(h.flow)<-c("year","month")
-h.flow$flow<-histflow
 
-s.flow<-stoc.weather[,c("YEAR","MONTH")]
-names(s.flow)<-c("year","month")
-s.flow$flow<-stocflow
-
-write.csv(h.flow,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
-write.csv(s.flow,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)

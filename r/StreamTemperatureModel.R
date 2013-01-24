@@ -80,7 +80,7 @@ agg <- list(futureStrTempFinal[,2])
 mon.tmp <- aggregate(futureStrTempFinal[,4],agg,mean)
 mon.hist <- c(1.542,1.692,3.445,7.662,11.941,14.951,16.094,15.722,13.736,10.070,5.558,2.249)
 
-setwd(directory)
+setwd(run_dir)
 max.y <- max(mon.hist,mon.tmp[,2])+5
 
 png(filename="StocStrTemp.png",width=725, height=575, bg="white")
