@@ -25,7 +25,7 @@ basin_dir<-args$basin_dir
 data_dir<-args$data_dir
 
 setwd(run_dir)
-param<-fromJSON(file="param.json")
+param<-fromJSON(file="setting.json")
 
 setwd(this_dir)
 config<-fromJSON(file=paste0(param$rscript,".json"))
