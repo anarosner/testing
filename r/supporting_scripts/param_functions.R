@@ -1,4 +1,3 @@
-
 ###
 ### params
 ###
@@ -22,7 +21,10 @@ parse.param<-function(param.name,values.only=T,suppress.errors=F){
             return.param[param.name[i]][[1]] <- as.vector( param[param.name[i]][[1]] )
          }
          else {
-            return.param[param.name[i]] <- param[param.name[i]][[1]]
+            if ( is.na(as.numeric(param[param.name[i]][[1]])) )
+               return.param[param.name[i]] <- param[param.name[i]][[1]]
+            else
+               return.param[param.name[i]] <- as.numeric(param[param.name[i]][[1]])
          }
       }
       
