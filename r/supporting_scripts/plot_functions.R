@@ -1,5 +1,3 @@
-convert.mm.in<-function(x) {x*0.0393701}
-
 plot.thumbnail<-function(type) {
    #write svg in run directory
    setwd(run_dir)

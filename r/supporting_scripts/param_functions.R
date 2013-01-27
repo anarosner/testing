@@ -1,4 +1,9 @@
 ###
+### misc functions
+###
+convert.mm.in<-function(x) {x*0.0393701}
+
+###
 ### params
 ###
 
