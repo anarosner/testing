@@ -1,0 +1,13 @@
+{
+	"run_dir": "sldfsl",
+	"basin_id": "west_brook",
+	"rscript": "climate_historic",
+
+	"precip_mean_y1": -10,
+	"precip_mean_yn": -10,
+	"precip_var_y1": 0,
+	"precip_var_yn": 0,
+	"temp_mean_y1": 5,
+	"temp_mean_yn": 5
+	
+}

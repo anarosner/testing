@@ -1,0 +1,10 @@
+{
+	"run_dir": "sldfsl",
+	"basin_id": "west_brook",
+	"rscript": "WestbrookIPM",
+	"preceding": {
+		"flow_dir": "C:/Documents/GitHub/testing/somepath2/runs/no_change_flow",
+		"streamtemp_dir": "C:/Documents/GitHub/testing/somepath2/runs/no_change_streamtemp",
+	}
+}
+
