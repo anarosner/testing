@@ -1,11 +1,11 @@
 {
 	"run_dir": "sldfsl",
 	"basin_id": "west_brook",
-	"rscript": "StreamFlowModel",
+	"scriptName": "StreamFlowModel",
 	"preceding": {
-		"conte_climate_dir": "C:/ALR/GitHub/testing/somepath2/runs/11",
+		"climate_dir": "C:/ALR/GitHub/testing/somepath2/runs/11",
 		"felek_climate_dir": "/home/ana/testing/somepath2/runs/11",
-		"climate_dir": "C:/Documents/GitHub/testing/somepath2/runs/11"
+		"laptop_climate_dir": "C:/Documents/GitHub/testing/somepath2/runs/11"
 	}
 }
 
