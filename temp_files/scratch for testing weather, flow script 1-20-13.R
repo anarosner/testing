@@ -1,3 +1,7 @@
+basin_dir<-"C:/ALR/GitHub/somepath/basins"
+data_dir<-"C:/ALR/GitHub/somepath/data"
+basin_id<-"west_brook"
+
 lat=42.42, long=-72.63
 lat=42.491991,long=-72.639097
 lat<- 42.415156
