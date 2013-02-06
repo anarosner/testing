@@ -28,7 +28,7 @@ setwd(run_dir)
 param<-fromJSON(file="settings.json")
 
 setwd(this_dir)
-config<-fromJSON(file=paste0(param$scriptName,".json"))
+config<-fromJSON(file=paste0(param$rscript,".json"))
 
 preceding<-param$preceding
 basin_id<-parse.param("basin_id")

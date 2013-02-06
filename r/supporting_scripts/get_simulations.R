@@ -41,6 +41,7 @@ for ( i in c(seq(from=0.9,to=1.2,by=0.1),"h") ) {
    s.precip$precip.in<-s.precip$precip*0.0393701   #in inches
    s.precip$water.year<-s.precip$year
    s.precip[s.precip$month>=10,"water.year"]<-s.precip[s.precip$month>=10,"water.year"]+1
+   ##ADD something here to deal w/ partial year created by splitting into water year (data is complete calendar years)
    #aggregate by water year
    annual<-aggregate(s.precip,by=list(s.precip$water.year),FUN=sum)
    annual<-annual[,c(1,5)]
@@ -53,6 +54,15 @@ for ( i in c(seq(from=0.9,to=1.2,by=0.1),"h") ) {
    write.csv( annual, file=paste0("precipannual",i,".csv"),quote=F,row.names=F)
    s.precip[10001:10010,]
    annual[101:110,]   
+#    if (!exists("all.precip")) {
+#       all.precip<-s.precip[,c(1:6)]
+#       all.precipannual<-annual[,1]
+#    }
+#    all.precip[,ncol(all.precip)+1]<-s.precip[,"precip.in"]
+#    names(all.precip)[ncol(all.precip)]<-paste0("p",i)
+#    all.precipannual[,paste0("p",i)]<-annual[,"precip.in"]
+#    names(all.precipannual)[ncol(all.precipannual)]<-paste0("p",i)
+   
 }
 
 

@@ -1,0 +1,12 @@
+{
+	"run_dir": "sldfsl",
+	"basin_id": "west_brook",
+	"rscript": "simulate_drought",
+
+	"precip_mean_y1": -10,
+	"temp_mean_y1": 2,
+	"drought_annual_inches": 35,
+	"n_years": 81,
+	
+	"wet_threshold":0
+}
