@@ -73,7 +73,8 @@ source("StreamTemperatureModel.R")
 
 rm(list=ls())
 setwd("C:/ALR/GitHub/testing/r")
-testingargs<-list(basin_dir="C:/ALR/GitHub/somepath/basins",run_dir="C:/ALR/GitHub/testing/somepath2/runs/16",data_dir="C:/ALR/GitHub/somepath/data")
+testingargs<-list(basin_dir="C:/Documents/GitHub/somepath/basins",run_dir="C:/Documents/GitHub/testing/somepath2/runs/15",data_dir="C:/Documents/GitHub/somepath/data")
+# testingargs<-list(basin_dir="C:/ALR/GitHub/somepath/basins",run_dir="C:/ALR/GitHub/testing/somepath2/runs/16",data_dir="C:/ALR/GitHub/somepath/data")
 source("WestbrookIPM.R")
 
 
