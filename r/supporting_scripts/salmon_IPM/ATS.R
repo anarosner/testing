@@ -61,6 +61,6 @@ densities <- grepl(x=colnames(o_table), pattern='^\\d+', perl=TRUE)
 o_table <- o_table[total_counts > (0.0001 * max(total_counts)),]
 
 write.csv(x=o_table, file=file.path(run_dir,out_file))
-})
+}))
 
 

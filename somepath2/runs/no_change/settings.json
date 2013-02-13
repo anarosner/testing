@@ -1,7 +1,7 @@
 {
 	"run_dir": "sldfsl",
 	"basin_id": "west_brook",
-	"rscript": "weather_generator",
+	"scriptName": "weather_generator",
 
 	"precip_mean_y1": 0,
 	"precip_mean_yn": 0,

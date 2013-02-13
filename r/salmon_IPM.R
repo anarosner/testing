@@ -13,5 +13,5 @@ flow_dir <- preceding$flow_dir
 streamtemp_dir <- preceding$streamtemp_dir
 
 
-source(paste0(this_dir,"./supporting_scripts/salmon_IPM/ATS.R"))
-source(paste0(this_dir,"./supporting_scripts/salmon_IPM/graphA.R"))
+source(paste0(this_dir,"/supporting_scripts/salmon_IPM/ATS.R"))
+source(paste0(this_dir,"/supporting_scripts/salmon_IPM/graphA.R"))

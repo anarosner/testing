@@ -1,9 +1,9 @@
 {
 	"run_dir": "sldfsl",
 	"basin_id": "west_brook",
-	"rscript": "StreamFlowModel",
+	"scriptName": "StreamFlowModel",
 	"run_alias": "herwegr",
 	"preceding": {
-		"climate_dir": "C:/Documents/GitHub/testing/somepath2/runs/no_change"
+		"climate_dir": "/home/ana/testing/somepath2/runs/no_change"
 	}
 }
