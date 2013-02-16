@@ -1,16 +1,12 @@
 {
 	"run_dir": "sldfsl",
 	"basin_id": "west_brook",
-	"rscript": "salmon_IPM",
+	"scriptName": "salmon_IPM",
 	"stocking_n": 100,
 	"stocking_stage":"fry",
 	"preceding": {
-		"conte_flow_dir": "C:/ALR/GitHub/testing/somepath2/runs/14",
-		"conte_streamtemp_dir": "C:/ALR/GitHub/testing/somepath2/runs/15",
-		"laptop_flow_dir": "C:/Documents/GitHub/testing/somepath2/runs/14",
-		"laptop_streamtemp_dir": "C:/Documents/GitHub/testing/somepath2/runs/15",
-		"flow_dir": "/home/ana/testing/somepath2/runs/14",
-		"streamtemp_dir": "/home/ana/testing/somepath2/runs/15"
+		"flow_dir": "/home/ana/testing/somepath2/runs/no_change_flow",
+		"streamtemp_dir": "/home/ana/testing/somepath2/runs/no_change_streamtemp"
 	}
 }
 

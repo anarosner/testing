@@ -21,11 +21,12 @@ stocking_program <- pop$add(
 )
 
 # Environment.
-path_to_flow <- file.path(flow_dir, 			"seasonal_streamflow.csv")
+path_to_flow <- file.path(flow_dir, 	"seasonal_streamflow.csv")
 path_to_temp <- file.path(streamtemp_dir, "seasonal_streamtemp.csv")
 flow <- read.csv(path_to_flow)
 temp <- read.csv(path_to_temp)
 envir <- merge(x=flow, y=temp, by=c('year','season'))
+
 envir[['season']] <- as.factor(envir[['season']])
 envir[['iteration']] <- 1:nrow(envir)
 

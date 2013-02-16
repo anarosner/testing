@@ -12,6 +12,13 @@ stocking_stage <- parse.param("stocking_stage")
 flow_dir <- preceding$flow_dir
 streamtemp_dir <- preceding$streamtemp_dir
 
-
-source(paste0(this_dir,"/supporting_scripts/salmon_IPM/ATS.R"))
-source(paste0(this_dir,"/supporting_scripts/salmon_IPM/graphA.R"))
+print("starting ATS.R")
+source(file.path(this_dir,"supporting_scripts/salmon_IPM/ATS.R"))
+print("starting graphA.R")
+source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphA.R"))
+print("starting graphB.R")
+source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphB.R"))
+print("starting graphC.R")
+source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphC.R"))
+print("starting graphD.R")
+source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphD.R"))

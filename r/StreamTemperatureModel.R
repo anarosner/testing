@@ -91,16 +91,16 @@ dev.off()
 write.table(cbind(tmp[order(tmp$Group.1,tmp$Group.2),1],tmp[order(tmp$Group.1,tmp$Group.2),2],round(mon.final,2)),"seasonal_streamtemp.txt",row.names=FALSE,col.names=FALSE,quote=FALSE)
 
 futureStrTempFinal$Season<-as.numeric(futureStrTempFinal$Season)
-s.seasonal<-aggregate(futureStrTempFinal,list(futureStrTempFinal$YEAR,futureStrTempFinal$Season),FUN=mean)
-s.spring<-seasonal[seasonal$Season==1,c("YEAR","WB")]
-s.summer<-seasonal[seasonal$Season==2,c("YEAR","WB")]
-s.fall<-seasonal[seasonal$Season==3,c("YEAR","WB")]
-s.winter<-seasonal[seasonal$Season==4,c("YEAR","WB")]
+#s.seasonal<-aggregate(futureStrTempFinal,list(futureStrTempFinal$YEAR,futureStrTempFinal$Season),FUN=mean)
+#s.spring<-seasonal[seasonal$Season==1,c("YEAR","WB")]
+#s.summer<-seasonal[seasonal$Season==2,c("YEAR","WB")]
+#s.fall<-seasonal[seasonal$Season==3,c("YEAR","WB")]
+#s.winter<-seasonal[seasonal$Season==4,c("YEAR","WB")]
 
 
-# seasonal_temp<-data.frame(cbind(tmp[order(tmp$Group.1,tmp$Group.2),1],tmp[order(tmp$Group.1,tmp$Group.2),2],round(mon.final,2)))
-# names(seasonal_temp) <- c("year","season","WB","Jimmy","Mitchell","Obear")
-# write.csv(seasonal_temp,"seasonal_streamtemp.csv",row.names=FALSE,col.names=TRUE,quote=FALSE)
+ seasonal_temp<-data.frame(cbind(tmp[order(tmp$Group.1,tmp$Group.2),1],tmp[order(tmp$Group.1,tmp$Group.2),2],round(mon.final,2)))
+ names(seasonal_temp) <- c("year","season","WB","Jimmy","Mitchell","Obear")
+ write.csv(seasonal_temp,"seasonal_streamtemp.csv",row.names=FALSE,col.names=TRUE,quote=FALSE)
 
 svg(filename="thumbnail.svg",width=3,height=3)
   plot(as.character(seasonal_temp[seasonal_temp$season==2,"year"]),seasonal_temp[seasonal_temp$season==2,"WB"],type="l",ylab="",xlab="")

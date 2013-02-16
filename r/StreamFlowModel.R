@@ -201,8 +201,12 @@ s.flow<-stoc.weather[,c("YEAR","MONTH")]
 names(s.flow)<-c("year","month")
 s.flow$flow<-stocflow
 
-write.csv(h.flow,"hist_seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
-write.csv(s.flow,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
+#write.csv(h.flow,"hist_seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
+#write.csv(s.flow,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
+seas.final<-as.data.frame(seas.final)
+names(seas.final)<-c("year","season","flow")
+write.csv(seas.final,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
+
 
 plot.thumbnail(type="flow")
 

@@ -1,4 +1,8 @@
 {
 
   "model_step": "population",
+  "preceding_step": ["flow","streamtemp"],
+  "model_description": "IPM salmon model by Krzysztof Sakrejda"
 }
+
+
