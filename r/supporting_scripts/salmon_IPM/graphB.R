@@ -1,4 +1,4 @@
-rm(list=ls(all.names=TRUE))
+#rm(list=ls(all.names=TRUE))
 
 # Ana's variables:
 # run_dir <- '/tmp'

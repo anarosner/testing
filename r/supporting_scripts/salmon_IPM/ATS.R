@@ -35,7 +35,7 @@ envir[['iteration']] <- 1:nrow(envir)
 
 print(system.time( expr = {
 	options(mc.cores=8)
-	file.remove(dir(run_dir, full.names=TRUE))
+	file.remove(dir(path=run_dir, pattern='^pops-', full.names=TRUE))
 	pop$run(n=nrow(envir), e=envir, o=run_dir)
 }, gcFirst=TRUE))
 

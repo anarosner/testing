@@ -13,12 +13,16 @@ flow_dir <- preceding$flow_dir
 streamtemp_dir <- preceding$streamtemp_dir
 
 print("starting ATS.R")
-source(file.path(this_dir,"supporting_scripts/salmon_IPM/ATS.R"))
+source(file = file.path(this_dir,"supporting_scripts/salmon_IPM/ATS.R"))
 print("starting graphA.R")
-source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphA.R"))
+with(data=list(run_dir=run_dir), expr = source(file = file.path(this_dir,"supporting_scripts/salmon_IPM/graphA.R"), local=TRUE))
 print("starting graphB.R")
-source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphB.R"))
+with(data=list(run_dir=run_dir), expr = source(file = file.path(this_dir,"supporting_scripts/salmon_IPM/graphB.R"), local=TRUE))
 print("starting graphC.R")
-source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphC.R"))
+with(data=list(run_dir=run_dir), expr = source(file = file.path(this_dir,"supporting_scripts/salmon_IPM/graphC.R"), local=TRUE))
 print("starting graphD.R")
-source(file.path(this_dir,"supporting_scripts/salmon_IPM/graphD.R"))
+with(data=list(run_dir=run_dir), expr = source(file = file.path(this_dir,"supporting_scripts/salmon_IPM/graphD.R"), local=TRUE))
+
+
+
+
