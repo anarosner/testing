@@ -1,6 +1,6 @@
 {
 	"run_dir": "sldfsl",
 	"basin_id": "west_brook",
-	"rscript": "baseline_historic",
+	"scriptName": "climate_historic",
 	"run_alias": "historic run"
 }

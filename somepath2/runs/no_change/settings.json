@@ -9,7 +9,7 @@
 	"precip_var_yn": 0,
 	"temp_mean_y1": 0,
 	"temp_mean_yn": 0,
-	"n_years": 81,
+	"n_years": 20,
 	
 	"wet_threshold":0
 }

@@ -28,8 +28,8 @@ library(MASS)
 #   n_years
 
 
-num_year_sim <- 81
-# num_year_sim <- parse.param("n_years")
+# num_year_sim <- 20
+num_year_sim <- parse.param("n_years")
 
 
 #*
@@ -45,20 +45,20 @@ precip_var_yn <- parse.param("precip_var_yn")/100 + 1
 temp_mean_y1 <- parse.param("temp_mean_y1")
 temp_mean_yn <- parse.param("temp_mean_yn")
 
-# mean_prcp_change_percent2 <- seq(precip_mean_y1,precip_mean_yn,length.out=num_year_sim)
-# var_prcp_change_percent2 <- seq(precip_var_y1,precip_var_yn,length.out=num_year_sim)
-# mean_temp_change_celsius2 <- seq(temp_mean_y1,temp_mean_yn,length.out=num_year_sim)
+mean_prcp_change_percent2 <- seq(precip_mean_y1,precip_mean_yn,length.out=num_year_sim)
+var_prcp_change_percent2 <- seq(precip_var_y1,precip_var_yn,length.out=num_year_sim)
+mean_temp_change_celsius2 <- seq(temp_mean_y1,temp_mean_yn,length.out=num_year_sim)
       
       # scott's code
 #       mean_prcp_change_percent2 <- seq(1,mean_prcp_change_percent,length.out=num_year_sim)
 #       var_prcp_change_percent2 <- seq(1,var_prcp_change_percent,length.out=num_year_sim)
 #       mean_temp_change_celsius2 <- seq(0,mean_temp_change_celsius,length.out=SIM_LENGTH)
 
-      # scott's code, changed param names only
-      mean_prcp_change_percent2 <- seq(1,precip_mean_yn,length.out=num_year_sim)
-      var_prcp_change_percent2 <- seq(1,precip_var_yn,length.out=num_year_sim)
-      mean_temp_change_celsius2 <- seq(0,temp_mean_yn,length.out=num_year_sim)
-      #                                   changed SIM_LENGTH to num_year_sim
+#       # scott's code, changed param names only
+#       mean_prcp_change_percent2 <- seq(1,precip_mean_yn,length.out=num_year_sim)
+#       var_prcp_change_percent2 <- seq(1,precip_var_yn,length.out=num_year_sim)
+#       mean_temp_change_celsius2 <- seq(0,temp_mean_yn,length.out=num_year_sim)
+#       #                                   changed SIM_LENGTH to num_year_sim
 
 #Stochastoc Weather Generator Options 
 num_year_sim <- parse.param("n_years")
@@ -316,7 +316,10 @@ FINAL_HISTORIC_MONTH2 <- aggregate(DATA[,c(1:2,4)],FUN=sum,by=list(DATA[,2]))[,4
 
 SDIF <- FINAL_STOCHASTIC_MONTHLY1[,3]-FINAL_STOCHASTIC_MONTHLY1[,4]
 HDIF <- FINAL_HISTORIC_MONTHLY1[,3]-FINAL_HISTORIC_MONTHLY1[,4]
-STOC_ET <- Hargreaves(FINAL_STOCHASTIC_MONTHLY1[,5],SDIF,BasinLat,GCMDays$Jday[613:1584],GCMDays$Days[613:1584])
+#!!!
+end_Jday<-num_year_sim*12+612
+# STOC_ET <- Hargreaves(FINAL_STOCHASTIC_MONTHLY1[,5],SDIF,BasinLat,GCMDays$Jday[613:1584],GCMDays$Days[613:1584])
+STOC_ET <- Hargreaves(FINAL_STOCHASTIC_MONTHLY1[,5],SDIF,BasinLat,GCMDays$Jday[613:end_Jday],GCMDays$Days[613:end_Jday])
 HIST_ET <- Hargreaves(HTAVG,HDIF,BasinLat,GCMDays$Jday[1:744],GCMDays$Days[1:744])
 
 FINAL_STOCHASTIC_MONTHLY <- cbind(FINAL_STOCHASTIC_MONTHLY1[,1:2],round(FINAL_STOCHASTIC_MONTHLY2,2),round(FINAL_STOCHASTIC_MONTHLY1[,3:5],2),round(STOC_ET,2),round(SDIF,2))
@@ -347,6 +350,10 @@ min.y.p <- min(FINAL_HISTORIC_MONTH[,2],FINAL_STOCHASTIC_MONTH$PRCP)-25
 max.y.t <- max(FINAL_HISTORIC_MONTH[,3],FINAL_STOCHASTIC_MONTH$TAVG)+5
 min.y.t <- min(FINAL_HISTORIC_MONTH[,3],FINAL_STOCHASTIC_MONTH$TAVG)-5
 
+###call plot functions 
+###(rename variables for plot functions)
+h.clim<-FINAL_HISTORIC_MONTHLY
+s.clim<-FINAL_STOCHASTIC_MONTHLY
 plot.thumbnail(type="precip")
 plot.thumbnail(type="airtemp")
 

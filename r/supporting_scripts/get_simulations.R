@@ -12,7 +12,8 @@ p.cols<-c(1:4)
 t.cols<-c(1:3,5:7)
 
 #load historic data
-setwd("C:/ALR/GitHub/somepath/basins/6780817")
+setwd("C:/Documents/GitHub/somepath/basins/6780817")
+# setwd("C:/ALR/GitHub/somepath/basins/6780817")
 ph<-read.table("met_data.txt",header=FALSE)
 th<-ph
 # colnames(ph) <- met.cols
@@ -22,14 +23,16 @@ th<-ph
 
 #load scott's simulation output
 
-setwd("C:/ALR/GitHub/testing/temp_files/from Scott/Simulations")
+# setwd("C:/ALR/GitHub/testing/temp_files/from Scott/Simulations")
+setwd("C:/Documents/GitHub/testing/temp_files/from Scott/Simulations")
 p0.8<-read.table("PRCP_MEAN_CHANGES_80_TEMP_CHANGES_0.txt")
 p0.9<-read.table("PRCP_MEAN_CHANGES_90_TEMP_CHANGES_1.txt")
 p1<-read.table("PRCP_MEAN_CHANGES_100_TEMP_CHANGES_2.txt")
 p1.1<-read.table("PRCP_MEAN_CHANGES_110_TEMP_CHANGES_4.txt")
 p1.2<-read.table("PRCP_MEAN_CHANGES_120_TEMP_CHANGES_5.txt")
 
-setwd("C:/ALR/GitHub/somepath/basins/west_brook")
+# setwd("C:/ALR/GitHub/somepath/basins/west_brook")
+setwd("C:/Documents/GitHub/somepath/basins/west_brook")
 #process precip
 for ( i in c(seq(from=0.9,to=1.2,by=0.1),"h") ) {
    print(i)

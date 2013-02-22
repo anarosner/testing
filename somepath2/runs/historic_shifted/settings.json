@@ -1,0 +1,13 @@
+{
+	"run_dir": "dfjhdjg",
+	"basin_id": "west_brook",
+	"scriptName": "climate_shifted_historic",
+	"run_alias": "shifted historic run",
+	"precip_mean_y1": 10,
+	"precip_mean_yn": 10,
+	"precip_var_y1": 0,
+	"precip_var_yn": 0,
+	"temp_mean_y1": 2,
+	"temp_mean_yn": 2,
+	"n_years": 20,
+}

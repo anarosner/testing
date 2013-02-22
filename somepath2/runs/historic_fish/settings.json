@@ -1,10 +1,12 @@
 {
 	"run_dir": "sldfsl",
 	"basin_id": "west_brook",
-	"rscript": "WestbrookIPM",
+	"rscript": "salmon_IPM",
 	"preceding": {
-		"flow_dir": "C:/Documents/GitHub/testing/somepath2/runs/historic_flow",
-		"streamtemp_dir": "C:/Documents/GitHub/testing/somepath2/runs/historic_streamtemp",
+		"flow_dir":"c:/documents/github/testing/somepath2/runs/no_change_flow",
+		"streamtemp_dir":"c:/documents/github/testing/somepath2/runs/no_change_streamtemp",
+		"xflow_dir": "C:/Documents/GitHub/testing/somepath2/runs/historic_flow",
+		"xstreamtemp_dir": "C:/Documents/GitHub/testing/somepath2/runs/historic_streamtemp",
 	}
 }
 

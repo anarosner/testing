@@ -16,8 +16,8 @@ plot.thumbnail<-function(type) {
    if (type=="precip") {
 
       #collect/aggregate data
-      h.clim<-FINAL_HISTORIC_MONTHLY
-      s.clim<-FINAL_STOCHASTIC_MONTHLY
+#       h.clim<-FINAL_HISTORIC_MONTHLY from weather generator
+#       s.clim<-FINAL_STOCHASTIC_MONTHLY
       # names(h.clim)
       # "YEAR"  "MONTH" "PRCP"  "TMAX"  "TMIN"  "TAVG"  "ET"    "DIF"
       h.clim$PRCP<-convert.mm.in(h.clim$PRCP)
@@ -27,8 +27,8 @@ plot.thumbnail<-function(type) {
       
       
       #define variables & parameters used for this plot 
-      p.h<-c(seq(from=0,to=max(c(h.precip$PRCP,s.precip$PRCP)),by=20),sprintf("%.1f",mean(h.precip$PRCP)))
-      p.y<-c(0,max(c(h.precip$PRCP,s.precip$PRCP)))
+      p.h<-c(seq(from=20,to=max(c(h.precip$PRCP,s.precip$PRCP)),by=10),sprintf("%.1f",mean(h.precip$PRCP)))
+      p.y<-c(20,max(c(h.precip$PRCP,s.precip$PRCP)))
       p.x<-c(min(h.precip$y),max(s.precip$y))
       
       
@@ -53,14 +53,14 @@ plot.thumbnail<-function(type) {
      
       
       #collect/aggregate data
-      h.clim<-FINAL_HISTORIC_MONTHLY
-      s.clim<-FINAL_STOCHASTIC_MONTHLY
+#       h.clim<-FINAL_HISTORIC_MONTHLY
+#       s.clim<-FINAL_STOCHASTIC_MONTHLY
                                     # names(h.clim)
                                     # "YEAR"  "MONTH" "PRCP"  "TMAX"  "TMIN"  "TAVG"  "ET"    "DIF"
       h.jantemp<-h.clim[h.clim$MONTH==1,c("YEAR","TMAX","TMIN","TAVG")]
-      s.jantemp<-s.clim[h.clim$MONTH==1,c("YEAR","TMAX","TMIN","TAVG")]
+      s.jantemp<-s.clim[s.clim$MONTH==1,c("YEAR","TMAX","TMIN","TAVG")]
       h.julytemp<-h.clim[h.clim$MONTH==7,c("YEAR","TMAX","TMIN","TAVG")]
-      s.julytemp<-s.clim[h.clim$MONTH==7,c("YEAR","TMAX","TMIN","TAVG")]
+      s.julytemp<-s.clim[s.clim$MONTH==7,c("YEAR","TMAX","TMIN","TAVG")]
 
       
       #define variables & parameters used for this plot 
@@ -89,6 +89,35 @@ plot.thumbnail<-function(type) {
       dev.off()
       
    } #end airtemp plot type
+   
+   
+   
+   if (type=="historic") {
+     
+     # "YEAR"  "MONTH" "PRCP"  "TMAX"  "TMIN"  "TAVG"  "ET"    "DIF"
+     h.clim$PRCP<-convert.mm.in(h.clim$PRCP)
+     h.precip<-aggregate(h.clim,by=list(y=h.clim$YEAR),FUN=sum)[,c("y","PRCP")]
+     #define variables & parameters used for this plot 
+     p.h<-c(seq(from=0,to=max(h.precip$PRCP),by=20),sprintf("%.1f",mean(h.precip$PRCP)))
+     p.y<-c(0,max(h.precip$PRCP))
+     p.x<-c(min(h.precip$y),max(h.precip$y))
+          
+     #write svg
+     svg(filename="thumbnail.svg",width=2.5,height=2.5)
+       par(mai=c(.4,.35,.4,.01)) #svg (inches)
+       #          par(mai=c(.75,.75,.1,.1)) #screen
+       par(fg="white",col.main="slategray4",cex=p.s,cex.main=p.s)
+       par(family="serif")
+       par(mgp=c(0,.1,0)) #margin b/w plot and axis labels
+       plot(h.precip$y,h.precip$PRCP,pch=18,col="dodgerblue2",xlim=p.x, ylim=p.y,axes=F,xlab="",ylab="")
+       axis(side=2,at=p.h,col="white", las=2,cex.axis=p.sl,col.axis="slategray4") 
+       axis(side=1,col="white", las=1,cex.axis=p.sl,col.axis="slategray4") 
+       abline(h=p.h,col="grey",lty=3)
+       abline(h=mean(h.precip$PRCP),col="dodgerblue2",lty=2)
+     dev.off()
+   } #end historic plot type
+   
+   
    
    else if (type=="flow") {
       #Collect/aggregate data
