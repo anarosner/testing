@@ -1,0 +1,12 @@
+{
+	"run_dir": "sldfsl",
+	"basin_id": "west_brook",
+	"scriptName": "salmon_IPM",
+	"stocking_n": 100,
+	"stocking_stage":"fry",
+	"preceding": {
+		"flow_dir": "/home/ana/testing/somepath2/runs/no_change_flow",
+		"streamtemp_dir": "/home/ana/testing/somepath2/runs/no_change_streamtemp"
+	}
+}
+
