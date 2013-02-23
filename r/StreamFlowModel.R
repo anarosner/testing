@@ -142,11 +142,15 @@ ABCDE <- function(parameters,T,P,ET,Sint,Gint,Aint,calib_num) {
 ###RUN the ABCDE Model Here##################################################################
 stocflow <- ABCDE(parameters,stoc.weather$TAVG,stoc.weather$PRCP,stoc.weather$ET,Sint,Gint,Aint,s_calib_num)
 histflow <- ABCDE(parameters,hist.weather$TAVG,hist.weather$PRCP,hist.weather$ET,Sint,Gint,Aint,h_calib_num)
+num_months<-length(stocflow)
 
 #Define some conversion factors here
 cfs_to_cmms <- 28316846.6 #this converts cubic feet per second to cubic millimeters per second
 squaremi_to_sqmm <-  2589988110336 #this converts square miles to square millimeters
-s_sec_to_month <- 86400*GCMDays$Days[613:1584] #this converts seconds to months
+# s_sec_to_month <- 86400*GCMDays$Days[613:1584] #this converts seconds to months
+# h_sec_to_month <- 86400*GCMDays$Days[1:744]
+end_Jday<-num_months+612  ###change for varying simulation lengths
+s_sec_to_month <- 86400*GCMDays$Days[613:end_Jday] #this converts seconds to months
 h_sec_to_month <- 86400*GCMDays$Days[1:744]
 
 #we convert streamflow to mm
@@ -159,11 +163,17 @@ write.table(stocflow.cfs,"Stoc_Monthly_Streamflow.txt",row.names=FALSE,quote=FAL
 write.table(histflow.cfs,"Hist_Monthly_Streamflow.txt",row.names=FALSE,quote=FALSE,col.names=FALSE)
 
 ###Aggregate Streamflow to Seasonal Means for Fish Model
-season.flow <- array(NA,c(972,4))
+#change to allow for variable lengths
+season.flow <- array(NA,c(num_months,4))
 season.flow[,1] <- stoc.weather$MONTH
 season.flow[,2] <- stoc.weather$YEAR
 season.flow[,3] <- stocflow.cfs
-season.flow[,4] <- seq(from=0,to=0,length=972)
+season.flow[,4] <- seq(from=0,to=0,length=num_months)
+# season.flow <- array(NA,c(972,4))
+# season.flow[,1] <- stoc.weather$MONTH
+# season.flow[,2] <- stoc.weather$YEAR
+# season.flow[,3] <- stocflow.cfs
+# season.flow[,4] <- seq(from=0,to=0,length=972)
 
 loop.array <- array(0,c(12,2))
 loop.array[,1] <- c(1,2,3,4,5,6,7,8,9,10,11,12)
