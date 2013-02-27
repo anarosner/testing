@@ -263,6 +263,10 @@ plot.thumbnail<-function(type) {
 plot.full<-function(type) {
   if (type=="precip") {
     #mean annual precip
+    h.clim$PRCP<-convert.mm.in(h.clim$PRCP)
+    s.clim$PRCP<-convert.mm.in(s.clim$PRCP)
+    h.precip<-aggregate(h.clim,by=list(y=h.clim$YEAR),FUN=sum)[,c("y","PRCP")]
+    s.precip<-aggregate(s.clim,by=list(y=s.clim$YEAR),FUN=sum)[,c("y","PRCP")]
     
     #define variables & parameters used for this plot 
     p.h<-c(seq(from=20,to=max(c(h.precip$PRCP,s.precip$PRCP)),by=10),sprintf("%.1f",mean(h.precip$PRCP)))
@@ -293,7 +297,11 @@ plot.full<-function(type) {
   }
   else if (type=="airtemp") {
     
-    #monthly avg temp
+    #monthly avg temp      
+    h.jantemp<-h.clim[h.clim$MONTH==1,c("YEAR","TMAX","TMIN","TAVG")]
+    s.jantemp<-s.clim[s.clim$MONTH==1,c("YEAR","TMAX","TMIN","TAVG")]
+    h.julytemp<-h.clim[h.clim$MONTH==7,c("YEAR","TMAX","TMIN","TAVG")]
+    s.julytemp<-s.clim[s.clim$MONTH==7,c("YEAR","TMAX","TMIN","TAVG")]
     
     #define variables & parameters used for this plot 
     p.h1<-rev(seq(from=0,to=min(c(h.jantemp$TAVG,s.jantemp$TAVG)),by=-10))
@@ -328,7 +336,13 @@ plot.full<-function(type) {
   
   
   else if (type=="flow") {
-    #monthly streamflow avg
+    #monthly streamflow avg      
+    h.annual<-aggregate(h.flow,list(h.flow$year),FUN=mean)
+    s.annual<-aggregate(s.flow,list(s.flow$year),FUN=mean)
+    h.min<-aggregate(h.flow,list(h.flow$year),FUN=min)
+    s.min<-aggregate(s.flow,list(s.flow$year),FUN=min)
+    h.max<-aggregate(h.flow,list(h.flow$year),FUN=max)
+    s.max<-aggregate(s.flow,list(s.flow$year),FUN=max)
     p.h<-c(seq(from=0,to=max(c(max(h.max$flow),max(s.max$flow))),by=100))
     p.s<-0.7
     p.sl<-1.1
