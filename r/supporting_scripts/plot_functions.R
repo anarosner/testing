@@ -1,6 +1,6 @@
-windowsFonts(
-  f3=windowsFont("Gill Sans MT")
-)
+# windowsFonts(
+#   f3=windowsFont("Gill Sans MT")
+# )
 
 plot.thumbnail<-function(type) {
    #write svg in run directory

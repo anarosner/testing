@@ -77,9 +77,9 @@ svg(filename="thumbnail.svg",width=2.5,height=2.5)
   abline(h=p.h,col="grey",lty=3)
 dev.off()
 
-windowsFonts(
-  f3=windowsFont("Gill Sans MT")
-)
+# windowsFonts(
+#   f3=windowsFont("Gill Sans MT")
+# )
 #plot a
 p.h<-c(seq(from=0,to=max(a2$total),by=200))   
 p.s<-0.7 #point/line scale
