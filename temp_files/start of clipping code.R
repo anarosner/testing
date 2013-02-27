@@ -11,6 +11,9 @@ proj4.LCAD<-"+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=23.0 +lon_0=-96 +x_0=0 +y_
 #"USA_Contiguous_Albers_Equal_Area_Conic"
 proj4.otherAEA<-"+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs "
 
-setwd("C:/Documents/__USGS/SpatialData/NHDPlus/NHDPlusV21_NE_01_NHDPlusCatchment_01/NHDPlusNE/NHDPlus01/NHDPlusCatchment")
+setwd("C:/ALR/StreamData/NHDplus/NHDPlusV21_NE_01_NHDPlusCatchment_01/NHDPlusNE/NHDPlus01/NHDPlusCatchment")
+# setwd("C:/Documents/__USGS/SpatialData/NHDPlus/NHDPlusV21_NE_01_NHDPlusCatchment_01/NHDPlusNE/NHDPlus01/NHDPlusCatchment")
 catchments<-readShapePoly("Catchment",proj4string=CRS(proj4.NHDplus))
 
+setwd("C:/ALR/LandscapeData/postland_poly")
+postland<-readShapePoly("postland2010",proj4string=CRS(proj4.LCAD))

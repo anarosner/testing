@@ -1,0 +1,140 @@
+
+{
+ "alias": "West Brook basin",
+ "basin_id": "west_brook",
+ "step":"basin",
+ "children": [
+  
+  {
+   "alias": "Precipitation up 10%",
+   "runID": "sdfjksldfkj",
+   "step": "climate",
+   "children": [
+    {
+		"alias": "Low development scenario",
+		"runID": "oihyodifb",
+		"step": "land",
+		"children": [
+		{
+			"alias": "Regular Stream Flow", 
+			"runID": "vcwr",
+			"step": "flow",
+			"children": [
+			{
+				"alias": "Stream Temperature",
+				"runID": "cvbs",
+				"step": "streamtemp",
+				"children": [ 
+					{
+					"alias": "West Brook trout IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					},
+					{
+					"alias": "West Brook salmon IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					},
+					{
+					"alias": "West Brook DaleMadsen IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					}
+				]
+			}
+			]
+		}
+		]
+	}
+	]
+  },
+    {
+   "alias": "Precipitation down 10%",
+   "runID": "sdfjksldfkj",
+   "step": "climate",
+   "children": [
+    {
+		"alias": "Low development scenario",
+		"runID": "oihyodifb",
+		"step": "land",
+		"children": [
+		{
+			"alias": "Regular Stream Flow", 
+			"runID": "vcwr",
+			"step": "flow",
+			"children": [
+			{
+				"alias": "Stream Temperature",
+				"runID": "cvbs",
+				"step": "streamtemp",
+				"children": [ 
+					{
+					"alias": "West Brook trout IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					},
+					{
+					"alias": "West Brook salmon IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					},
+					{
+					"alias": "West Brook DaleMadsen IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					}
+				]
+			}
+			]
+		}
+		]
+	}
+	]
+  },
+    {
+   "alias": "Mean temp up 2 degrees",
+   "runID": "sdfjksldfkj",
+   "step": "climate",
+   "children": [
+    {
+		"alias": "Low development scenario",
+		"runID": "oihyodifb",
+		"step": "land",
+		"children": [
+		{
+			"alias": "Regular Stream Flow", 
+			"runID": "vcwr",
+			"step": "flow",
+			"children": [
+			{
+				"alias": "Stream Temperature",
+				"runID": "cvbs",
+				"step": "streamtemp",
+				"children": [ 
+					{
+					"alias": "West Brook trout IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					},
+					{
+					"alias": "West Brook salmon IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					},
+					{
+					"alias": "West Brook DaleMadsen IPM",
+					"runID": "cepofiuwieo",
+					"step": "population"
+					}
+				]
+			}
+			]
+		}
+		]
+	}
+	]
+  }
+        
+ ]
+}
+

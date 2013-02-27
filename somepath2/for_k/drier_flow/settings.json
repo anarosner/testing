@@ -1,0 +1,9 @@
+{
+	"run_dir": "sldfsl",
+	"basin_id": "west_brook",
+	"scriptName": "StreamFlowModel",
+	"run_alias": "herwegr",
+	"preceding": {
+		"climate_dir":"c:/alr/github/testing/somepath2/for_k/drier"
+	}
+}
