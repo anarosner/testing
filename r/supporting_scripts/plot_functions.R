@@ -34,7 +34,9 @@ plot.thumbnail<-function(type) {
       
       #write svg
       svg(filename="thumbnail2.svg",width=2.5,height=2.5)
-        par(mai=c(.4,.35,.4,.01)) #svg (inches)
+      
+        par(mai=c(.2,.2,.1,.1)) #svg (inches)
+#         par(mai=c(.4,.35,.4,.01)) #svg (inches)
         #          par(mai=c(.75,.75,.1,.1)) #screen
         par(fg="white",col.main="slategray4",cex=p.s,cex.main=p.s)
         par(family="serif")
@@ -74,7 +76,9 @@ plot.thumbnail<-function(type) {
       #write svg
       svg(filename="thumbnail.svg",width=2.5,height=2.5)
      # par(mai=)
-          par(mai=c(.5,.2,.2,.4)) #svg (inches)  bottom, left, top and right
+      
+          par(mai=c(.2,.2,.1,.1)) #svg (inches)
+#           par(mai=c(.5,.2,.2,.4)) #svg (inches)  bottom, left, top and right
           #          par(mai=c(.75,.75,.1,.1)) #screen
           par(fg="white",col.main="slategray4",cex=p.s,cex.main=p.s)
           par(family="serif")
@@ -149,7 +153,8 @@ plot.thumbnail<-function(type) {
       
       ### annual min, max, and average      
       svg(filename="thumbnail.svg",width=2.5,height=2.5)
-         par(mai=c(.4,.35,.4,.01)) #svg (inches)
+         par(mai=c(.2,.2,.1,.1)) #svg (inches)
+       #       bottom, left, top and right margins
 #          par(mai=c(.75,.75,.1,.1)) #screen
          par(fg="white",col.main="slategray4",cex=p.s,cex.main=p.s)
          par(family="serif")
