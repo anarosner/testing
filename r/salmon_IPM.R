@@ -26,7 +26,7 @@ with(data=list(run_dir=run_dir), expr = source(file = file.path(this_dir,"suppor
 
 
 
-
+setwd(run_dir)
 #graph a
 a<-read.csv(file="graphA.csv",header=T)
 a2<-a[a$stage_name=="two_spring_riverine",c("year", "total")]
