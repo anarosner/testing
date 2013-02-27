@@ -1,5 +1,8 @@
 {
 
-  "model_step": "land",
+  "model_step": "population",
   "preceding_step": ["climate"],
+  "model_description": "placeholder"
 }
+
+
