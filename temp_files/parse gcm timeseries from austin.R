@@ -1,13 +1,13 @@
 rm(list=ls())
 
-setwd("C:/Documents/GitHub/testing/temp_files")
+setwd("C:/ALR/GitHub/testing/temp_files")
 #monthly tmax, tmin, and total precip
 #1950-2099
 load("met.Rdata")
 
 # load("temp.Rdata")
 # load("flow.Rdata")
-GCMDays <- read.table("c:/documents/github/somepath/data/flow_data/Days_For_ABCDE_GCM.txt",header=TRUE)
+GCMDays <- read.table("c:/alr/github/somepath/data/flow_data/Days_For_ABCDE_GCM.txt",header=TRUE)
 
 
     # dim(final_met)
@@ -54,19 +54,27 @@ tmin$year<-c(GCMDays$Year,rep(2099,12))
 tmin$month<-c(GCMDays$Month,1:12)
 precip$year<-c(GCMDays$Year,rep(2099,12))
 precip$month<-c(GCMDays$Month,1:12)
+ncolumns<-ncol(tmax)
+# ncol(tmax)
+# ncol(tmin)
+# ncol(precip)
+tmax<-tmax[,c(ncolumns-1,ncolumns,1:(ncolumns-2))]
+tmin<-tmin[,c(ncolumns-1,ncolumns,1:(ncolumns-2))]
+precip<-precip[,c(ncolumns-1,ncolumns,1:(ncolumns-2))]
+# names(tmax)
 
 tavg<-tmax[,c("year","month")]
 #don't judge me: I didn't have time to do it properly, so I'm looping
 for(i in 1:nrow(tmax)){
-  for(j in 1:ncol(tmax)){
+  for(j in 3:ncolumns){
     tavg[i,j]<-mean(c(tmin[i,j],tmax[i,j]))
   }
 }
 
 
-tmin[1:10,1:2]
-tmax[1:10,1:2]
-tavg[1:10,1:2]
+cbind(tmin[1:10,1:2],tmax[1:10,1:2],tavg[1:10,3:4])
+# bkup<-tavg
+names(tavg)<-names(tmax)
 
 
 
