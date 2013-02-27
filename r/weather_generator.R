@@ -356,6 +356,8 @@ h.clim<-FINAL_HISTORIC_MONTHLY
 s.clim<-FINAL_STOCHASTIC_MONTHLY
 plot.thumbnail(type="precip")
 plot.thumbnail(type="airtemp")
+plot.full(type="precip")
+plot.full(type="airtemp")
 
 ##Create a image for website
 png(filename="StocWeather.png",width=725, height=575, bg="white")

@@ -219,6 +219,7 @@ write.csv(seas.final,"seasonal_streamflow.csv",row.names = FALSE,quote=FALSE)
 
 
 plot.thumbnail(type="flow")
+plot.full(type="flow")
 
 
 ############

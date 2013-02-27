@@ -7,6 +7,30 @@ basin_id<-"west_brook"
 run_base_dir<-"C:/ALR/GitHub/testing/somepath2/runs"
 
 
+setwd("C:/alr/GitHub/testing/r")
+testingargs<-list(basin_dir=basin_dir,data_dir=data_dir, run_dir= paste0(run_base_dir,"/no_change"))
+source("weather_generator.R")
+setwd("C:/alr/GitHub/testing/r")
+testingargs<-list(basin_dir=basin_dir,data_dir=data_dir, run_dir= paste0(run_base_dir,"/no_change_flow"))
+source("StreamFlowModel.R")
+setwd("C:/alr/GitHub/testing/r")
+testingargs<-list(basin_dir=basin_dir,data_dir=data_dir, run_dir= paste0(run_base_dir,"/no_change_streamtemp"))
+source("StreamTemperatureModel.R")
+
+toJSON(list(basin_dir="/home/node.js/basins",
+            data_dir="/home/node.js/data",
+            run_dir="/home/node.js/users/testuser1/climate/93bc1e5e-b6f7-40ea-a4c1-a47c25c44621"))
+
+testingargs<-list(basin_dir="/home/node.js/basins",
+            data_dir="/home/node.js/data",
+            run_dir="/home/node.js/users/testuser1/climate/93bc1e5e-b6f7-40ea-a4c1-a47c25c44621")
+setwd("/home/node.js/ana-testing-repo/r")
+testingargs<-list(basin_dir="/home/node.js/basins",
+                  data_dir="/home/node.js/data",
+                  run_dir="/home/ana")
+
+
+
 for ( j in c("hotter","wetter","drier") ) {
   run_base_dir<-"C:/ALR/GitHub/testing/somepath2/for_k"
   setwd("C:/alr/GitHub/testing/r")
@@ -21,7 +45,15 @@ for ( j in c("hotter","wetter","drier") ) {
 }
 
 
-rm(list=ls())
+
+
+
+
+
+
+
+
+# rm(list=ls())
 # setwd("C:/Documents/GitHub/testing/r")
 setwd("C:/Documents/GitHub/testing/r")
 # testingargs<-list(basin_dir="C:/Documents/GitHub/testing/somepath/basins",run_dir="C:/Documents/GitHub/testing/somepath/runs/user1234/run3001",data_dir="C:/Documents/GitHub/testing/somepath/data")
