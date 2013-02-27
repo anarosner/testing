@@ -30,6 +30,20 @@ testingargs<-list(basin_dir="/home/node.js/basins",
                   run_dir="/home/ana")
 
 
+# toJSON(list(basin_dir="/home/node.js/basins",
+#             data_dir="/home/node.js/data",
+#             run_dir="/home/ana/testing/somepath2/runs/no_change"))
+# toJSON(list(basin_dir="/home/node.js/basins",
+#             data_dir="/home/node.js/data",
+#             run_dir="/home/ana/testing/somepath2/runs/no_change_flow"))
+# toJSON(list(basin_dir="/home/node.js/basins",
+#             data_dir="/home/node.js/data",
+#             run_dir="/home/ana/testing/somepath2/runs/no_change_streamtemp"))
+toJSON(list(basin_dir="/home/node.js/basins",
+            data_dir="/home/node.js/data",
+            run_dir="/home/ana/testing/somepath2/for_k/drier_fish"))
+source("salmon_IPM.R")
+
 
 for ( j in c("hotter","wetter","drier") ) {
   run_base_dir<-"C:/ALR/GitHub/testing/somepath2/for_k"
