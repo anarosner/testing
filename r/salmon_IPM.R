@@ -38,23 +38,23 @@ b<-b[,c(2,4:7)]
 names(b)<-c("year","bin1","bin2","bin3","bin4")
 #graph c
 c2<-read.csv("two_spring_riverine-graphC.csv")
-c2<-c2[,c("X","X2030")]
+c2<-c2[,c(1,ncol(c2))]
 names(c2)<-c("size","count")
 c3<-read.csv("three_spring_riverine-graphC.csv")
-c3<-c3[,c("X","X2030")]
+c3<-c3[,c(1,ncol(c3))]
 names(c3)<-c("size","count")
 c4<-read.csv("four_spring_riverine-graphC.csv")
-c4<-c4[,c("X","X2030")]
+c4<-c4[,c(1,ncol(c4))]
 names(c4)<-c("size","count")
 #graph d
 d0<-read.csv("zero_autumn_parr-graphD.csv")
-d0<-d0[,c("X","X2030")]
+d0<-d0[,c(1,ncol(d0))]
 names(d0)<-c("size","count")
 d1<-read.csv("one_autumn_parr-graphD.csv")
-d1<-d1[,c("X","X2030")]
+d1<-d1[,c(1,ncol(d1))]
 names(d1)<-c("size","count")
 d2<-read.csv("two_autumn_parr-graphD.csv")
-d2<-d2[,c("X","X2030")]
+d2<-d2[,c(1,ncol(d2))]
 names(d2)<-c("size","count")
 
 
@@ -77,9 +77,7 @@ svg(filename="thumbnail.svg",width=2.5,height=2.5)
   abline(h=p.h,col="grey",lty=3)
 dev.off()
 
-# windowsFonts(
-#   f3=windowsFont("Gill Sans MT")
-# )
+
 #plot a
 p.h<-c(seq(from=0,to=max(a2$total),by=200))   
 p.s<-0.7 #point/line scale
