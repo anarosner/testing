@@ -4,7 +4,7 @@
 	"scriptName": "StreamFlowModel",
 	"run_alias": "herwegr",
 	"preceding": {
-		"climate_dir":"c:/documents/github/testing/somepath2/runs/no_change",
-		"felek_climate_dir": "/home/ana/testing/somepath2/runs/no_change"
+		"sfclimate_dir":"c:/documents/github/testing/somepath2/runs/no_change",
+		"climate_dir": "/home/ana/testing/somepath2/runs/no_change"
 	}
 }
