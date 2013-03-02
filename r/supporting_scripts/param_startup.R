@@ -27,6 +27,10 @@ data_dir<-args$data_dir
 setwd(run_dir)
 param<-fromJSON(file="settings.json")
 
+scriptlen<-nchar(param$scriptName)
+if (toupper(substr(param$scriptName,scriptlen-1,scriptlen)) == ".R")
+	param$scriptName<-subtr(param$scriptName,1,scriptlen-2)
+
 setwd(this_dir)
 config<-fromJSON(file=paste0(param$scriptName,".json"))
 
