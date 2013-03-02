@@ -2,6 +2,7 @@
 print("starting stream temperature script")
 this_dir<-getwd()
 source("./supporting_scripts/param_startup.R")
+source("./supporting_scripts/plot_functions.R")
 
 
 #This code will need to recieve:
@@ -18,9 +19,10 @@ source("./supporting_scripts/param_startup.R")
 #directory <- args[1]
 
 #coefs <- coef_str
-coef_str<-parse.param("coef_str")
-coef_cols<-parse.param("coef_cols")
-coefs<-matrix(coef_str,ncol=as.numeric(coef_cols))
+#coef_str<-parse.param("coef_str")
+#coef_cols<-parse.param("coef_cols")
+#coefs<-matrix(coef_str,ncol=as.numeric(coef_cols))
+coefs<-matrix(c(17.9591113,18.8820565,19.0037266,18.9207433,8.5984435, 9.9418541, 8.9901715, 9.7464999, 0.7068154,  0.6790824,  0.7429935,  0.6796490, -0.1901492, -0.5812414, -0.4318731, -0.5826941),ncol=4)
 
 #setwd("/home/austin/WebStuff/Images/")
 

@@ -2,7 +2,13 @@
 
   "model_step": "population",
   "preceding_step": ["flow","streamtemp"],
-  "model_description": "IPM salmon model by Krzysztof Sakrejda"
+  "model_description": "IPM salmon model by Krzysztof Sakrejda",
+  "stocking_n": {
+    "default": 100
+  },
+  "stocking_stage": {
+    "default": "fry"
+  }
 }
 
 
